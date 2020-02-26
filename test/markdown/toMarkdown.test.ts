@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import toMarkdown from '../../src/mdast-transforms/toMarkdown'
+import * as MDAST from '../../src/types/mdx-ast'
 
 const aParagraph = {
   type: 'paragraph',
@@ -36,7 +37,7 @@ describe('convert mdast to markdown', () => {
     const json = {
       type: 'root',
       children: [aParagraph],
-    }
+    } as MDAST.Root
 
     const mdx = toMarkdown(json)
 
@@ -52,7 +53,7 @@ describe('convert mdast to markdown', () => {
           value: 'a',
         },
       ],
-    }
+    } as MDAST.Content
 
     const mdx = toMarkdown(json)
 
@@ -68,7 +69,7 @@ describe('convert mdast to markdown', () => {
           value: 'a',
         },
       ],
-    }
+    } as MDAST.Content
 
     const mdx = toMarkdown(json)
 
@@ -79,7 +80,7 @@ describe('convert mdast to markdown', () => {
     const json = {
       type: 'inlineCode',
       value: 'a',
-    }
+    } as MDAST.Content
 
     const mdx = toMarkdown(json)
 
@@ -104,7 +105,7 @@ describe('convert mdast to markdown', () => {
           ],
         },
       ],
-    }
+    } as MDAST.Content
 
     const mdx = toMarkdown(json)
 
@@ -121,7 +122,7 @@ describe('convert mdast to markdown', () => {
           value: 'a',
         },
       ],
-    }
+    } as MDAST.Content
 
     const mdx = toMarkdown(json)
 
@@ -134,7 +135,7 @@ describe('convert mdast to markdown', () => {
       alt: 'alt',
       url: 'url',
       children: [],
-    }
+    } as MDAST.Content
 
     const mdx = toMarkdown(json)
 
@@ -151,7 +152,7 @@ describe('convert mdast to markdown', () => {
           value: 'a',
         },
       ],
-    }
+    } as MDAST.Content
 
     const mdx = toMarkdown(json)
 
@@ -162,7 +163,7 @@ describe('convert mdast to markdown', () => {
     const json = {
       type: 'thematicBreak',
       children: [],
-    }
+    } as MDAST.Content
 
     const mdx = toMarkdown(json)
 
@@ -174,11 +175,16 @@ describe('convert mdast to markdown', () => {
       type: 'blockquote',
       children: [
         {
-          type: 'text',
-          value: 'a',
+          type: 'paragraph',
+          children: [
+            {
+              type: 'text',
+              value: 'a',
+            },
+          ],
         },
       ],
-    }
+    } as MDAST.Blockquote
 
     const mdx = toMarkdown(json)
 
@@ -190,18 +196,23 @@ describe('convert mdast to markdown', () => {
       type: 'blockquote',
       children: [
         {
-          type: 'text',
-          value: 'a',
-        },
-        {
-          type: 'break',
-        },
-        {
-          type: 'text',
-          value: 'b',
+          type: 'paragraph',
+          children: [
+            {
+              type: 'text',
+              value: 'a',
+            },
+            {
+              type: 'break',
+            },
+            {
+              type: 'text',
+              value: 'b',
+            },
+          ],
         },
       ],
-    }
+    } as MDAST.Blockquote
 
     const mdx = toMarkdown(json)
 
@@ -223,7 +234,7 @@ describe('convert mdast to markdown', () => {
           children: [bParagraph],
         },
       ],
-    }
+    } as MDAST.Content
 
     const mdx = toMarkdown(json)
 
@@ -245,7 +256,7 @@ describe('convert mdast to markdown', () => {
           children: [bParagraph],
         },
       ],
-    }
+    } as MDAST.Content
 
     const mdx = toMarkdown(json)
 
@@ -280,7 +291,7 @@ describe('convert mdast to markdown', () => {
           ],
         },
       ],
-    }
+    } as MDAST.Content
 
     const mdx = toMarkdown(json)
 
@@ -302,7 +313,7 @@ describe('convert mdast to markdown', () => {
           children: [bParagraph],
         },
       ],
-    }
+    } as MDAST.Content
 
     const mdx = toMarkdown(json)
 
@@ -315,7 +326,7 @@ describe('convert mdast to markdown', () => {
       url: 'child.md',
       children: [{ type: 'text', value: 'child' }],
       page: true,
-    }
+    } as MDAST.Content
 
     const mdx = toMarkdown(json)
 

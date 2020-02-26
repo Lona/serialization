@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import { printMdxNode } from '../../src/index'
+import { printMdxNode, MDXAST } from '../../src'
 
 test('prints a markdown block', () => {
   const json = {
@@ -27,7 +27,7 @@ test('prints a markdown block', () => {
         },
       ],
     },
-  }
+  } as MDXAST.Content
 
   const mdx = printMdxNode(json)
 

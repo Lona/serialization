@@ -219,7 +219,9 @@ export function print(logicJson: AST.SyntaxNode): string {
         break
     }
 
-    const children = AST.subNodes(node).map(processStandardNode)
+    const children = AST.subNodes(node)
+      .filter(isNotPlaceholder)
+      .map(processStandardNode)
 
     return {
       name: nodeName,

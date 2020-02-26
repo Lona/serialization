@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import { convertLogic } from '../../src/index'
+import { convertLogic, SERIALIZATION_FORMAT } from '../../src'
 import {
   parse as parseSwift,
   print as printSwift,
@@ -12,12 +12,12 @@ describe('colors file', () => {
 
   test('json -> xml', () => {
     const source = JSON.stringify(json)
-    const converted = convertLogic(source, 'xml')
+    const converted = convertLogic(source, SERIALIZATION_FORMAT.XML)
     expect(converted).toBe(xml)
   })
 
   test('xml -> json', () => {
-    const converted = convertLogic(xml, 'json')
+    const converted = convertLogic(xml, SERIALIZATION_FORMAT.JSON)
     const parsed = JSON.parse(converted)
     expect(parsed).toStrictEqual(json)
   })
@@ -41,12 +41,12 @@ describe('top level declarations', () => {
 
   test('json -> xml', () => {
     const source = JSON.stringify(json)
-    const converted = convertLogic(source, 'xml')
+    const converted = convertLogic(source, SERIALIZATION_FORMAT.XML)
     expect(converted).toBe(xml)
   })
 
   test('xml -> json', () => {
-    const converted = convertLogic(xml, 'json')
+    const converted = convertLogic(xml, SERIALIZATION_FORMAT.JSON)
     const parsed = JSON.parse(converted)
     expect(parsed).toStrictEqual(json)
   })
