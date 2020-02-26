@@ -47,15 +47,10 @@
     "yargs": "^15.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.3.1",
-    "@babel/preset-typescript": "^7.7.7",
     "@types/json-stable-stringify": "^1.0.32",
     "@types/pegjs": "^0.10.1",
     "@types/uuid": "^3.4.6",
     "@types/xml2js": "^0.4.5",
-    "babel-loader": "^8.0.5",
-    "esm": "^3.2.22",
     "jest": "^24.9.0",
     "pegjs-loader": "^0.5.5",
     "prettier": "^1.19.1",
