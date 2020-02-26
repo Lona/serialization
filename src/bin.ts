@@ -1,17 +1,17 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 
-const fs = require('fs')
-const yargs = require('yargs')
+import fs from 'fs'
+import yargs from 'yargs'
 
-const {
+import {
   convertTypes,
   convertLogic,
   convertDocument,
   extractProgram,
-} = require('./build/index')
+  SERIALIZATION_FORMAT,
+} from './index'
 
-function addSharedArguments(cli) {
+function addSharedArguments(cli: yargs.Argv) {
   cli.positional('file', {
     type: 'string',
     describe: 'The file to convert',
@@ -22,7 +22,23 @@ function addSharedArguments(cli) {
   })
 }
 
-// eslint-disable-next-line no-unused-expressions
+function getFormat(format: unknown) {
+  if (typeof format !== 'string') {
+    throw new Error('targetFormat needs to be a string')
+  }
+  if (format.toLowerCase() === 'json') {
+    return SERIALIZATION_FORMAT.JSON
+  }
+  if (format.toLowerCase() === 'xml') {
+    return SERIALIZATION_FORMAT.XML
+  }
+  if (format.toLowerCase() === 'source') {
+    return SERIALIZATION_FORMAT.SOURCE
+  }
+
+  throw new Error('unknown serialization format')
+}
+
 yargs
   .scriptName('@lona/serialization')
   .usage('Usage: @lona/serialization <command> [options]')
@@ -39,9 +55,14 @@ yargs
     },
     argv => {
       const { file, targetFormat, embeddedFormat } = argv
+
+      if (typeof file !== 'string') {
+        throw new Error('file needs to be a string')
+      }
+
       const contents = fs.readFileSync(file, 'utf8')
-      const converted = convertDocument(contents, targetFormat, {
-        embeddedFormat,
+      const converted = convertDocument(contents, getFormat(targetFormat), {
+        embeddedFormat: embeddedFormat ? getFormat(embeddedFormat) : undefined,
       })
       console.log(converted)
     }
@@ -52,8 +73,13 @@ yargs
     cli => addSharedArguments(cli),
     argv => {
       const { file, targetFormat } = argv
+
+      if (typeof file !== 'string') {
+        throw new Error('file needs to be a string')
+      }
+
       const contents = fs.readFileSync(file, 'utf8')
-      const converted = convertLogic(contents, targetFormat)
+      const converted = convertLogic(contents, getFormat(targetFormat))
       console.log(converted)
     }
   )
@@ -63,8 +89,13 @@ yargs
     cli => addSharedArguments(cli),
     argv => {
       const { file, targetFormat } = argv
+
+      if (typeof file !== 'string') {
+        throw new Error('file needs to be a string')
+      }
+
       const contents = fs.readFileSync(file, 'utf8')
-      const converted = convertTypes(contents, targetFormat)
+      const converted = convertTypes(contents, getFormat(targetFormat))
       console.log(converted)
     }
   )
@@ -74,6 +105,11 @@ yargs
     () => {},
     argv => {
       const { file } = argv
+
+      if (typeof file !== 'string') {
+        throw new Error('file needs to be a string')
+      }
+
       const contents = fs.readFileSync(file, 'utf8')
       const converted = extractProgram(contents)
       console.log(converted)
@@ -81,9 +117,9 @@ yargs
   )
   .demandCommand(1, 'Pass --help to see all available commands and options.')
   .strict()
-  .fail((msg, err, cli) => {
-    cli.showHelp()
-    // eslint-disable-next-line prefer-template
+  .fail(msg => {
+    yargs.showHelp()
     console.log('\n' + msg)
   })
-  .help().argv
+  .help('h')
+  .alias('h', 'help').argv

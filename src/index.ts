@@ -40,7 +40,10 @@ function decodeDocument(
 function encodeDocument(
   ast: { children: MDXAST.Content[] },
   format: SERIALIZATION_FORMAT,
-  options: {} = {}
+  options: {
+    sourceFormat?: SERIALIZATION_FORMAT
+    embeddedFormat?: SERIALIZATION_FORMAT
+  } = {}
 ) {
   try {
     switch (format) {
@@ -62,7 +65,7 @@ function convertDocument(
   targetFormat: SERIALIZATION_FORMAT,
   options: {
     sourceFormat?: SERIALIZATION_FORMAT
-    embeddedFormat?: boolean
+    embeddedFormat?: SERIALIZATION_FORMAT
   } = {}
 ) {
   const sourceFormat = normalizeFormat(contents, options.sourceFormat)

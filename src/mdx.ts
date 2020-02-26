@@ -123,7 +123,10 @@ export function print(
     contents: string,
     targetFormat: SERIALIZATION_FORMAT
   ) => string,
-  options: { embeddedFormat?: SERIALIZATION_FORMAT } = {}
+  options: {
+    sourceFormat?: SERIALIZATION_FORMAT
+    embeddedFormat?: SERIALIZATION_FORMAT
+  } = {}
 ) {
   const ast = { type: 'root', children: normalizedFormat.children.map(toMdast) }
 

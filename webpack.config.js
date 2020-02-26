@@ -3,13 +3,13 @@ const webpack = require('webpack')
 
 const paths = {
   dist: resolve(__dirname, 'dist'),
-  src: resolve(__dirname, 'src'),
+  src: resolve(__dirname, 'build'),
 }
 
 module.exports = [
   {
     mode: 'production',
-    entry: join(paths.src, 'index.ts'),
+    entry: join(paths.src, 'index.js'),
     target: 'web',
     output: {
       path: paths.dist,
@@ -30,7 +30,7 @@ module.exports = [
       fs: 'empty',
     },
     resolve: {
-      extensions: ['.ts', '.js', '.json'],
+      extensions: ['.js', '.json'],
       alias: {
         './pegjs/logicSwiftParser': resolve(
           paths.src,
@@ -44,16 +44,6 @@ module.exports = [
           test: /\.pegjs$/,
           use: {
             loader: 'pegjs-loader',
-          },
-        },
-        {
-          test: /\.ts$/,
-          exclude: /(node_modules)/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              plugins: ['@babel/plugin-proposal-object-rest-spread'],
-            },
           },
         },
       ],

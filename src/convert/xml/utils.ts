@@ -9,16 +9,16 @@ export type XMLNode = {
 
 export function buildXML(root: XMLNode): string {
   function processChildren(
-    builder: xmlbuilder.XMLElementOrXMLNode,
+    builder: xmlbuilder.XMLElement,
     children: XMLNode[]
-  ): xmlbuilder.XMLElementOrXMLNode {
+  ): xmlbuilder.XMLElement {
     return children.reduce(process, builder).up()
   }
 
   function process(
-    builder: xmlbuilder.XMLElementOrXMLNode,
+    builder: xmlbuilder.XMLElement,
     item: XMLNode
-  ): xmlbuilder.XMLElementOrXMLNode {
+  ): xmlbuilder.XMLElement {
     const { name, attributes = {}, children = [] } = item
 
     return processChildren(builder.ele(name, attributes), children)
