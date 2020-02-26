@@ -1,5 +1,7 @@
 # Lona Serialization
 
+![Build and Test](https://github.com/Lona/serialization/workflows/Build%20and%20Test/badge.svg)
+
 Convert Lona files between XML, JSON, and source code (Swift + MDX).
 
 ## Overview
@@ -17,11 +19,11 @@ Supported formats: `'json'`, `'source'`
 Example: Convert a `.md` document to JSON
 
 ```js
-import serialization from '@lona/serialization'
+import { convertDocument } from '@lona/serialization'
 
 const lonaDocument = '...' // source code of a Lona document
 
-const lonaJson = serialization.convertDocument(lonaDocument, 'json')
+const lonaJson = convertDocument(lonaDocument, 'json')
 ```
 
 #### `convertLogic: (String, Format) -> String`
@@ -31,9 +33,9 @@ Supported formats: `'json'`, `'xml'`, `'source'`
 Example: Convert a `.tokens` file to XML
 
 ```js
-import serialization from '@lona/serialization'
+import { convertLogic } from '@lona/serialization'
 
 const lonaTokens = '...' // source code of a Lona tokens file
 
-const lonaXml = serialization.convertDocument(lonaTokens, 'xml')
+const lonaXml = serialization.convertLogic(lonaTokens, 'xml')
 ```
