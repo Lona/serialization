@@ -1,12 +1,3 @@
-const xml = `<?xml version="1.0"?>
-<Declarations>
-  <ImportDeclaration name="Prelude"/>
-  <Variable name="x" type="Number" value="123"/>
-  <Namespace name="Test">
-    <Variable name="b" type="Boolean" value="false"/>
-  </Namespace>
-</Declarations>`
-
 const code = `import Prelude
 
 let x: Number = 123
@@ -128,4 +119,4 @@ const json = {
   type: 'topLevelDeclarations',
 }
 
-module.exports = { json, xml, code }
+module.exports = { json, code }

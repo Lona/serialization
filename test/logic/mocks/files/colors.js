@@ -1,14 +1,3 @@
-const xml = `<?xml version="1.0"?>
-<Program>
-  <Declaration.ImportDeclaration name="Prelude"/>
-  <Declaration.Namespace name="Colors">
-    <Variable name="a" type="Color" value="#FF3409"/>
-    <Namespace name="Nested">
-      <Variable name="b" type="Color" value="#3449FF"/>
-    </Namespace>
-  </Declaration.Namespace>
-</Program>`
-
 const code = `import Prelude
 
 enum Colors {
@@ -161,4 +150,4 @@ const json = {
   type: 'program',
 }
 
-module.exports = { json, xml, code }
+module.exports = { json, code }

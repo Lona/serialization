@@ -260,7 +260,7 @@ describe('convert mdast to markdown', () => {
 
     const mdx = toMarkdown(json)
 
-    expect(mdx).toBe('- a\n  \n  b\n- b')
+    expect(mdx).toBe('- a\n\n  b\n- b')
   })
 
   test('unordered nested list', () => {
@@ -295,7 +295,7 @@ describe('convert mdast to markdown', () => {
 
     const mdx = toMarkdown(json)
 
-    expect(mdx).toBe('- a\n  \n  - b\n  - c')
+    expect(mdx).toBe('- a\n\n  - b\n  - c')
   })
 
   test('ordered list', () => {
