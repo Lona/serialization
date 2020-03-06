@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`return statement Example 0 1`] = `
+Object {
+  "data": Object {
+    "expression": Object {
+      "data": Object {
+        "id": "0",
+        "identifier": Object {
+          "id": "0",
+          "isPlaceholder": false,
+          "string": "x",
+        },
+      },
+      "type": "identifierExpression",
+    },
+    "id": "0",
+  },
+  "type": "return",
+}
+`;
