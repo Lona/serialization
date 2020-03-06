@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`functionCall expression Example 0 1`] = `
+Object {
+  "data": Object {
+    "arguments": Array [
+      Object {
+        "data": Object {
+          "expression": Object {
+            "data": Object {
+              "id": "0",
+              "literal": Object {
+                "data": Object {
+                  "id": "0",
+                  "value": "pink",
+                },
+                "type": "color",
+              },
+            },
+            "type": "literalExpression",
+          },
+          "id": "0",
+          "label": "light",
+        },
+        "type": "argument",
+      },
+      Object {
+        "data": Object {
+          "expression": Object {
+            "data": Object {
+              "id": "0",
+              "literal": Object {
+                "data": Object {
+                  "id": "0",
+                  "value": "purple",
+                },
+                "type": "color",
+              },
+            },
+            "type": "literalExpression",
+          },
+          "id": "0",
+          "label": "dark",
+        },
+        "type": "argument",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "expression": Object {
+      "data": Object {
+        "id": "0",
+        "identifier": Object {
+          "id": "0",
+          "isPlaceholder": false,
+          "string": "ThemedColor",
+        },
+      },
+      "type": "identifierExpression",
+    },
+    "id": "0",
+  },
+  "type": "functionCallExpression",
+}
+`;

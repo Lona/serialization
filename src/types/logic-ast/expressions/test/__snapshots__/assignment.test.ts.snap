@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`assignment expression Example 0 1`] = `
+Object {
+  "data": Object {
+    "id": "0",
+    "left": Object {
+      "data": Object {
+        "id": "0",
+        "identifier": Object {
+          "id": "0",
+          "isPlaceholder": false,
+          "string": "x",
+        },
+      },
+      "type": "identifierExpression",
+    },
+    "right": Object {
+      "data": Object {
+        "id": "0",
+        "identifier": Object {
+          "id": "0",
+          "isPlaceholder": false,
+          "string": "y",
+        },
+      },
+      "type": "identifierExpression",
+    },
+  },
+  "type": "assignmentExpression",
+}
+`;
