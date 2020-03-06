@@ -34,3 +34,6 @@ export * from './types/functionType'
 export * from './types/typeIdentifier'
 
 export * from './unions'
+
+export * from './predicates'
+export * from './utils'
