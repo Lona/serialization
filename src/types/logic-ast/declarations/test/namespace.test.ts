@@ -1,8 +1,6 @@
 import { parse, print } from '../../../../convert/swift/logic'
 
-const generateId = () => '0'
-
-jest.mock('uuid/v4', () => () => `0`)
+jest.mock('uuid', () => ({ v4: () => '0' }))
 
 describe('namespace declaration', () => {
   const codeExamples = [
@@ -18,7 +16,7 @@ describe('namespace declaration', () => {
 
   codeExamples.forEach((code, i) =>
     test(`Example ${i}`, () => {
-      const ast = parse(code, { generateId, startRule: 'declaration' })
+      const ast = parse(code, { startRule: 'declaration' })
       expect(ast).toMatchSnapshot()
 
       const converted = print(ast)

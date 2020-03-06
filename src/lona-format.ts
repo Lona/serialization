@@ -16,7 +16,10 @@ export function normalizeFormat(
 ) {
   const normalized = sourceFormat || detectFormat(contents)
 
-  if (!Object.values(SERIALIZATION_FORMAT).includes(normalized)) {
+  if (
+    normalized !== SERIALIZATION_FORMAT.JSON &&
+    normalized !== SERIALIZATION_FORMAT.SOURCE
+  ) {
     throw new Error(
       `Invalid source serialization format specified: ${normalized}`
     )

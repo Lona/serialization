@@ -4,14 +4,13 @@ import {
   print as printSwift,
 } from '../../src/convert/swift/logic'
 
-jest.mock('uuid/v4', () => () => `0`)
+jest.mock('uuid', () => ({ v4: () => '0' }))
 
 describe('colors file', () => {
   const { json, code } = require('./mocks/files/colors')
 
   test('code -> json', () => {
     const converted = parseSwift(code, {
-      generateId: () => '0',
       startRule: 'program',
     })
     expect(converted).toStrictEqual(json)
@@ -27,7 +26,7 @@ describe('top level declarations', () => {
   const { json, code } = require('./mocks/files/topLevelDeclarations')
 
   test('code -> json', () => {
-    const converted = parseSwift(code, { generateId: () => '0' })
+    const converted = parseSwift(code)
     expect(converted).toStrictEqual(json)
   })
 
@@ -42,7 +41,6 @@ describe('prelude', () => {
 
   test('code -> json', () => {
     const converted = parseSwift(code, {
-      generateId: () => '0',
       startRule: 'program',
     })
     expect(converted).toStrictEqual(json)

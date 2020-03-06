@@ -1,8 +1,6 @@
 import { parse, print } from '../../../../convert/swift/logic'
 
-const generateId = () => '0'
-
-jest.mock('uuid/v4', () => () => `0`)
+jest.mock('uuid', () => ({ v4: () => '0' }))
 
 describe('enumeration declaration', () => {
   const codeExamples = [
@@ -13,7 +11,7 @@ describe('enumeration declaration', () => {
 
   codeExamples.forEach((code, i) =>
     test(`Example ${i}`, () => {
-      const ast = parse(code, { generateId, startRule: 'declaration' })
+      const ast = parse(code, { startRule: 'declaration' })
       expect(ast).toMatchSnapshot()
 
       const converted = print(ast)

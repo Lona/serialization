@@ -1,3 +1,4 @@
+import { v4 as uuid } from 'uuid'
 import * as AST from '../../types/logic-ast'
 import { indentBlock } from '../../formatting'
 import { assertNever } from '../../utils'
@@ -8,7 +9,7 @@ function noPlaceholder(x: AST.SyntaxNode) {
 }
 
 export function parse(code: string, options?: {}): AST.SyntaxNode {
-  return parser.parse(code, options)
+  return parser.parse(code, Object.assign({ generateId: uuid }, options))
 }
 
 function printComment(node: AST.SyntaxNode) {

@@ -11,16 +11,8 @@
 // For live preview/sandbox: https://marketplace.visualstudio.com/items?itemName=joeandaverde.vscode-pegjs-live
 
 {
-  // https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
   function uuid() {
-    if (typeof options.generateId === 'function') {
-      return options.generateId()
-    }
-
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
-    });
+    return options.generateId()
   }
 
   function extractList(list, index) {
