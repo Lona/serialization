@@ -178,8 +178,13 @@ ${printedExpressions}
 ]`
       }
       case 'loop': {
-        // TODO:
-        return ''
+        return `while ${printNode(node.data.expression)} {
+${node.data.block
+  .filter(noPlaceholder)
+  .map(printNode)
+  .map(x => indentBlock(x, indent))
+  .join('\n')}
+}`
       }
       case 'branch': {
         return `if ${printNode(node.data.condition)} {

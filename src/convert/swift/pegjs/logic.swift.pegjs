@@ -100,7 +100,7 @@ program =
   }
 
 statement =
-  declaration:declaration {
+  branchStatement / returnStatement / loopStatement / declaration:declaration {
     return {
       data: {
         content: declaration,
@@ -116,7 +116,7 @@ statement =
       },
       type: 'expression'
     }
-  } / branchStatement / returnStatement
+  }
 
 statementList =
   head:statement tail:(_ statement)* {
@@ -124,12 +124,24 @@ statementList =
   }
 
 branchStatement =
-  "if " _ condition:expression _ "{" + block:statementList + "}" {
+  "if " _ condition:expression _ "{" _ block:statementList _ "}" {
     return {
       type: 'branch',
       data:{
         id: uuid(),
         condition,
+        block: normalizeListWithPlaceholder(block)
+      }
+    }
+  }
+
+loopStatement =
+  "while " _ expression:expression _ "{" _ block:statementList _ "}" {
+    return {
+      type: 'loop',
+      data:{
+        id: uuid(),
+        expression,
         block: normalizeListWithPlaceholder(block)
       }
     }
