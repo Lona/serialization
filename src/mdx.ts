@@ -132,7 +132,7 @@ export function print(
 
   const encodedTokensAst = map<MDAST.Root>(ast, node => {
     if (node.type === 'code' && node.lang === 'tokens') {
-      const embeddedFormat = options.embeddedFormat || SERIALIZATION_FORMAT.XML
+      const embeddedFormat = options.embeddedFormat || SERIALIZATION_FORMAT.JSON
       let value = convertLogic(JSON.stringify(node.parsed), embeddedFormat)
       // Prettify embedded JSON
       if (embeddedFormat === 'json') {

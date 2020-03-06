@@ -1,15 +1,11 @@
 export enum SERIALIZATION_FORMAT {
   JSON = 'json',
-  XML = 'xml',
   SOURCE = 'source',
 }
 
 export function detectFormat(contents: string) {
   if (contents.startsWith('{') || contents.startsWith('[')) {
     return SERIALIZATION_FORMAT.JSON
-  }
-  if (contents.startsWith('<')) {
-    return SERIALIZATION_FORMAT.XML
   }
   return SERIALIZATION_FORMAT.SOURCE
 }

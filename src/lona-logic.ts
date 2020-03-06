@@ -1,7 +1,6 @@
 import * as AST from './types/logic-ast'
 
 import * as json from './convert/json/logic'
-import * as xml from './convert/xml/logic'
 import * as swift from './convert/swift/logic'
 
 import { normalizeFormat, SERIALIZATION_FORMAT } from './lona-format'
@@ -12,8 +11,6 @@ export function decodeLogic(contents: string, format?: SERIALIZATION_FORMAT) {
     switch (sourceFormat) {
       case SERIALIZATION_FORMAT.JSON:
         return json.parse(contents)
-      case SERIALIZATION_FORMAT.XML:
-        return xml.parse(contents)
       case SERIALIZATION_FORMAT.SOURCE:
         return swift.parse(contents)
       default:
@@ -30,8 +27,6 @@ export function encodeLogic(ast: AST.SyntaxNode, format: SERIALIZATION_FORMAT) {
     switch (format) {
       case SERIALIZATION_FORMAT.JSON:
         return json.print(ast)
-      case SERIALIZATION_FORMAT.XML:
-        return xml.print(ast)
       case SERIALIZATION_FORMAT.SOURCE:
         return swift.print(ast)
       default:

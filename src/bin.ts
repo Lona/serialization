@@ -29,10 +29,7 @@ function getFormat(format: unknown) {
   if (format.toLowerCase() === 'json') {
     return SERIALIZATION_FORMAT.JSON
   }
-  if (format.toLowerCase() === 'xml') {
-    return SERIALIZATION_FORMAT.XML
-  }
-  if (format.toLowerCase() === 'source') {
+  if (format.toLowerCase() === 'source' || format.toLowerCase() === 'swift') {
     return SERIALIZATION_FORMAT.SOURCE
   }
 
