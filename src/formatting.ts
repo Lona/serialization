@@ -6,16 +6,16 @@ function repeat(s: string, x: number) {
   return res
 }
 
-export function indentLine(line: string, indent: number) {
-  return repeat(' ', indent) + line
+export function indentLine(line: string, indent: string) {
+  return line ? indent + line : line
 }
 
-export function indentLines(lines: string[], indent: number) {
+export function indentLines(lines: string[], indent: string) {
   return lines.map(line => indentLine(line, indent))
 }
 
 export function indentBlock(codeblock: string, indent: number) {
-  return indentLines(codeblock.split('\n'), indent).join('\n')
+  return indentLines(codeblock.split('\n'), repeat(' ', indent)).join('\n')
 }
 
 export function indentBlockWithFirstLinePrefix(
@@ -25,6 +25,6 @@ export function indentBlockWithFirstLinePrefix(
   const lines = codeblock.split('\n')
   return [
     prefix + lines[0],
-    ...indentLines(lines.slice(1), prefix.length),
+    ...indentLines(lines.slice(1), repeat(' ', prefix.length)),
   ].join('\n')
 }
