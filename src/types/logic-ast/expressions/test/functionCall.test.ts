@@ -8,7 +8,7 @@ describe('functionCall expression', () => {
   ]
 
   codeExamples.forEach((code, i) =>
-    test(`Example ${i}`, () => {
+    test(`Example ${i + 1}`, () => {
       const ast = parse(code, { startRule: 'expression' })
       expect(ast).toMatchSnapshot()
 

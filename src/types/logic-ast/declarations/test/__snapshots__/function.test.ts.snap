@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`enumeration declaration Example 0 1`] = `
+exports[`enumeration declaration Example 1 1`] = `
 Object {
   "data": Object {
     "block": Array [

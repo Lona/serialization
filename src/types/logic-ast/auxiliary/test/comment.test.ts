@@ -34,7 +34,7 @@ func and(a: Boolean, b: Boolean): Boolean {
   ]
 
   codeExamples.forEach((code, i) =>
-    test(`Example ${i}`, () => {
+    test(`Example ${i + 1}`, () => {
       const ast = parse(code, { startRule: 'declaration' })
       expect(ast).toMatchSnapshot()
 

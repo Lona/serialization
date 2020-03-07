@@ -6,7 +6,7 @@ describe('expression statement', () => {
   const codeExamples = [`x`]
 
   codeExamples.forEach((code, i) =>
-    test(`Example ${i}`, () => {
+    test(`Example ${i + 1}`, () => {
       const ast = parse(code, { startRule: 'statement' })
       expect(ast).toMatchSnapshot()
 

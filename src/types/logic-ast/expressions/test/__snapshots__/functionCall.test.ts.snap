@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`functionCall expression Example 0 1`] = `
+exports[`functionCall expression Example 1 1`] = `
 Object {
   "data": Object {
     "arguments": Array [

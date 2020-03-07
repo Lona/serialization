@@ -6,7 +6,7 @@ describe('import declaration', () => {
   const codeExamples = [`import x`]
 
   codeExamples.forEach((code, i) =>
-    test(`Example ${i}`, () => {
+    test(`Example ${i + 1}`, () => {
       const ast = parse(code, { startRule: 'declaration' })
       expect(ast).toMatchSnapshot()
 

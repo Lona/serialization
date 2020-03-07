@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`branch statement Example 0 1`] = `
+exports[`branch statement Example 1 1`] = `
 Object {
   "data": Object {
     "block": Array [
