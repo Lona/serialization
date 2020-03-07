@@ -210,7 +210,41 @@ functionDeclaration =
     }
 
     if (comment) {
-      result.comment = comment[0]
+      const reg = /(@param ([_a-zA-Z0-9]+) - )((?:.|\n       )*)/g
+      let resultString = comment[0].string
+      let commentWithoutParams = resultString
+
+      let match = reg.exec(resultString)
+
+      let linesToRemove = match ? 1 : 0
+
+      while (match) {
+        const label = match[2]
+        const matchingParam = result.parameters.find(
+          x => x.data && x.data.localName && x.data.localName.name === label
+        )
+        if (matchingParam) {
+          const paramComment = match[3]
+          matchingParam.data.comment = {
+            id: uuid(),
+            string: paramComment.split('\n')
+              .map((l, i) => i === 0 ? l : l.slice(match[1].length))
+              .join('\n')
+          }
+        }
+        commentWithoutParams = commentWithoutParams.replace(match[0], '')
+        linesToRemove++
+        match = reg.exec(resultString)
+      }
+
+      for (let i = 0; i < linesToRemove; i++) {
+        commentWithoutParams = commentWithoutParams.replace(/\n$/g, '')
+      }
+
+      result.comment = {
+        string: commentWithoutParams,
+        id: comment[0].id
+      }
     }
 
     return { type: 'function', data: result }

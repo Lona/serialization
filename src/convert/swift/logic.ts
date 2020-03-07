@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid'
 import * as AST from '../../types/logic-ast'
-import { indentBlock } from '../../formatting'
+import { indentBlock, repeat } from '../../formatting'
 import { assertNever } from '../../utils'
 import parser from './pegjs/logicSwiftParser'
 
@@ -12,13 +12,13 @@ export function parse(code: string, options?: {}): AST.SyntaxNode {
   return parser.parse(code, Object.assign({ generateId: uuid }, options))
 }
 
-function printComment(node: AST.SyntaxNode) {
+function printComment(node: AST.SyntaxNode, additionalComment: string = '') {
   if ('comment' in node.data && node.data.comment && node.data.comment.string) {
     return `/*
 ${node.data.comment.string
   .split('\n')
   .map(x => (x ? ` * ${x}` : ` *`))
-  .join('\n')}
+  .join('\n')}${additionalComment ? `\n *\n${additionalComment}` : ''}
  */\n`
   }
   return ''
@@ -201,16 +201,38 @@ ${node.data.block
       }
       case 'function': {
         const generics = node.data.genericParameters.filter(noPlaceholder)
+        const params = node.data.parameters.filter(noPlaceholder)
 
-        // TODO:
-        const paramsComment = ''
+        const paramsComment = params
+          .map(x => {
+            if (x.type !== 'parameter') {
+              return ''
+            }
 
-        return `${printComment(node)}func ${node.data.name.name}${
+            if (!x.data.comment || !x.data.comment.string) {
+              return ''
+            }
+            let comment = ` * @param ${x.data.localName.name}`
+            const indent = `@param ${x.data.localName.name} - `.length
+            comment += ` - ${x.data.comment.string
+              .split('\n')
+              .map((l, i) =>
+                i === 0 ? l : l ? ` * ${repeat(' ', indent)}${l}` : ` *`
+              )
+              .join('\n')}`
+
+            return comment
+          })
+          .filter(x => !!x)
+          .join('\n')
+
+        return `${printComment(node, paramsComment)}func ${
+          node.data.name.name
+        }${
           generics.length ? `<${generics.map(printNode).join(', ')}>` : ''
-        }(${node.data.parameters
-          .filter(noPlaceholder)
-          .map(printNode)
-          .join(', ')}): ${printNode(node.data.returnType)} {
+        }(${params.map(printNode).join(', ')}): ${printNode(
+          node.data.returnType
+        )} {
 ${node.data.block
   .filter(noPlaceholder)
   .map(printNode)

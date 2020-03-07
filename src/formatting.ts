@@ -1,4 +1,4 @@
-function repeat(s: string, x: number) {
+export function repeat(s: string, x: number) {
   let res = ''
   for (let i = 0; i < x; i++) {
     res += s
