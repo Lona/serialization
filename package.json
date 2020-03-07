@@ -7,7 +7,6 @@
   "bin": "build/bin.js",
   "browser": "dist/lona-serialization.umd.js",
   "files": [
-    "bin.js",
     "dist",
     "build"
   ],
