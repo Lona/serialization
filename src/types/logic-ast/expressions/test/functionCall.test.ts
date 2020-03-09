@@ -5,6 +5,7 @@ jest.mock('uuid', () => ({ v4: () => '0' }))
 describe('functionCall expression', () => {
   const codeExamples = [
     `ThemedColor(light: #color(css: "pink"), dark: #color(css: "purple"))`,
+    `Optional.none()`,
   ]
 
   codeExamples.forEach((code, i) =>

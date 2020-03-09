@@ -152,9 +152,9 @@ returnStatement =
 
 declaration =
   enumDeclaration /
+  importDeclaration /
   variableDeclaration /
   functionDeclaration /
-  importDeclaration /
   recordDeclaration /
   namespaceDeclaration
 
@@ -210,7 +210,7 @@ functionDeclaration =
     }
 
     if (comment) {
-      const reg = /(@param ([_a-zA-Z0-9]+) - )((?:.|\n       )*)/g
+      const reg = /(@param ([_a-zA-Z0-9]+) - )((?:.|\n       |\n{2,})*)/g
       let resultString = comment[0].string
       let commentWithoutParams = resultString
 
@@ -284,7 +284,7 @@ recordDeclaration =
 declarationModifier = "static" { return text() }
 
 variableDeclaration =
-  declarationModifier:(declarationModifier _)?
+  comment:(comment _)? declarationModifier:(declarationModifier _)?
   "let " _ name:pattern _ ":" _
   annotation:typeAnnotation _ "=" _ initializer:expression {
     const result = {
@@ -296,6 +296,10 @@ variableDeclaration =
 
     if (declarationModifier) {
       result.declarationModifier = declarationModifier[0]
+    }
+
+    if (comment) {
+      result.comment = comment[0]
     }
 
     return { type: 'variable', data: result }
@@ -322,7 +326,7 @@ assignmentExpression =
   }
 
 functionCallExpression =
-  expression:(literalExpression / memberExpression / identifierExpression) "(" args:functionCallArgumentList ")" {
+  expression:(literalExpression / memberExpression / identifierExpression) "(" args:functionCallArgumentList? ")" {
     return {
       data: { expression, id: uuid(), arguments: normalizeListWithPlaceholder(args) },
       type: 'functionCallExpression',

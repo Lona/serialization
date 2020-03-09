@@ -1,9 +1,60 @@
 const code = `import Prelude
 
-enum Colors {
-  static let a: Color = #color(css: "#FF3409")
-  enum Nested {
-    static let b: Color = #color(css: "#3449FF")
+/*
+ * # Color
+ *
+ * A color value. Colors can be defined using CSS color codes.
+ *
+ * ## Example
+ *
+ * We might declare a color variable, \`ocean\` to use throughout our design system to represent the hex code \`#69D2E7\`:
+ *
+ * \`\`\`logic
+ * <Declarations>
+ *   <Variable name="ocean" type="Color" value="#69D2E7"/>
+ * </Declarations>
+ * \`\`\`
+ */
+struct Color {
+  let value: String = ""
+}
+
+enum Color {
+  func setHue(color: Color, hue: Number): Color {
+
+  }
+  /*
+   * # Set Saturation
+   *
+   * Adjust the saturation of a color.
+   *
+   * @param color - # Color
+   *
+   *                The base color to adjust.
+   */
+  func setSaturation(color: Color, saturation: Number): Color {
+
+  }
+  func setLightness(color: Color, lightness: Number): Color {
+
+  }
+  func fromHSL(hue: Number, saturation: Number, lightness: Number): Color {
+
+  }
+  /*
+   * # Saturate
+   *
+   * Adjust color saturation.
+   *
+   * @param color - # Color
+   *
+   *                The base color to adjust.
+   * @param factor - # Factor
+   *
+   *                 This value will be multiplied with the current saturation value.
+   */
+  func saturate(color: Color, factor: Number): Color {
+
   }
 }`
 
@@ -30,6 +81,11 @@ const json = {
         data: {
           content: {
             data: {
+              comment: {
+                id: '0',
+                string:
+                  '# Color\n\nA color value. Colors can be defined using CSS color codes.\n\n## Example\n\nWe might declare a color variable, `ocean` to use throughout our design system to represent the hex code `#69D2E7`:\n\n```logic\n<Declarations>\n  <Variable name="ocean" type="Color" value="#69D2E7"/>\n</Declarations>\n```',
+              },
               declarations: [
                 {
                   data: {
@@ -40,7 +96,7 @@ const json = {
                         identifier: {
                           id: '0',
                           isPlaceholder: false,
-                          string: 'Color',
+                          string: 'String',
                         },
                       },
                       type: 'typeIdentifier',
@@ -52,23 +108,76 @@ const json = {
                         literal: {
                           data: {
                             id: '0',
-                            value: '#FF3409',
+                            value: '',
                           },
-                          type: 'color',
+                          type: 'string',
                         },
                       },
                       type: 'literalExpression',
                     },
                     name: {
                       id: '0',
-                      name: 'a',
+                      name: 'value',
                     },
                   },
                   type: 'variable',
                 },
                 {
                   data: {
-                    declarations: [
+                    id: '0',
+                  },
+                  type: 'placeholder',
+                },
+              ],
+              genericParameters: [
+                {
+                  data: {
+                    id: '0',
+                  },
+                  type: 'placeholder',
+                },
+              ],
+              id: '0',
+              name: {
+                id: '0',
+                name: 'Color',
+              },
+            },
+            type: 'record',
+          },
+          id: '0',
+        },
+        type: 'declaration',
+      },
+      {
+        data: {
+          content: {
+            data: {
+              declarations: [
+                {
+                  data: {
+                    block: [
+                      {
+                        data: {
+                          id: '0',
+                        },
+                        type: 'placeholder',
+                      },
+                    ],
+                    genericParameters: [
+                      {
+                        data: {
+                          id: '0',
+                        },
+                        type: 'placeholder',
+                      },
+                    ],
+                    id: '0',
+                    name: {
+                      id: '0',
+                      name: 'setHue',
+                    },
+                    parameters: [
                       {
                         data: {
                           annotation: {
@@ -83,27 +192,86 @@ const json = {
                             },
                             type: 'typeIdentifier',
                           },
-                          id: '0',
-                          initializer: {
+                          defaultValue: {
                             data: {
                               id: '0',
-                              literal: {
-                                data: {
-                                  id: '0',
-                                  value: '#3449FF',
-                                },
-                                type: 'color',
-                              },
                             },
-                            type: 'literalExpression',
+                            type: 'none',
                           },
-                          name: {
+                          id: '0',
+                          localName: {
                             id: '0',
-                            name: 'b',
+                            name: 'color',
                           },
                         },
-                        type: 'variable',
+                        type: 'parameter',
                       },
+                      {
+                        data: {
+                          annotation: {
+                            data: {
+                              genericArguments: [],
+                              id: '0',
+                              identifier: {
+                                id: '0',
+                                isPlaceholder: false,
+                                string: 'Number',
+                              },
+                            },
+                            type: 'typeIdentifier',
+                          },
+                          defaultValue: {
+                            data: {
+                              id: '0',
+                            },
+                            type: 'none',
+                          },
+                          id: '0',
+                          localName: {
+                            id: '0',
+                            name: 'hue',
+                          },
+                        },
+                        type: 'parameter',
+                      },
+                      {
+                        data: {
+                          id: '0',
+                        },
+                        type: 'placeholder',
+                      },
+                    ],
+                    returnType: {
+                      data: {
+                        genericArguments: [],
+                        id: '0',
+                        identifier: {
+                          id: '0',
+                          isPlaceholder: false,
+                          string: 'Color',
+                        },
+                      },
+                      type: 'typeIdentifier',
+                    },
+                  },
+                  type: 'function',
+                },
+                {
+                  data: {
+                    block: [
+                      {
+                        data: {
+                          id: '0',
+                        },
+                        type: 'placeholder',
+                      },
+                    ],
+                    comment: {
+                      id: '0',
+                      string:
+                        '# Set Saturation\n\nAdjust the saturation of a color.',
+                    },
+                    genericParameters: [
                       {
                         data: {
                           id: '0',
@@ -114,10 +282,437 @@ const json = {
                     id: '0',
                     name: {
                       id: '0',
-                      name: 'Nested',
+                      name: 'setSaturation',
+                    },
+                    parameters: [
+                      {
+                        data: {
+                          annotation: {
+                            data: {
+                              genericArguments: [],
+                              id: '0',
+                              identifier: {
+                                id: '0',
+                                isPlaceholder: false,
+                                string: 'Color',
+                              },
+                            },
+                            type: 'typeIdentifier',
+                          },
+                          comment: {
+                            id: '0',
+                            string: '# Color\n\nThe base color to adjust.',
+                          },
+                          defaultValue: {
+                            data: {
+                              id: '0',
+                            },
+                            type: 'none',
+                          },
+                          id: '0',
+                          localName: {
+                            id: '0',
+                            name: 'color',
+                          },
+                        },
+                        type: 'parameter',
+                      },
+                      {
+                        data: {
+                          annotation: {
+                            data: {
+                              genericArguments: [],
+                              id: '0',
+                              identifier: {
+                                id: '0',
+                                isPlaceholder: false,
+                                string: 'Number',
+                              },
+                            },
+                            type: 'typeIdentifier',
+                          },
+                          defaultValue: {
+                            data: {
+                              id: '0',
+                            },
+                            type: 'none',
+                          },
+                          id: '0',
+                          localName: {
+                            id: '0',
+                            name: 'saturation',
+                          },
+                        },
+                        type: 'parameter',
+                      },
+                      {
+                        data: {
+                          id: '0',
+                        },
+                        type: 'placeholder',
+                      },
+                    ],
+                    returnType: {
+                      data: {
+                        genericArguments: [],
+                        id: '0',
+                        identifier: {
+                          id: '0',
+                          isPlaceholder: false,
+                          string: 'Color',
+                        },
+                      },
+                      type: 'typeIdentifier',
                     },
                   },
-                  type: 'namespace',
+                  type: 'function',
+                },
+                {
+                  data: {
+                    block: [
+                      {
+                        data: {
+                          id: '0',
+                        },
+                        type: 'placeholder',
+                      },
+                    ],
+                    genericParameters: [
+                      {
+                        data: {
+                          id: '0',
+                        },
+                        type: 'placeholder',
+                      },
+                    ],
+                    id: '0',
+                    name: {
+                      id: '0',
+                      name: 'setLightness',
+                    },
+                    parameters: [
+                      {
+                        data: {
+                          annotation: {
+                            data: {
+                              genericArguments: [],
+                              id: '0',
+                              identifier: {
+                                id: '0',
+                                isPlaceholder: false,
+                                string: 'Color',
+                              },
+                            },
+                            type: 'typeIdentifier',
+                          },
+                          defaultValue: {
+                            data: {
+                              id: '0',
+                            },
+                            type: 'none',
+                          },
+                          id: '0',
+                          localName: {
+                            id: '0',
+                            name: 'color',
+                          },
+                        },
+                        type: 'parameter',
+                      },
+                      {
+                        data: {
+                          annotation: {
+                            data: {
+                              genericArguments: [],
+                              id: '0',
+                              identifier: {
+                                id: '0',
+                                isPlaceholder: false,
+                                string: 'Number',
+                              },
+                            },
+                            type: 'typeIdentifier',
+                          },
+                          defaultValue: {
+                            data: {
+                              id: '0',
+                            },
+                            type: 'none',
+                          },
+                          id: '0',
+                          localName: {
+                            id: '0',
+                            name: 'lightness',
+                          },
+                        },
+                        type: 'parameter',
+                      },
+                      {
+                        data: {
+                          id: '0',
+                        },
+                        type: 'placeholder',
+                      },
+                    ],
+                    returnType: {
+                      data: {
+                        genericArguments: [],
+                        id: '0',
+                        identifier: {
+                          id: '0',
+                          isPlaceholder: false,
+                          string: 'Color',
+                        },
+                      },
+                      type: 'typeIdentifier',
+                    },
+                  },
+                  type: 'function',
+                },
+                {
+                  data: {
+                    block: [
+                      {
+                        data: {
+                          id: '0',
+                        },
+                        type: 'placeholder',
+                      },
+                    ],
+                    genericParameters: [
+                      {
+                        data: {
+                          id: '0',
+                        },
+                        type: 'placeholder',
+                      },
+                    ],
+                    id: '0',
+                    name: {
+                      id: '0',
+                      name: 'fromHSL',
+                    },
+                    parameters: [
+                      {
+                        data: {
+                          annotation: {
+                            data: {
+                              genericArguments: [],
+                              id: '0',
+                              identifier: {
+                                id: '0',
+                                isPlaceholder: false,
+                                string: 'Number',
+                              },
+                            },
+                            type: 'typeIdentifier',
+                          },
+                          defaultValue: {
+                            data: {
+                              id: '0',
+                            },
+                            type: 'none',
+                          },
+                          id: '0',
+                          localName: {
+                            id: '0',
+                            name: 'hue',
+                          },
+                        },
+                        type: 'parameter',
+                      },
+                      {
+                        data: {
+                          annotation: {
+                            data: {
+                              genericArguments: [],
+                              id: '0',
+                              identifier: {
+                                id: '0',
+                                isPlaceholder: false,
+                                string: 'Number',
+                              },
+                            },
+                            type: 'typeIdentifier',
+                          },
+                          defaultValue: {
+                            data: {
+                              id: '0',
+                            },
+                            type: 'none',
+                          },
+                          id: '0',
+                          localName: {
+                            id: '0',
+                            name: 'saturation',
+                          },
+                        },
+                        type: 'parameter',
+                      },
+                      {
+                        data: {
+                          annotation: {
+                            data: {
+                              genericArguments: [],
+                              id: '0',
+                              identifier: {
+                                id: '0',
+                                isPlaceholder: false,
+                                string: 'Number',
+                              },
+                            },
+                            type: 'typeIdentifier',
+                          },
+                          defaultValue: {
+                            data: {
+                              id: '0',
+                            },
+                            type: 'none',
+                          },
+                          id: '0',
+                          localName: {
+                            id: '0',
+                            name: 'lightness',
+                          },
+                        },
+                        type: 'parameter',
+                      },
+                      {
+                        data: {
+                          id: '0',
+                        },
+                        type: 'placeholder',
+                      },
+                    ],
+                    returnType: {
+                      data: {
+                        genericArguments: [],
+                        id: '0',
+                        identifier: {
+                          id: '0',
+                          isPlaceholder: false,
+                          string: 'Color',
+                        },
+                      },
+                      type: 'typeIdentifier',
+                    },
+                  },
+                  type: 'function',
+                },
+                {
+                  data: {
+                    block: [
+                      {
+                        data: {
+                          id: '0',
+                        },
+                        type: 'placeholder',
+                      },
+                    ],
+                    comment: {
+                      id: '0',
+                      string: '# Saturate\n\nAdjust color saturation.',
+                    },
+                    genericParameters: [
+                      {
+                        data: {
+                          id: '0',
+                        },
+                        type: 'placeholder',
+                      },
+                    ],
+                    id: '0',
+                    name: {
+                      id: '0',
+                      name: 'saturate',
+                    },
+                    parameters: [
+                      {
+                        data: {
+                          annotation: {
+                            data: {
+                              genericArguments: [],
+                              id: '0',
+                              identifier: {
+                                id: '0',
+                                isPlaceholder: false,
+                                string: 'Color',
+                              },
+                            },
+                            type: 'typeIdentifier',
+                          },
+                          comment: {
+                            id: '0',
+                            string: '# Color\n\nThe base color to adjust.',
+                          },
+                          defaultValue: {
+                            data: {
+                              id: '0',
+                            },
+                            type: 'none',
+                          },
+                          id: '0',
+                          localName: {
+                            id: '0',
+                            name: 'color',
+                          },
+                        },
+                        type: 'parameter',
+                      },
+                      {
+                        data: {
+                          annotation: {
+                            data: {
+                              genericArguments: [],
+                              id: '0',
+                              identifier: {
+                                id: '0',
+                                isPlaceholder: false,
+                                string: 'Number',
+                              },
+                            },
+                            type: 'typeIdentifier',
+                          },
+                          comment: {
+                            id: '0',
+                            string:
+                              '# Factor\n\nThis value will be multiplied with the current saturation value.',
+                          },
+                          defaultValue: {
+                            data: {
+                              id: '0',
+                            },
+                            type: 'none',
+                          },
+                          id: '0',
+                          localName: {
+                            id: '0',
+                            name: 'factor',
+                          },
+                        },
+                        type: 'parameter',
+                      },
+                      {
+                        data: {
+                          id: '0',
+                        },
+                        type: 'placeholder',
+                      },
+                    ],
+                    returnType: {
+                      data: {
+                        genericArguments: [],
+                        id: '0',
+                        identifier: {
+                          id: '0',
+                          isPlaceholder: false,
+                          string: 'Color',
+                        },
+                      },
+                      type: 'typeIdentifier',
+                    },
+                  },
+                  type: 'function',
                 },
                 {
                   data: {
@@ -129,7 +724,7 @@ const json = {
               id: '0',
               name: {
                 id: '0',
-                name: 'Colors',
+                name: 'Color',
               },
             },
             type: 'namespace',

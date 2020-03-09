@@ -31,7 +31,7 @@ enum Boolean {
  *
  * \`\`\`logic
  * <Declarations>
- *   <Variable name=\"padding\" type=\"Number\" value=\"12\"/>
+ *   <Variable name="padding" type="Number" value="12"/>
  * </Declarations>
  * \`\`\`
  *
@@ -67,7 +67,7 @@ enum Number {
  *
  * \`\`\`logic
  * <Declarations>
- *   <Variable name=\"greeting\" type=\"String\" value=\"Hello, world\"/>
+ *   <Variable name="greeting" type="String" value="Hello, world"/>
  * </Declarations>
  * \`\`\`
  */

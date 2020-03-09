@@ -51,3 +51,35 @@ describe('prelude', () => {
     expect(converted).toBe(code)
   })
 })
+
+describe('shadow', () => {
+  const { json, code } = require('./mocks/files/shadow')
+
+  test('code -> json', () => {
+    const converted = parseSwift(code, {
+      startRule: 'topLevelDeclarations',
+    })
+    expect(converted).toStrictEqual(json)
+  })
+
+  test('json -> code', () => {
+    const converted = printSwift(json)
+    expect(converted).toBe(code)
+  })
+})
+
+describe('text style', () => {
+  const { json, code } = require('./mocks/files/textStyle')
+
+  test('code -> json', () => {
+    const converted = parseSwift(code, {
+      startRule: 'topLevelDeclarations',
+    })
+    expect(converted).toStrictEqual(json)
+  })
+
+  test('json -> code', () => {
+    const converted = printSwift(json)
+    expect(converted).toBe(code)
+  })
+})
