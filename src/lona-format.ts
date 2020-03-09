@@ -1,15 +1,11 @@
 export enum SERIALIZATION_FORMAT {
   JSON = 'json',
-  XML = 'xml',
   SOURCE = 'source',
 }
 
 export function detectFormat(contents: string) {
   if (contents.startsWith('{') || contents.startsWith('[')) {
     return SERIALIZATION_FORMAT.JSON
-  }
-  if (contents.startsWith('<')) {
-    return SERIALIZATION_FORMAT.XML
   }
   return SERIALIZATION_FORMAT.SOURCE
 }
@@ -20,7 +16,10 @@ export function normalizeFormat(
 ) {
   const normalized = sourceFormat || detectFormat(contents)
 
-  if (!Object.values(SERIALIZATION_FORMAT).includes(normalized)) {
+  if (
+    normalized !== SERIALIZATION_FORMAT.JSON &&
+    normalized !== SERIALIZATION_FORMAT.SOURCE
+  ) {
     throw new Error(
       `Invalid source serialization format specified: ${normalized}`
     )

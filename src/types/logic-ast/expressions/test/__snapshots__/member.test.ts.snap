@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`member expression Example 1 1`] = `
+Object {
+  "data": Object {
+    "expression": Object {
+      "data": Object {
+        "id": "0",
+        "identifier": Object {
+          "id": "0",
+          "isPlaceholder": false,
+          "string": "Colors",
+        },
+      },
+      "type": "identifierExpression",
+    },
+    "id": "0",
+    "memberName": Object {
+      "id": "0",
+      "isPlaceholder": false,
+      "string": "primary",
+    },
+  },
+  "type": "memberExpression",
+}
+`;

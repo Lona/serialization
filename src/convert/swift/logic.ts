@@ -1,9 +1,27 @@
+import { v4 as uuid } from 'uuid'
 import * as AST from '../../types/logic-ast'
-import { indentBlock } from '../../formatting'
+import { indentBlock, repeat } from '../../formatting'
+import { assertNever } from '../../utils'
 import parser from './pegjs/logicSwiftParser'
 
+function noPlaceholder(x: AST.SyntaxNode) {
+  return x.type !== 'placeholder'
+}
+
 export function parse(code: string, options?: {}): AST.SyntaxNode {
-  return parser.parse(code, options)
+  return parser.parse(code, Object.assign({ generateId: uuid }, options))
+}
+
+function printComment(node: AST.SyntaxNode, additionalComment: string = '') {
+  if ('comment' in node.data && node.data.comment && node.data.comment.string) {
+    return `/*
+${node.data.comment.string
+  .split('\n')
+  .map(x => (x ? ` * ${x}` : ` *`))
+  .join('\n')}${additionalComment ? `\n *\n${additionalComment}` : ''}
+ */\n`
+  }
+  return ''
 }
 
 export function print(node: AST.SyntaxNode, options: { indent?: number } = {}) {
@@ -15,7 +33,7 @@ export function print(node: AST.SyntaxNode, options: { indent?: number } = {}) {
         const { block } = node.data
 
         return block
-          .filter(node => node.type !== 'placeholder')
+          .filter(noPlaceholder)
           .map(printNode)
           .join('\n\n')
       }
@@ -23,16 +41,13 @@ export function print(node: AST.SyntaxNode, options: { indent?: number } = {}) {
         const { declarations } = node.data
 
         return declarations
-          .filter(node => node.type !== 'placeholder')
+          .filter(noPlaceholder)
           .map(printNode)
           .join('\n\n')
       }
       // Declaration statement
       case 'declaration': {
-        if ('content' in node.data) {
-          return printNode(node.data.content)
-        }
-        break
+        return printNode(node.data.content)
       }
       case 'importDeclaration': {
         const { name } = node.data
@@ -43,7 +58,7 @@ export function print(node: AST.SyntaxNode, options: { indent?: number } = {}) {
         const { name, declarations } = node.data
 
         const normalizedDeclarations = declarations
-          .filter(declaration => declaration.type !== 'placeholder')
+          .filter(noPlaceholder)
           .map(declaration => {
             return {
               ...declaration,
@@ -56,7 +71,7 @@ export function print(node: AST.SyntaxNode, options: { indent?: number } = {}) {
           .map(x => indentBlock(x, indent))
           .join('\n')
 
-        return `enum ${name.name} {
+        return `${printComment(node)}enum ${name.name} {
 ${printedDeclarations}
 }`
       }
@@ -64,12 +79,16 @@ ${printedDeclarations}
         const { name, declarations } = node.data
 
         const printedDeclarations = declarations
-          .filter(declaration => declaration.type !== 'placeholder')
+          .filter(noPlaceholder)
           .map(x => printNode(x))
           .map(x => indentBlock(x, indent))
           .join('\n')
 
-        return `struct ${name.name} {
+        const generics = node.data.genericParameters.filter(noPlaceholder)
+
+        return `${printComment(node)}struct ${name.name}${
+          generics.length ? `<${generics.map(printNode).join(', ')}>` : ''
+        } {
 ${printedDeclarations}
 }`
       }
@@ -84,13 +103,16 @@ ${printedDeclarations}
           ? ` = ${printNode(initializer)}`
           : ''
 
-        return `${printedDeclarationModifier}let ${name.name}${printedAnnotation}${printedInitializer}`
+        return `${printComment(node)}${printedDeclarationModifier}let ${
+          name.name
+        }${printedAnnotation}${printedInitializer}`
       }
       case 'typeIdentifier': {
         const { genericArguments, identifier } = node.data
 
-        return genericArguments.length > 0
+        return genericArguments.filter(noPlaceholder).length > 0
           ? `${identifier.string}<${genericArguments
+              .filter(noPlaceholder)
               .map(printNode)
               .join(', ')}>`
           : identifier.string
@@ -99,7 +121,7 @@ ${printedDeclarations}
         const { expression } = node.data
 
         const printedArguments = node.data.arguments
-          .filter(node => node.type !== 'placeholder')
+          .filter(noPlaceholder)
           .map(printNode)
           .join(', ')
 
@@ -147,7 +169,7 @@ ${printedDeclarations}
         const { value } = node.data
 
         const printedExpressions = value
-          .filter(node => node.type !== 'placeholder')
+          .filter(noPlaceholder)
           .map(printNode)
           .map(x => indentBlock(x, indent))
           .join('\n\n')
@@ -156,6 +178,128 @@ ${printedDeclarations}
 ${printedExpressions}
 ]`
       }
+      case 'loop': {
+        return `while ${printNode(node.data.expression)} {
+${node.data.block
+  .filter(noPlaceholder)
+  .map(printNode)
+  .map(x => indentBlock(x, indent))
+  .join('\n')}
+}`
+      }
+      case 'branch': {
+        return `if ${printNode(node.data.condition)} {
+${node.data.block
+  .filter(noPlaceholder)
+  .map(printNode)
+  .map(x => indentBlock(x, indent))
+  .join('\n')}
+}`
+      }
+      case 'expression': {
+        return printNode(node.data.expression)
+      }
+      case 'function': {
+        const generics = node.data.genericParameters.filter(noPlaceholder)
+        const params = node.data.parameters.filter(noPlaceholder)
+
+        const paramsComment = params
+          .map(x => {
+            if (x.type !== 'parameter') {
+              return ''
+            }
+
+            if (!x.data.comment || !x.data.comment.string) {
+              return ''
+            }
+            let comment = ` * @param ${x.data.localName.name}`
+            const indent = `@param ${x.data.localName.name} - `.length
+            comment += ` - ${x.data.comment.string
+              .split('\n')
+              .map((l, i) =>
+                i === 0 ? l : l ? ` * ${repeat(' ', indent)}${l}` : ` *`
+              )
+              .join('\n')}`
+
+            return comment
+          })
+          .filter(x => !!x)
+          .join('\n')
+
+        return `${printComment(node, paramsComment)}func ${
+          node.data.name.name
+        }${
+          generics.length ? `<${generics.map(printNode).join(', ')}>` : ''
+        }(${params.map(printNode).join(', ')}): ${printNode(
+          node.data.returnType
+        )} {
+${node.data.block
+  .filter(noPlaceholder)
+  .map(printNode)
+  .map(x => indentBlock(x, indent))
+  .join('\n')}
+}`
+      }
+      case 'enumeration': {
+        const generics = node.data.genericParameters.filter(noPlaceholder)
+        return `${printComment(node)}enum ${node.data.name.name}${
+          generics.length ? `<${generics.map(printNode).join(', ')}>` : ''
+        } {
+${node.data.cases
+  .filter(noPlaceholder)
+  .map(printNode)
+  .map(x => indentBlock(x, indent))
+  .join('\n')}
+}`
+      }
+      case 'enumerationCase': {
+        const valueTypes = node.data.associatedValueTypes.filter(noPlaceholder)
+        return `${printComment(node)}case ${
+          node.data.name.name
+        }(${valueTypes.map(printNode).join(', ')})`
+      }
+      case 'assignmentExpression': {
+        return `${printNode(node.data.left)} = ${printNode(node.data.right)}`
+      }
+      case 'placeholder':
+        return ''
+      case 'parameter': {
+        if ('annotation' in node.data) {
+          return `${node.data.localName.name}: ${printNode(
+            node.data.annotation
+          )}${
+            node.data.defaultValue.type === 'value'
+              ? ` = ${printNode(node.data.defaultValue)}`
+              : ''
+          }`
+        }
+        return node.data.name.name
+      }
+      case 'none': {
+        return ''
+      }
+      case 'value': {
+        return printNode(node.data.expression)
+      }
+      case 'functionType': {
+        return `(${node.data.argumentTypes
+          .filter(noPlaceholder)
+          .map(printNode)
+          .join(', ')}) -> ${printNode(node.data.returnType)}`
+      }
+      case 'topLevelParameters': {
+        // TODO: what is that?
+        return ''
+      }
+      case 'comment': {
+        return `/** ${node.data.string} */`
+      }
+      case 'return': {
+        return `return ${printNode(node.data.expression)}`
+      }
+      default:
+        console.log(node)
+        assertNever(node)
     }
     return ''
   }

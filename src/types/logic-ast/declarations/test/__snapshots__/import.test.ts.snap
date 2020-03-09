@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`import declaration Example 1 1`] = `
+Object {
+  "data": Object {
+    "id": "0",
+    "name": Object {
+      "id": "0",
+      "name": "x",
+    },
+  },
+  "type": "importDeclaration",
+}
+`;

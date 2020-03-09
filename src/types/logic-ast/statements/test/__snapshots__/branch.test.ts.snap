@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`branch statement Example 1 1`] = `
+Object {
+  "data": Object {
+    "block": Array [
+      Object {
+        "data": Object {
+          "expression": Object {
+            "data": Object {
+              "arguments": Array [
+                Object {
+                  "data": Object {
+                    "expression": Object {
+                      "data": Object {
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "z",
+                        },
+                      },
+                      "type": "identifierExpression",
+                    },
+                    "id": "0",
+                    "label": null,
+                  },
+                  "type": "argument",
+                },
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "expression": Object {
+                "data": Object {
+                  "id": "0",
+                  "identifier": Object {
+                    "id": "0",
+                    "isPlaceholder": false,
+                    "string": "print",
+                  },
+                },
+                "type": "identifierExpression",
+              },
+              "id": "0",
+            },
+            "type": "functionCallExpression",
+          },
+          "id": "0",
+        },
+        "type": "expression",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "condition": Object {
+      "data": Object {
+        "arguments": Array [
+          Object {
+            "data": Object {
+              "expression": Object {
+                "data": Object {
+                  "id": "0",
+                  "identifier": Object {
+                    "id": "0",
+                    "isPlaceholder": false,
+                    "string": "x",
+                  },
+                },
+                "type": "identifierExpression",
+              },
+              "id": "0",
+              "label": null,
+            },
+            "type": "argument",
+          },
+          Object {
+            "data": Object {
+              "expression": Object {
+                "data": Object {
+                  "id": "0",
+                  "identifier": Object {
+                    "id": "0",
+                    "isPlaceholder": false,
+                    "string": "y",
+                  },
+                },
+                "type": "identifierExpression",
+              },
+              "id": "0",
+              "label": null,
+            },
+            "type": "argument",
+          },
+          Object {
+            "data": Object {
+              "id": "0",
+            },
+            "type": "placeholder",
+          },
+        ],
+        "expression": Object {
+          "data": Object {
+            "expression": Object {
+              "data": Object {
+                "id": "0",
+                "identifier": Object {
+                  "id": "0",
+                  "isPlaceholder": false,
+                  "string": "Boolean",
+                },
+              },
+              "type": "identifierExpression",
+            },
+            "id": "0",
+            "memberName": Object {
+              "id": "0",
+              "isPlaceholder": false,
+              "string": "and",
+            },
+          },
+          "type": "memberExpression",
+        },
+        "id": "0",
+      },
+      "type": "functionCallExpression",
+    },
+    "id": "0",
+  },
+  "type": "branch",
+}
+`;

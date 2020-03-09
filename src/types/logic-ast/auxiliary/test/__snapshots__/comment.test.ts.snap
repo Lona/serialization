@@ -1,0 +1,344 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`comments Example 1 1`] = `
+Object {
+  "data": Object {
+    "block": Array [
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "comment": Object {
+      "id": "0",
+      "string": "comment for the function
+on multiple line",
+    },
+    "genericParameters": Array [
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "id": "0",
+    "name": Object {
+      "id": "0",
+      "name": "and",
+    },
+    "parameters": Array [
+      Object {
+        "data": Object {
+          "annotation": Object {
+            "data": Object {
+              "genericArguments": Array [],
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "Boolean",
+              },
+            },
+            "type": "typeIdentifier",
+          },
+          "defaultValue": Object {
+            "data": Object {
+              "id": "0",
+            },
+            "type": "none",
+          },
+          "id": "0",
+          "localName": Object {
+            "id": "0",
+            "name": "a",
+          },
+        },
+        "type": "parameter",
+      },
+      Object {
+        "data": Object {
+          "annotation": Object {
+            "data": Object {
+              "genericArguments": Array [],
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "Boolean",
+              },
+            },
+            "type": "typeIdentifier",
+          },
+          "defaultValue": Object {
+            "data": Object {
+              "id": "0",
+            },
+            "type": "none",
+          },
+          "id": "0",
+          "localName": Object {
+            "id": "0",
+            "name": "b",
+          },
+        },
+        "type": "parameter",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "returnType": Object {
+      "data": Object {
+        "genericArguments": Array [],
+        "id": "0",
+        "identifier": Object {
+          "id": "0",
+          "isPlaceholder": false,
+          "string": "Boolean",
+        },
+      },
+      "type": "typeIdentifier",
+    },
+  },
+  "type": "function",
+}
+`;
+
+exports[`comments Example 2 1`] = `
+Object {
+  "data": Object {
+    "block": Array [
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "comment": Object {
+      "id": "0",
+      "string": "comment for the function
+on multiple line",
+    },
+    "genericParameters": Array [
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "id": "0",
+    "name": Object {
+      "id": "0",
+      "name": "and",
+    },
+    "parameters": Array [
+      Object {
+        "data": Object {
+          "annotation": Object {
+            "data": Object {
+              "genericArguments": Array [],
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "Boolean",
+              },
+            },
+            "type": "typeIdentifier",
+          },
+          "comment": Object {
+            "id": "0",
+            "string": "comment for the parameter",
+          },
+          "defaultValue": Object {
+            "data": Object {
+              "id": "0",
+            },
+            "type": "none",
+          },
+          "id": "0",
+          "localName": Object {
+            "id": "0",
+            "name": "a",
+          },
+        },
+        "type": "parameter",
+      },
+      Object {
+        "data": Object {
+          "annotation": Object {
+            "data": Object {
+              "genericArguments": Array [],
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "Boolean",
+              },
+            },
+            "type": "typeIdentifier",
+          },
+          "defaultValue": Object {
+            "data": Object {
+              "id": "0",
+            },
+            "type": "none",
+          },
+          "id": "0",
+          "localName": Object {
+            "id": "0",
+            "name": "b",
+          },
+        },
+        "type": "parameter",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "returnType": Object {
+      "data": Object {
+        "genericArguments": Array [],
+        "id": "0",
+        "identifier": Object {
+          "id": "0",
+          "isPlaceholder": false,
+          "string": "Boolean",
+        },
+      },
+      "type": "typeIdentifier",
+    },
+  },
+  "type": "function",
+}
+`;
+
+exports[`comments Example 3 1`] = `
+Object {
+  "data": Object {
+    "block": Array [
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "comment": Object {
+      "id": "0",
+      "string": "comment for the function
+on multiple line",
+    },
+    "genericParameters": Array [
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "id": "0",
+    "name": Object {
+      "id": "0",
+      "name": "and",
+    },
+    "parameters": Array [
+      Object {
+        "data": Object {
+          "annotation": Object {
+            "data": Object {
+              "genericArguments": Array [],
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "Boolean",
+              },
+            },
+            "type": "typeIdentifier",
+          },
+          "comment": Object {
+            "id": "0",
+            "string": "multiline comment for the parameter
+which continues here",
+          },
+          "defaultValue": Object {
+            "data": Object {
+              "id": "0",
+            },
+            "type": "none",
+          },
+          "id": "0",
+          "localName": Object {
+            "id": "0",
+            "name": "a",
+          },
+        },
+        "type": "parameter",
+      },
+      Object {
+        "data": Object {
+          "annotation": Object {
+            "data": Object {
+              "genericArguments": Array [],
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "Boolean",
+              },
+            },
+            "type": "typeIdentifier",
+          },
+          "comment": Object {
+            "id": "0",
+            "string": "another comment",
+          },
+          "defaultValue": Object {
+            "data": Object {
+              "id": "0",
+            },
+            "type": "none",
+          },
+          "id": "0",
+          "localName": Object {
+            "id": "0",
+            "name": "b",
+          },
+        },
+        "type": "parameter",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "returnType": Object {
+      "data": Object {
+        "genericArguments": Array [],
+        "id": "0",
+        "identifier": Object {
+          "id": "0",
+          "isPlaceholder": false,
+          "string": "Boolean",
+        },
+      },
+      "type": "typeIdentifier",
+    },
+  },
+  "type": "function",
+}
+`;

@@ -1,7 +1,6 @@
 import * as AST from './types/types-ast'
 
 import * as json from './convert/json/types'
-import * as xml from './convert/xml/types'
 
 import { normalizeFormat, SERIALIZATION_FORMAT } from './lona-format'
 
@@ -11,8 +10,6 @@ export function decodeTypes(contents: string, format?: SERIALIZATION_FORMAT) {
     switch (sourceFormat) {
       case SERIALIZATION_FORMAT.JSON:
         return json.parse(contents)
-      case SERIALIZATION_FORMAT.XML:
-        return xml.parse(contents)
       default:
         throw new Error(`Unknown decoding format ${sourceFormat}`)
     }
@@ -27,8 +24,6 @@ export function encodeTypes(ast: AST.Root, format: SERIALIZATION_FORMAT) {
     switch (format) {
       case SERIALIZATION_FORMAT.JSON:
         return json.print(ast)
-      case SERIALIZATION_FORMAT.XML:
-        return xml.print(ast)
       default:
         throw new Error(`Unknown encoding format ${format}`)
     }

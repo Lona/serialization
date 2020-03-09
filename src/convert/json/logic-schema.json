@@ -1,0 +1,1587 @@
+{
+  "$ref": "#/definitions/SyntaxNode",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "ArrayLiteral": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "value": {
+              "items": {
+                "$ref": "#/definitions/Expression"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "id",
+            "value"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "array"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "AssignmentExpression": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "left": {
+              "$ref": "#/definitions/Expression"
+            },
+            "right": {
+              "$ref": "#/definitions/Expression"
+            }
+          },
+          "required": [
+            "left",
+            "right",
+            "id"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "assignmentExpression"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "BooleanLiteral": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "value": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "id",
+            "value"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "boolean"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "BranchStatement": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "block": {
+              "items": {
+                "$ref": "#/definitions/Statement"
+              },
+              "type": "array"
+            },
+            "condition": {
+              "$ref": "#/definitions/Expression"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "condition",
+            "block"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "branch"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "ColorLiteral": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "value"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "color"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "Comment": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "string": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "string"
+      ],
+      "type": "object"
+    },
+    "CommentNode": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Comment"
+        },
+        "type": {
+          "enum": [
+            "comment"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "Declaration": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/EnumerationDeclaration"
+        },
+        {
+          "$ref": "#/definitions/FunctionDeclaration"
+        },
+        {
+          "$ref": "#/definitions/ImportDeclaration"
+        },
+        {
+          "$ref": "#/definitions/NamespaceDeclaration"
+        },
+        {
+          "$ref": "#/definitions/RecordDeclaration"
+        },
+        {
+          "$ref": "#/definitions/VariableDeclaration"
+        },
+        {
+          "$ref": "#/definitions/Placeholder"
+        }
+      ]
+    },
+    "DeclarationStatement": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "content": {
+              "$ref": "#/definitions/Declaration"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "content"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "declaration"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "EnumerationCase": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Placeholder"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "data": {
+              "additionalProperties": false,
+              "properties": {
+                "associatedValueTypes": {
+                  "items": {
+                    "$ref": "#/definitions/TypeAnnotation"
+                  },
+                  "type": "array"
+                },
+                "comment": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "string": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "string"
+                  ],
+                  "type": "object"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "$ref": "#/definitions/Pattern"
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "associatedValueTypes"
+              ],
+              "type": "object"
+            },
+            "type": {
+              "enum": [
+                "enumerationCase"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "data"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "EnumerationDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "cases": {
+              "items": {
+                "$ref": "#/definitions/EnumerationCase"
+              },
+              "type": "array"
+            },
+            "comment": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "string": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "string"
+              ],
+              "type": "object"
+            },
+            "genericParameters": {
+              "items": {
+                "$ref": "#/definitions/GenericParameter"
+              },
+              "type": "array"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "$ref": "#/definitions/Pattern"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "genericParameters",
+            "cases"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "enumeration"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "Expression": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/AssignmentExpression"
+        },
+        {
+          "$ref": "#/definitions/FunctionCallExpression"
+        },
+        {
+          "$ref": "#/definitions/IdentifierExpression"
+        },
+        {
+          "$ref": "#/definitions/LiteralExpression"
+        },
+        {
+          "$ref": "#/definitions/MemberExpression"
+        },
+        {
+          "$ref": "#/definitions/Placeholder"
+        }
+      ]
+    },
+    "ExpressionStatement": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "expression": {
+              "$ref": "#/definitions/Expression"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "expression"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "expression"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "FunctionCallArgument": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Placeholder"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "data": {
+              "additionalProperties": false,
+              "properties": {
+                "expression": {
+                  "$ref": "#/definitions/Expression"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "label": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "label",
+                "expression"
+              ],
+              "type": "object"
+            },
+            "type": {
+              "enum": [
+                "argument"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "data"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "FunctionCallExpression": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "arguments": {
+              "items": {
+                "$ref": "#/definitions/FunctionCallArgument"
+              },
+              "type": "array"
+            },
+            "expression": {
+              "$ref": "#/definitions/Expression"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "expression",
+            "arguments"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "functionCallExpression"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "FunctionDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "block": {
+              "items": {
+                "$ref": "#/definitions/Statement"
+              },
+              "type": "array"
+            },
+            "comment": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "string": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "string"
+              ],
+              "type": "object"
+            },
+            "genericParameters": {
+              "items": {
+                "$ref": "#/definitions/GenericParameter"
+              },
+              "type": "array"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "$ref": "#/definitions/Pattern"
+            },
+            "parameters": {
+              "items": {
+                "$ref": "#/definitions/FunctionParameter"
+              },
+              "type": "array"
+            },
+            "returnType": {
+              "$ref": "#/definitions/TypeAnnotation"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "returnType",
+            "genericParameters",
+            "parameters",
+            "block"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "function"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "FunctionParameter": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Placeholder"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "data": {
+              "additionalProperties": false,
+              "properties": {
+                "annotation": {
+                  "$ref": "#/definitions/TypeAnnotation"
+                },
+                "comment": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "string": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "string"
+                  ],
+                  "type": "object"
+                },
+                "defaultValue": {
+                  "$ref": "#/definitions/FunctionParameterDefaultValue"
+                },
+                "externalName": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                },
+                "localName": {
+                  "$ref": "#/definitions/Pattern"
+                }
+              },
+              "required": [
+                "id",
+                "localName",
+                "annotation",
+                "defaultValue"
+              ],
+              "type": "object"
+            },
+            "type": {
+              "enum": [
+                "parameter"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "data"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "FunctionParameterDefaultValue": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/NoneFunctionParameterDefaultValue"
+        },
+        {
+          "$ref": "#/definitions/ValueFunctionParameterDefaultValue"
+        }
+      ]
+    },
+    "FunctionTypeTypeAnnotation": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "argumentTypes": {
+              "items": {
+                "$ref": "#/definitions/TypeAnnotation"
+              },
+              "type": "array"
+            },
+            "id": {
+              "type": "string"
+            },
+            "returnType": {
+              "$ref": "#/definitions/TypeAnnotation"
+            }
+          },
+          "required": [
+            "id",
+            "returnType",
+            "argumentTypes"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "functionType"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "GenericParameter": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Placeholder"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "data": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "$ref": "#/definitions/Pattern"
+                }
+              },
+              "required": [
+                "id",
+                "name"
+              ],
+              "type": "object"
+            },
+            "type": {
+              "enum": [
+                "parameter"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "type",
+            "data"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "Identifier": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "isPlaceholder": {
+          "type": "boolean"
+        },
+        "string": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "string",
+        "isPlaceholder"
+      ],
+      "type": "object"
+    },
+    "IdentifierExpression": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "identifier": {
+              "$ref": "#/definitions/Identifier"
+            }
+          },
+          "required": [
+            "id",
+            "identifier"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "identifierExpression"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "ImportDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "$ref": "#/definitions/Pattern"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "importDeclaration"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "Literal": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/NoneLiteral"
+        },
+        {
+          "$ref": "#/definitions/BooleanLiteral"
+        },
+        {
+          "$ref": "#/definitions/NumberLiteral"
+        },
+        {
+          "$ref": "#/definitions/StringLiteral"
+        },
+        {
+          "$ref": "#/definitions/ColorLiteral"
+        },
+        {
+          "$ref": "#/definitions/ArrayLiteral"
+        }
+      ]
+    },
+    "LiteralExpression": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "literal": {
+              "$ref": "#/definitions/Literal"
+            }
+          },
+          "required": [
+            "id",
+            "literal"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "literalExpression"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "LoopStatement": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "block": {
+              "items": {
+                "$ref": "#/definitions/Statement"
+              },
+              "type": "array"
+            },
+            "expression": {
+              "$ref": "#/definitions/Expression"
+            },
+            "id": {
+              "type": "string"
+            },
+            "pattern": {
+              "$ref": "#/definitions/Pattern"
+            }
+          },
+          "required": [
+            "pattern",
+            "expression",
+            "block",
+            "id"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "loop"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "MemberExpression": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "expression": {
+              "$ref": "#/definitions/Expression"
+            },
+            "id": {
+              "type": "string"
+            },
+            "memberName": {
+              "$ref": "#/definitions/Identifier"
+            }
+          },
+          "required": [
+            "id",
+            "expression",
+            "memberName"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "memberExpression"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "NamespaceDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "declarations": {
+              "items": {
+                "$ref": "#/definitions/Declaration"
+              },
+              "type": "array"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "$ref": "#/definitions/Pattern"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "declarations"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "namespace"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "NoneFunctionParameterDefaultValue": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "none"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "NoneLiteral": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "none"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "NumberLiteral": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "value": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "id",
+            "value"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "number"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "Pattern": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "type": "object"
+    },
+    "Placeholder": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "placeholder"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "Program": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "block": {
+              "items": {
+                "$ref": "#/definitions/Statement"
+              },
+              "type": "array"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "block"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "program"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "RecordDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "comment": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "string": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "string"
+              ],
+              "type": "object"
+            },
+            "declarations": {
+              "items": {
+                "$ref": "#/definitions/Declaration"
+              },
+              "type": "array"
+            },
+            "genericParameters": {
+              "items": {
+                "$ref": "#/definitions/GenericParameter"
+              },
+              "type": "array"
+            },
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "$ref": "#/definitions/Pattern"
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "genericParameters",
+            "declarations"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "record"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "ReturnStatement": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "expression": {
+              "$ref": "#/definitions/Expression"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "expression",
+            "id"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "return"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "Statement": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/BranchStatement"
+        },
+        {
+          "$ref": "#/definitions/DeclarationStatement"
+        },
+        {
+          "$ref": "#/definitions/ExpressionStatement"
+        },
+        {
+          "$ref": "#/definitions/LoopStatement"
+        },
+        {
+          "$ref": "#/definitions/ReturnStatement"
+        },
+        {
+          "$ref": "#/definitions/Placeholder"
+        }
+      ]
+    },
+    "StringLiteral": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "value"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "string"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "SyntaxNode": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Statement"
+        },
+        {
+          "$ref": "#/definitions/Declaration"
+        },
+        {
+          "$ref": "#/definitions/Expression"
+        },
+        {
+          "$ref": "#/definitions/Literal"
+        },
+        {
+          "$ref": "#/definitions/TypeAnnotation"
+        },
+        {
+          "$ref": "#/definitions/Program"
+        },
+        {
+          "$ref": "#/definitions/FunctionParameter"
+        },
+        {
+          "$ref": "#/definitions/FunctionParameterDefaultValue"
+        },
+        {
+          "$ref": "#/definitions/TopLevelParameters"
+        },
+        {
+          "$ref": "#/definitions/EnumerationCase"
+        },
+        {
+          "$ref": "#/definitions/GenericParameter"
+        },
+        {
+          "$ref": "#/definitions/TopLevelDeclarations"
+        },
+        {
+          "$ref": "#/definitions/CommentNode"
+        },
+        {
+          "$ref": "#/definitions/FunctionCallArgument"
+        }
+      ]
+    },
+    "TopLevelDeclarations": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "declarations": {
+              "items": {
+                "$ref": "#/definitions/Declaration"
+              },
+              "type": "array"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "declarations"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "topLevelDeclarations"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "TopLevelParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "parameters": {
+              "items": {
+                "$ref": "#/definitions/FunctionParameter"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "id",
+            "parameters"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "topLevelParameters"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "TypeAnnotation": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/FunctionTypeTypeAnnotation"
+        },
+        {
+          "$ref": "#/definitions/TypeIdentifierTypeAnnotation"
+        },
+        {
+          "$ref": "#/definitions/Placeholder"
+        }
+      ]
+    },
+    "TypeIdentifierTypeAnnotation": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "genericArguments": {
+              "items": {
+                "$ref": "#/definitions/TypeAnnotation"
+              },
+              "type": "array"
+            },
+            "id": {
+              "type": "string"
+            },
+            "identifier": {
+              "$ref": "#/definitions/Identifier"
+            }
+          },
+          "required": [
+            "id",
+            "identifier",
+            "genericArguments"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "typeIdentifier"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "ValueFunctionParameterDefaultValue": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "expression": {
+              "$ref": "#/definitions/Expression"
+            },
+            "id": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "expression"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "value"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    },
+    "VariableDeclaration": {
+      "additionalProperties": false,
+      "properties": {
+        "data": {
+          "additionalProperties": false,
+          "properties": {
+            "annotation": {
+              "$ref": "#/definitions/TypeAnnotation"
+            },
+            "comment": {
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "string": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "string"
+              ],
+              "type": "object"
+            },
+            "declarationModifier": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "initializer": {
+              "$ref": "#/definitions/Expression"
+            },
+            "name": {
+              "$ref": "#/definitions/Pattern"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "type": "object"
+        },
+        "type": {
+          "enum": [
+            "variable"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "data"
+      ],
+      "type": "object"
+    }
+  }
+}
