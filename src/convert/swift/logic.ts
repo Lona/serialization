@@ -71,7 +71,7 @@ export function print(node: AST.SyntaxNode, options: { indent?: number } = {}) {
           .map(x => indentBlock(x, indent))
           .join('\n')
 
-        return `${printComment(node)}enum ${name.name} {
+        return `${printComment(node)}extension ${name.name} {
 ${printedDeclarations}
 }`
       }

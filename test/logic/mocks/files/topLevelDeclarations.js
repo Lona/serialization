@@ -2,7 +2,7 @@ const code = `import Prelude
 
 let x: Number = 123
 
-enum Test {
+extension Test {
   static let b: Boolean = false
 }`
 

@@ -183,7 +183,7 @@ enumDeclaration =
   }
 
 namespaceDeclaration =
-  "enum " _ name:pattern _ "{" _ declarations:declarationList? _ "}" {
+  "extension " _ name:pattern _ "{" _ declarations:declarationList? _ "}" {
     return {
       data: {
         // Delete declaration modifier for now, since we don't store these

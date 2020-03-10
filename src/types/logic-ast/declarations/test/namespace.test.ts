@@ -4,7 +4,7 @@ jest.mock('uuid', () => ({ v4: () => '0' }))
 
 describe('namespace declaration', () => {
   const codeExamples = [
-    `enum Boolean {
+    `extension Boolean {
   func or(a: Boolean, b: Boolean): Boolean {}
   func and(a: Boolean, b: Boolean): Boolean {}
 }`,
