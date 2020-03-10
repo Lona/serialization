@@ -226,19 +226,25 @@ ${node.data.block
           .filter(x => !!x)
           .join('\n')
 
+        const body = node.data.block.filter(noPlaceholder)
+
         return `${printComment(node, paramsComment)}func ${
           node.data.name.name
         }${
           generics.length ? `<${generics.map(printNode).join(', ')}>` : ''
         }(${params.map(printNode).join(', ')}): ${printNode(
           node.data.returnType
-        )} {
+        )} ${
+          body.length
+            ? `{
 ${node.data.block
   .filter(noPlaceholder)
   .map(printNode)
   .map(x => indentBlock(x, indent))
   .join('\n')}
 }`
+            : `{}`
+        }`
       }
       case 'enumeration': {
         const generics = node.data.genericParameters.filter(noPlaceholder)
