@@ -16,7 +16,6 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "build": "npm run build:node && npm run build:web",
-    "build:json-schema": "npx ts-json-schema-generator --path 'src/types/**.ts' --type 'SyntaxNode' > ./src/convert/json/logic-schema.json",
     "build:web": "webpack",
     "build:node": "npm run build:src && npm run build:copyPegjs",
     "build:copyPegjs": "cp src/convert/swift/pegjs/logic.swift.pegjs build/convert/swift/pegjs/logic.swift.pegjs",
@@ -35,7 +34,6 @@
   "homepage": "https://github.com/Lona/serialization",
   "dependencies": {
     "@mdx-js/mdx": "^1.5.0",
-    "ajv": "^6.12.0",
     "json-stable-stringify": "^1.0.1",
     "mdast-flatten-image-paragraphs": "^1.0.0",
     "mdast-move-images-to-root": "^1.0.0",
