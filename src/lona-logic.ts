@@ -18,7 +18,7 @@ export function decodeLogic(contents: string, format?: SERIALIZATION_FORMAT) {
     }
   } catch (e) {
     console.error(e)
-    throw new Error(`Failed to decode logic as ${sourceFormat}.`)
+    throw new Error(`Failed to decode logic as ${sourceFormat}.\n\n${e}`)
   }
 }
 
@@ -34,7 +34,7 @@ export function encodeLogic(ast: AST.SyntaxNode, format: SERIALIZATION_FORMAT) {
     }
   } catch (e) {
     console.error(e)
-    throw new Error(`Failed to encode logic as ${format}.`)
+    throw new Error(`Failed to encode logic as ${format}.\n\n${e}`)
   }
 }
 

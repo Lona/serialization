@@ -15,7 +15,7 @@ export function decodeTypes(contents: string, format?: SERIALIZATION_FORMAT) {
     }
   } catch (e) {
     console.error(e)
-    throw new Error(`Failed to decode types as ${sourceFormat}.`)
+    throw new Error(`Failed to decode types as ${sourceFormat}.\n\n${e}`)
   }
 }
 
@@ -29,7 +29,7 @@ export function encodeTypes(ast: AST.Root, format: SERIALIZATION_FORMAT) {
     }
   } catch (e) {
     console.error(e)
-    throw new Error(`Failed to encode types as ${format}.`)
+    throw new Error(`Failed to encode types as ${format}.\n\n${e}`)
   }
 }
 

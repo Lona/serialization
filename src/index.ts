@@ -33,7 +33,7 @@ function decodeDocument(
     }
   } catch (e) {
     console.error(e)
-    throw new Error(`Failed to decode document as ${sourceFormat}.`)
+    throw new Error(`Failed to decode document as ${sourceFormat}.\n\n${e}`)
   }
 }
 
@@ -56,7 +56,7 @@ function encodeDocument(
     }
   } catch (e) {
     console.error(e)
-    throw new Error(`Failed to encode document as ${format}.\n${e}`)
+    throw new Error(`Failed to encode document as ${format}.\n\n${e}`)
   }
 }
 
