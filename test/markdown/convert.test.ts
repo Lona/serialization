@@ -1,6 +1,8 @@
 /* eslint-disable import/no-unresolved */
 import { convertDocument, SERIALIZATION_FORMAT } from '../../src/index'
 
+jest.mock('uuid', () => ({ v4: () => '0' }))
+
 describe('mdx <-> json', () => {
   describe('root', () => {
     const mdx = `# heading
@@ -94,5 +96,21 @@ a`
       )
       expect(converted).toBe(mdx)
     })
+  })
+
+  test('tokens', () => {
+    const mdx = `hello
+
+\`\`\`tokens
+let test: Color = #color(css: "red")
+\`\`\``
+
+    const ast = convertDocument(mdx, SERIALIZATION_FORMAT.JSON)
+    expect(ast).toMatchSnapshot()
+
+    const converted = convertDocument(ast, SERIALIZATION_FORMAT.SOURCE, {
+      embeddedFormat: SERIALIZATION_FORMAT.SOURCE,
+    })
+    expect(converted).toBe(mdx)
   })
 })

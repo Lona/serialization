@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mdx <-> json tokens 1`] = `
+"{
+  \\"children\\": [
+    {
+      \\"data\\": {
+        \\"children\\": [
+          {
+            \\"data\\": {
+              \\"value\\": \\"hello\\"
+            },
+            \\"type\\": \\"text\\"
+          }
+        ]
+      },
+      \\"type\\": \\"paragraph\\"
+    },
+    {
+      \\"data\\": {
+        \\"lang\\": \\"tokens\\",
+        \\"meta\\": null,
+        \\"parsed\\": {
+          \\"data\\": {
+            \\"declarations\\": [
+              {
+                \\"data\\": {
+                  \\"annotation\\": {
+                    \\"data\\": {
+                      \\"genericArguments\\": [
+                      ],
+                      \\"id\\": \\"0\\",
+                      \\"identifier\\": {
+                        \\"id\\": \\"0\\",
+                        \\"isPlaceholder\\": false,
+                        \\"string\\": \\"Color\\"
+                      }
+                    },
+                    \\"type\\": \\"typeIdentifier\\"
+                  },
+                  \\"id\\": \\"0\\",
+                  \\"initializer\\": {
+                    \\"data\\": {
+                      \\"id\\": \\"0\\",
+                      \\"literal\\": {
+                        \\"data\\": {
+                          \\"id\\": \\"0\\",
+                          \\"value\\": \\"red\\"
+                        },
+                        \\"type\\": \\"color\\"
+                      }
+                    },
+                    \\"type\\": \\"literalExpression\\"
+                  },
+                  \\"name\\": {
+                    \\"id\\": \\"0\\",
+                    \\"name\\": \\"test\\"
+                  }
+                },
+                \\"type\\": \\"variable\\"
+              },
+              {
+                \\"data\\": {
+                  \\"id\\": \\"0\\"
+                },
+                \\"type\\": \\"placeholder\\"
+              }
+            ],
+            \\"id\\": \\"0\\"
+          },
+          \\"type\\": \\"topLevelDeclarations\\"
+        },
+        \\"value\\": \\"let test: Color = #color(css: \\\\\\"red\\\\\\")\\"
+      },
+      \\"type\\": \\"code\\"
+    }
+  ]
+}"
+`;
