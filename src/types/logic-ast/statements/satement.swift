@@ -3,7 +3,7 @@ public indirect enum LGCStatement: Codable & Equatable {
   case declaration(id: UUID, content: LGCDeclaration)
   case expressionStatement(id: UUID, expression: LGCExpression)
   case loop(pattern: LGCPattern, expression: LGCExpression, block: LGCList<LGCStatement>, id: UUID)
-  case return(id: UUID, expression: LGCExpression)
+  case returnStatement(id: UUID, expression: LGCExpression)
   case placeholder(id: UUID)
 
   // MARK: Codable
@@ -53,7 +53,7 @@ public indirect enum LGCStatement: Codable & Equatable {
             expression: try data.decode(LGCExpression.self, forKey: .expression))
       case "return":
         self =
-          .return(
+          .returnStatement(
             id: try data.decode(UUID.self, forKey: .id),
             expression: try data.decode(LGCExpression.self, forKey: .expression))
       case "placeholder":
@@ -87,7 +87,7 @@ public indirect enum LGCStatement: Codable & Equatable {
         try container.encode("expressionStatement", forKey: .type)
         try data.encode(value.id, forKey: .id)
         try data.encode(value.expression, forKey: .expression)
-      case .return(let value):
+      case .returnStatement(let value):
         try container.encode("return", forKey: .type)
         try data.encode(value.id, forKey: .id)
         try data.encode(value.expression, forKey: .expression)

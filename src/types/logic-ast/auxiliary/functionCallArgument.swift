@@ -1,5 +1,5 @@
 public indirect enum LGCFunctionCallArgument: Codable & Equatable {
-  case argument(id: UUID, label: String, expression: LGCExpression)
+  case argument(id: UUID, label: Optional<String>, expression: LGCExpression)
   case placeholder(id: UUID)
 
   // MARK: Codable
@@ -25,7 +25,7 @@ public indirect enum LGCFunctionCallArgument: Codable & Equatable {
         self =
           .argument(
             id: try data.decode(UUID.self, forKey: .id),
-            label: try data.decode(String.self, forKey: .label),
+            label: try data.decodeIfPresent(String.self, forKey: .label),
             expression: try data.decode(LGCExpression.self, forKey: .expression))
       case "placeholder":
         self = .placeholder(id: try data.decode(UUID.self, forKey: .id))
@@ -42,7 +42,7 @@ public indirect enum LGCFunctionCallArgument: Codable & Equatable {
       case .argument(let value):
         try container.encode("argument", forKey: .type)
         try data.encode(value.id, forKey: .id)
-        try data.encode(value.label, forKey: .label)
+        try data.encodeIfPresent(value.label, forKey: .label)
         try data.encode(value.expression, forKey: .expression)
       case .placeholder(let value):
         try container.encode("placeholder", forKey: .type)

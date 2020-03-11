@@ -6,7 +6,7 @@ export type FunctionCallArgument =
       type: 'argument'
       data: {
         id: UUID
-        label: string
+        label?: string
         expression: Expression
       }
     }
