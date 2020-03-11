@@ -43,7 +43,8 @@ module.exports = [
         {
           test: /\.pegjs$/,
           use: {
-            loader: 'pegjs-loader',
+            loader:
+              'pegjs-loader?allowedStartRules[]=topLevelDeclarations&allowedStartRules[]=program&allowedStartRules[]=statement&allowedStartRules[]=declaration&allowedStartRules[]=expression',
           },
         },
       ],
