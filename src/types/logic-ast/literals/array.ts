@@ -1,9 +1,9 @@
-import { Expression } from '..'
+import { Expression, UUID } from '..'
 
 export type ArrayLiteral = {
   type: 'array'
   data: {
-    id: string
+    id: UUID
     value: Expression[]
   }
 }

@@ -1,4 +1,6 @@
+import { UUID } from '../'
+
 export type Placeholder = {
   type: 'placeholder'
-  data: { id: string }
+  data: { id: UUID }
 }

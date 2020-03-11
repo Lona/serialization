@@ -6,7 +6,7 @@ describe('enumeration declaration', () => {
   const codeExamples = [
     `func add<T>(a: T, b: T = 0): T {}`,
     `func add<T>(a: T, b: T = 0): T {
-  print(a)
+  print(text: a)
 }`,
   ]
 

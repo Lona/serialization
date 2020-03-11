@@ -1,15 +1,12 @@
-import { Pattern, EnumerationCase, GenericParameter } from '../'
+import { Pattern, EnumerationCase, GenericParameter, UUID, Comment } from '../'
 
 export type EnumerationDeclaration = {
   type: 'enumeration'
   data: {
-    id: string
+    id: UUID
     name: Pattern
     genericParameters: GenericParameter[]
     cases: EnumerationCase[]
-    comment?: {
-      id: string
-      string: string
-    }
+    comment?: Comment
   }
 }

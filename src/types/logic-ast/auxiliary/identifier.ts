@@ -1,5 +1,7 @@
+import { UUID } from '../'
+
 export type Identifier = {
-  id: string
+  id: UUID
   string: string
   isPlaceholder: boolean
 }

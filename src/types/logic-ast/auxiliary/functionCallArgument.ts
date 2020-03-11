@@ -1,11 +1,11 @@
-import { Placeholder, Expression } from '../'
+import { Placeholder, Expression, UUID } from '../'
 
 export type FunctionCallArgument =
   | Placeholder
   | {
       type: 'argument'
       data: {
-        id: string
+        id: UUID
         label: string
         expression: Expression
       }

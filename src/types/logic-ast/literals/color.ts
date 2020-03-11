@@ -1,7 +1,9 @@
+import { UUID } from '../'
+
 export type ColorLiteral = {
   type: 'color'
   data: {
-    id: string
+    id: UUID
     value: string
   }
 }

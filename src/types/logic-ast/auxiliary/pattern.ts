@@ -1,4 +1,6 @@
+import { UUID } from '../'
+
 export type Pattern = {
-  id: string
+  id: UUID
   name: string
 }

@@ -1,9 +1,6 @@
-export type Comment = {
-  id: string
-  string: string
-}
+import { UUID } from '../'
 
-export type CommentNode = {
-  type: 'comment'
-  data: Comment
+export type Comment = {
+  id: UUID
+  string: string
 }

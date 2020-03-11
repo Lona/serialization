@@ -4,8 +4,8 @@ jest.mock('uuid', () => ({ v4: () => '0' }))
 
 describe('loop statement', () => {
   const codeExamples = [
-    `while Boolean.and(x, y) {
-  print(z)
+    `while Boolean.and(a: x, b: y) {
+  print(text: z)
 }`,
   ]
 

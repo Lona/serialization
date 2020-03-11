@@ -1,9 +1,9 @@
-import { Statement, Declaration, FunctionParameter } from '../'
+import { Statement, Declaration, FunctionParameter, UUID } from '../'
 
 export type Program = {
   type: 'program'
   data: {
-    id: string
+    id: UUID
     block: Statement[]
   }
 }
@@ -11,7 +11,7 @@ export type Program = {
 export type TopLevelDeclarations = {
   type: 'topLevelDeclarations'
   data: {
-    id: string
+    id: UUID
     declarations: Declaration[]
   }
 }
@@ -19,7 +19,7 @@ export type TopLevelDeclarations = {
 export type TopLevelParameters = {
   type: 'topLevelParameters'
   data: {
-    id: string
+    id: UUID
     parameters: FunctionParameter[]
   }
 }

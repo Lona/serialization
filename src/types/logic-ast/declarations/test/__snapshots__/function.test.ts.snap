@@ -151,7 +151,7 @@ Object {
                       "type": "identifierExpression",
                     },
                     "id": "0",
-                    "label": null,
+                    "label": "text",
                   },
                   "type": "argument",
                 },

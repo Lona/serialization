@@ -4,8 +4,8 @@ jest.mock('uuid', () => ({ v4: () => '0' }))
 
 describe('branch statement', () => {
   const codeExamples = [
-    `if Boolean.and(x, y) {
-  print(z)
+    `if Boolean.and(a: x, b: y) {
+  print(text: z)
 }`,
   ]
 

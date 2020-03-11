@@ -394,12 +394,12 @@ functionCallArgumentList =
   }
 
 functionCallArgument =
-  label:(rawIdentifier _ ":")? _ expression:expression {
+  label:(rawIdentifier _ ":") _ expression:expression {
     return {
       data: {
         expression,
         id: uuid(),
-        label: label ? label[0] : null
+        label: label[0]
       },
       type: 'argument',
     }

@@ -1,16 +1,13 @@
-import { Placeholder, Pattern, TypeAnnotation } from '../'
+import { Placeholder, Pattern, TypeAnnotation, UUID, Comment } from '../'
 
 export type EnumerationCase =
   | Placeholder
   | {
       type: 'enumerationCase'
       data: {
-        id: string
+        id: UUID
         name: Pattern
         associatedValueTypes: TypeAnnotation[]
-        comment?: {
-          id: string
-          string: string
-        }
+        comment?: Comment
       }
     }

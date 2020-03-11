@@ -1,7 +1,9 @@
+import { UUID } from '../'
+
 export type BooleanLiteral = {
   type: 'boolean'
   data: {
-    id: string
+    id: UUID
     value: boolean
   }
 }

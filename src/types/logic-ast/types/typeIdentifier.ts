@@ -1,9 +1,9 @@
-import { Identifier, TypeAnnotation } from '..'
+import { Identifier, TypeAnnotation, UUID } from '..'
 
 export type TypeIdentifierTypeAnnotation = {
   type: 'typeIdentifier'
   data: {
-    id: string
+    id: UUID
     identifier: Identifier
     genericArguments: TypeAnnotation[]
   }

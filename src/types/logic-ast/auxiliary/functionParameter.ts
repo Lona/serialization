@@ -3,6 +3,8 @@ import {
   Pattern,
   TypeAnnotation,
   FunctionParameterDefaultValue,
+  UUID,
+  Comment,
 } from '../'
 
 export type FunctionParameter =
@@ -10,15 +12,10 @@ export type FunctionParameter =
   | {
       type: 'parameter'
       data: {
-        id: string
-        // TODO: remove this
-        externalName?: string
+        id: UUID
         localName: Pattern
         annotation: TypeAnnotation
         defaultValue: FunctionParameterDefaultValue
-        comment?: {
-          id: string
-          string: string
-        }
+        comment?: Comment
       }
     }

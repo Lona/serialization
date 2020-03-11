@@ -1,16 +1,13 @@
-import { Pattern, TypeAnnotation, Expression } from '../'
+import { Pattern, TypeAnnotation, Expression, Comment, UUID } from '../'
 
 export type VariableDeclaration = {
   type: 'variable'
   data: {
-    id: string
+    id: UUID
     name: Pattern
     annotation?: TypeAnnotation
     initializer?: Expression
     declarationModifier?: string
-    comment?: {
-      id: string
-      string: string
-    }
+    comment?: Comment
   }
 }

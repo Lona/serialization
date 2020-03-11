@@ -1,9 +1,9 @@
-import { Expression, FunctionCallArgument } from '../'
+import { Expression, FunctionCallArgument, UUID } from '../'
 
 export type FunctionCallExpression = {
   type: 'functionCallExpression'
   data: {
-    id: string
+    id: UUID
     expression: Expression
     arguments: FunctionCallArgument[]
   }

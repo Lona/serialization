@@ -1,10 +1,10 @@
-import { Expression } from '..'
+import { Expression, UUID } from '..'
 
 export type AssignmentExpression = {
   type: 'assignmentExpression'
   data: {
     left: Expression
     right: Expression
-    id: string
+    id: UUID
   }
 }

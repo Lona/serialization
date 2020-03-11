@@ -51,5 +51,4 @@ export type SyntaxNode =
   | n.EnumerationCase
   | n.GenericParameter
   | n.TopLevelDeclarations
-  | n.CommentNode
   | n.FunctionCallArgument

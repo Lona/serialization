@@ -15,7 +15,8 @@
     "prettify": "find . -name \"*.ts\" | grep -v -f .gitignore | xargs npm run prettier:base",
     "test": "jest",
     "test:watch": "jest --watch",
-    "build": "npm run build:node && npm run build:web",
+    "build": "npm run build:node && npm run build:web && npm run build:swift",
+    "build:swift": "ts-node ./scripts/build-swift-file.ts",
     "build:web": "webpack",
     "build:node": "npm run build:src && npm run build:copyPegjs",
     "build:copyPegjs": "cp src/convert/swift/pegjs/logic.swift.pegjs build/convert/swift/pegjs/logic.swift.pegjs",
@@ -53,6 +54,7 @@
     "pegjs-loader": "^0.5.5",
     "prettier": "^1.19.1",
     "ts-jest": "^25.2.1",
+    "ts-node": "^8.6.2",
     "typescript": "^3.8.3",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.2.3"

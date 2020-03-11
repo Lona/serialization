@@ -300,9 +300,6 @@ ${node.data.cases
         // TODO: what is that?
         return ''
       }
-      case 'comment': {
-        return `/** ${node.data.string} */`
-      }
       case 'return': {
         return `return ${printNode(node.data.expression)}`
       }

@@ -1,9 +1,9 @@
-import { Expression, Statement } from '../'
+import { Expression, Statement, UUID } from '../'
 
 export type BranchStatement = {
   type: 'branch'
   data: {
-    id: string
+    id: UUID
     condition: Expression
     block: Statement[]
   }

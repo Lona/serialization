@@ -1,9 +1,9 @@
-import { Declaration } from '../'
+import { Declaration, UUID } from '../'
 
 export type DeclarationStatement = {
   type: 'declaration'
   data: {
-    id: string
+    id: UUID
     content: Declaration
   }
 }

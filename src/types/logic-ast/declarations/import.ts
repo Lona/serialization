@@ -1,9 +1,9 @@
-import { Pattern } from '../'
+import { Pattern, UUID } from '../'
 
 export type ImportDeclaration = {
   type: 'importDeclaration'
   data: {
-    id: string
+    id: UUID
     name: Pattern
   }
 }

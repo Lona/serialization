@@ -1,9 +1,9 @@
-import { Literal } from '../'
+import { Literal, UUID } from '../'
 
 export type LiteralExpression = {
   type: 'literalExpression'
   data: {
-    id: string
+    id: UUID
     literal: Literal
   }
 }

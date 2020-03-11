@@ -1,7 +1,9 @@
+import { UUID } from '../'
+
 export type StringLiteral = {
   type: 'string'
   data: {
-    id: string
+    id: UUID
     value: string
   }
 }

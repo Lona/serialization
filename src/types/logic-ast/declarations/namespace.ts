@@ -1,9 +1,9 @@
-import { Pattern, Declaration } from '../'
+import { Pattern, Declaration, UUID } from '../'
 
 export type NamespaceDeclaration = {
   type: 'namespace'
   data: {
-    id: string
+    id: UUID
     name: Pattern
     declarations: Declaration[]
   }

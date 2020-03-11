@@ -1,15 +1,12 @@
-import { Pattern, Declaration, GenericParameter } from '../'
+import { Pattern, Declaration, GenericParameter, Comment, UUID } from '../'
 
 export type RecordDeclaration = {
   type: 'record'
   data: {
-    id: string
+    id: UUID
     name: Pattern
     genericParameters: GenericParameter[]
     declarations: Declaration[]
-    comment?: {
-      id: string
-      string: string
-    }
+    comment?: Comment
   }
 }

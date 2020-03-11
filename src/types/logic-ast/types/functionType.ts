@@ -1,9 +1,9 @@
-import { TypeAnnotation } from '../'
+import { TypeAnnotation, UUID } from '../'
 
 export type FunctionTypeTypeAnnotation = {
   type: 'functionType'
   data: {
-    id: string
+    id: UUID
     returnType: TypeAnnotation
     argumentTypes: TypeAnnotation[]
   }

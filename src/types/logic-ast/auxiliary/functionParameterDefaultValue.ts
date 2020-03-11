@@ -1,14 +1,14 @@
-import { Expression } from '../'
+import { Expression, UUID } from '../'
 
 export type NoneFunctionParameterDefaultValue = {
   type: 'none'
-  data: { id: string }
+  data: { id: UUID }
 }
 
 export type ValueFunctionParameterDefaultValue = {
   type: 'value'
   data: {
-    id: string
+    id: UUID
     expression: Expression
   }
 }

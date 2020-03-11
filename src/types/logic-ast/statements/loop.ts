@@ -1,10 +1,10 @@
-import { Expression, Statement } from '../'
+import { Expression, Statement, UUID } from '../'
 
 export type LoopStatement = {
   type: 'loop'
   data: {
     expression: Expression
     block: Statement[]
-    id: string
+    id: UUID
   }
 }
