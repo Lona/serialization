@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid'
 import * as AST from '../../types/logic-ast'
 import { indentBlock, repeat } from '../../formatting'
-import { assertNever } from '../../utils'
+import { assertNever, rng } from '../../utils'
 import parser from './pegjs/logicSwiftParser'
 
 function noPlaceholder(x: AST.SyntaxNode) {
@@ -9,7 +9,10 @@ function noPlaceholder(x: AST.SyntaxNode) {
 }
 
 export function parse(code: string, options?: {}): AST.SyntaxNode {
-  return parser.parse(code, Object.assign({ generateId: uuid }, options))
+  return parser.parse(
+    code,
+    Object.assign({ generateId: () => uuid({ rng }) }, options)
+  )
 }
 
 function printComment(node: AST.SyntaxNode, additionalComment: string = '') {

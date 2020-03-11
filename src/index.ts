@@ -15,6 +15,8 @@ import * as MDXAST from './types/lona-ast'
 import * as LogicAST from './types/logic-ast'
 import * as TypesAST from './types/types-ast'
 
+import { rng } from './utils'
+
 // Document
 
 function decodeDocument(
@@ -91,7 +93,7 @@ function extractProgramFromAST(ast: { children: MDXAST.Content[] }) {
   const topLevelDeclarations: LogicAST.TopLevelDeclarations = {
     data: {
       declarations: flattened,
-      id: uuid().toUpperCase(),
+      id: uuid({ rng }).toUpperCase(),
     },
     type: 'topLevelDeclarations',
   }
