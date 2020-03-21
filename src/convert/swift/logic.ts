@@ -175,7 +175,7 @@ ${printedDeclarations}
           .filter(noPlaceholder)
           .map(printNode)
           .map(x => indentBlock(x, indent))
-          .join('\n\n')
+          .join(',\n')
 
         return `[
 ${printedExpressions}
