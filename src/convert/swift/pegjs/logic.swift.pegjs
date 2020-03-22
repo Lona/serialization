@@ -512,7 +512,7 @@ intValue = [+\-] ? [0-9]+ { return Number(text()) }
 
 booleanValue = "true" / "false" { return text() === "true" }
 
-stringValue = "\"" (! "\"" .)* "\"" { return text().slice(1, -1) }
+stringValue = "\"" ([^\""\\"] / "\\".)* "\"" { return text().slice(1, -1).replace(/\\"/g, '"') }
 
 arrayValue = "[" _ expressionList:expressionList? _ "]" {
   return normalizeListWithPlaceholder(expressionList)

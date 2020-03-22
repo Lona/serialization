@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`color literal Example 1 1`] = `
+Object {
+  "data": Object {
+    "id": "0",
+    "literal": Object {
+      "data": Object {
+        "id": "0",
+        "value": "#123456",
+      },
+      "type": "color",
+    },
+  },
+  "type": "literalExpression",
+}
+`;
+
+exports[`color literal Example 2 1`] = `
+Object {
+  "data": Object {
+    "id": "0",
+    "literal": Object {
+      "data": Object {
+        "id": "0",
+        "value": "red",
+      },
+      "type": "color",
+    },
+  },
+  "type": "literalExpression",
+}
+`;

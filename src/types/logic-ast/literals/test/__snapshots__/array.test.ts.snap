@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`array literal Example 1 1`] = `
+Object {
+  "data": Object {
+    "id": "0",
+    "literal": Object {
+      "data": Object {
+        "id": "0",
+        "value": Array [
+          Object {
+            "data": Object {
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "a",
+              },
+            },
+            "type": "identifierExpression",
+          },
+          Object {
+            "data": Object {
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "b",
+              },
+            },
+            "type": "identifierExpression",
+          },
+          Object {
+            "data": Object {
+              "id": "0",
+            },
+            "type": "placeholder",
+          },
+        ],
+      },
+      "type": "array",
+    },
+  },
+  "type": "literalExpression",
+}
+`;

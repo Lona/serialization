@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`boolean literal Example 1 1`] = `
+Object {
+  "data": Object {
+    "id": "0",
+    "literal": Object {
+      "data": Object {
+        "id": "0",
+        "value": "true",
+      },
+      "type": "boolean",
+    },
+  },
+  "type": "literalExpression",
+}
+`;
+
+exports[`boolean literal Example 2 1`] = `
+Object {
+  "data": Object {
+    "id": "0",
+    "literal": Object {
+      "data": Object {
+        "id": "0",
+        "value": false,
+      },
+      "type": "boolean",
+    },
+  },
+  "type": "literalExpression",
+}
+`;

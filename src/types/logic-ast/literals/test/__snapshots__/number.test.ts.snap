@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`number literal Example 1 1`] = `
+Object {
+  "data": Object {
+    "id": "0",
+    "literal": Object {
+      "data": Object {
+        "id": "0",
+        "value": 1,
+      },
+      "type": "number",
+    },
+  },
+  "type": "literalExpression",
+}
+`;
+
+exports[`number literal Example 2 1`] = `
+Object {
+  "data": Object {
+    "id": "0",
+    "literal": Object {
+      "data": Object {
+        "id": "0",
+        "value": 0.1,
+      },
+      "type": "number",
+    },
+  },
+  "type": "literalExpression",
+}
+`;
+
+exports[`number literal Example 3 1`] = `
+Object {
+  "data": Object {
+    "id": "0",
+    "literal": Object {
+      "data": Object {
+        "id": "0",
+        "value": -1,
+      },
+      "type": "number",
+    },
+  },
+  "type": "literalExpression",
+}
+`;

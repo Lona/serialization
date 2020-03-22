@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`string literal Example 1 1`] = `
+Object {
+  "data": Object {
+    "id": "0",
+    "literal": Object {
+      "data": Object {
+        "id": "0",
+        "value": "hello",
+      },
+      "type": "string",
+    },
+  },
+  "type": "literalExpression",
+}
+`;
+
+exports[`string literal Example 2 1`] = `
+Object {
+  "data": Object {
+    "id": "0",
+    "literal": Object {
+      "data": Object {
+        "id": "0",
+        "value": "Hello \\"world\\"",
+      },
+      "type": "string",
+    },
+  },
+  "type": "literalExpression",
+}
+`;
