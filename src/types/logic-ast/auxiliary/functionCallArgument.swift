@@ -53,7 +53,7 @@ public indirect enum LGCFunctionCallArgument: Codable & Equatable & Equivalentab
   public func isEquivalentTo(_ node: Optional<LGCFunctionCallArgument>) -> Bool {
     guard let node = node else { return false }
     switch (self, node) {
-      case (.placeholder(_), .placeholder(_)):
+      case (.placeholder, .placeholder):
         return true
       case (.argument(let a), .argument(let b)):
         return a.expression.isEquivalentTo(b.expression) && (a.label ?? "") == (b.label ?? "")
@@ -61,11 +61,19 @@ public indirect enum LGCFunctionCallArgument: Codable & Equatable & Equivalentab
         return false
     }
   }
+}
 
-  public func isPlaceholderNode() -> Bool {
-    if case .placeholder = self {
+extension LGCFunctionCallArgument: SyntaxNodePlaceholdable {
+  public var isPlaceholder: Bool {
+    switch self {
+    case .placeholder:
       return true
+    default:
+      return false
     }
-    return false
+  }
+
+  public static func makePlaceholder() -> LGCFunctionCallArgument {
+    return .placeholder(id: UUID())
   }
 }

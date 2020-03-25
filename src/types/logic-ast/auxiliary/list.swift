@@ -34,16 +34,26 @@ public indirect enum LGCList<T: Equatable & Codable & Equivalentable>: Codable &
     switch (self, node) {
       case (.empty, .empty):
         return true
+      case (.next(let a, let restA), .next(let b, let restB)):
+        return a.isEquivalentTo(b) && restA.isEquivalentTo(restB)
+      default:
+        return false
+    }
+  }
+}
+
+extension LGCList where T: SyntaxNodePlaceholdable {
+  public func isEquivalentTo(_ node: Optional<LGCList<T>>) -> Bool {
+    guard let node = node else { return false }
+    switch (self, node) {
+      case (.empty, .empty):
+        return true
       case (.empty,  .next(let b, let restB)):
-        return b.isPlaceholderNode() && self.isEquivalentTo(restB)
+        return b.isPlaceholder && self.isEquivalentTo(restB)
       case (.next(let a, let restA), .empty):
-        return a.isPlaceholderNode() && node.isEquivalentTo(restA)
+        return a.isPlaceholder && node.isEquivalentTo(restA)
       case (.next(let a, let restA), .next(let b, let restB)):
         return a.isEquivalentTo(b) && restA.isEquivalentTo(restB)
     }
-  }
-
-  public func isPlaceholderNode() -> Bool {
-    return false
   }
 }

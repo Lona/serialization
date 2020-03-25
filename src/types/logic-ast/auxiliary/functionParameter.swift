@@ -59,7 +59,7 @@ public indirect enum LGCFunctionParameter: Codable & Equatable & Equivalentable 
   public func isEquivalentTo(_ node: Optional<LGCFunctionParameter>) -> Bool {
     guard let node = node else { return false }
     switch (self, node) {
-      case (.placeholder(_), .placeholder(_)):
+      case (.placeholder, .placeholder):
         return true
       case (.parameter(let a), .parameter(let b)):
         return a.localName.isEquivalentTo(b.localName) && a.annotation.isEquivalentTo(b.annotation) && a.defaultValue.isEquivalentTo(b.defaultValue) && (a.comment?.isEquivalentTo(b.comment) ?? false || a.comment == nil && b.comment == nil)
@@ -67,11 +67,19 @@ public indirect enum LGCFunctionParameter: Codable & Equatable & Equivalentable 
         return false
     }
   }
+}
 
-  public func isPlaceholderNode() -> Bool {
-    if case .placeholder = self {
+extension LGCFunctionParameter: SyntaxNodePlaceholdable {
+  public var isPlaceholder: Bool {
+    switch self {
+    case .placeholder:
       return true
+    default:
+      return false
     }
-    return false
+  }
+
+  public static func makePlaceholder() -> LGCFunctionParameter {
+    return .placeholder(id: UUID())
   }
 }

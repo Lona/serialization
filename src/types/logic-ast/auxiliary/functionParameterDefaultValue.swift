@@ -50,16 +50,12 @@ public indirect enum LGCFunctionParameterDefaultValue: Codable & Equatable & Equ
   public func isEquivalentTo(_ node: Optional<LGCFunctionParameterDefaultValue>) -> Bool {
     guard let node = node else { return false }
     switch (self, node) {
-      case (.none(_), .none(_)):
+      case (.none, .none):
         return true
       case (.value(let a), .value(let b)):
         return a.expression.isEquivalentTo(b.expression)
       default:
         return false
     }
-  }
-
-  public func isPlaceholderNode() -> Bool {
-    return false
   }
 }

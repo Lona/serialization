@@ -57,7 +57,7 @@ public indirect enum LGCEnumerationCase: Codable & Equatable & Equivalentable {
   public func isEquivalentTo(_ node: Optional<LGCEnumerationCase>) -> Bool {
     guard let node = node else { return false }
     switch (self, node) {
-      case (.placeholder(_), .placeholder(_)):
+      case (.placeholder, .placeholder):
         return true
       case (.enumerationCase(let a), .enumerationCase(let b)):
         return a.name.isEquivalentTo(b.name) && a.associatedValueTypes.isEquivalentTo(b.associatedValueTypes) && (a.comment?.isEquivalentTo(b.comment) ?? false || a.comment == nil && b.comment == nil)
@@ -65,11 +65,19 @@ public indirect enum LGCEnumerationCase: Codable & Equatable & Equivalentable {
         return false
     }
   }
+}
 
-  public func isPlaceholderNode() -> Bool {
-    if case .placeholder = self {
+extension LGCEnumerationCase: SyntaxNodePlaceholdable {
+  public var isPlaceholder: Bool {
+    switch self {
+    case .placeholder:
       return true
+    default:
+      return false
     }
-    return false
+  }
+
+  public static func makePlaceholder() -> LGCEnumerationCase {
+    return .placeholder(id: UUID())
   }
 }

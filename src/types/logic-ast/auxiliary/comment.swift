@@ -11,8 +11,4 @@ public struct LGCComment: Codable & Equatable & Equivalentable {
     guard let node = node else { return false }
     return self.string == node.string
   }
-
-  public func isPlaceholderNode() -> Bool {
-    return false
-  }
 }

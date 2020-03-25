@@ -160,8 +160,4 @@ public indirect enum LGCSyntaxNode: Codable & Equatable & Equivalentable {
         return false
     }
   }
-
-  public func isPlaceholderNode() -> Bool {
-    return false
-  }
 }

@@ -48,7 +48,7 @@ public indirect enum LGCGenericParameter: Codable & Equatable & Equivalentable {
   public func isEquivalentTo(_ node: Optional<LGCGenericParameter>) -> Bool {
     guard let node = node else { return false }
     switch (self, node) {
-      case (.placeholder(_), .placeholder(_)):
+      case (.placeholder, .placeholder):
         return true
       case (.parameter(let a), .parameter(let b)):
         return a.name.isEquivalentTo(b.name)
@@ -56,11 +56,19 @@ public indirect enum LGCGenericParameter: Codable & Equatable & Equivalentable {
         return false
     }
   }
+}
 
-  public func isPlaceholderNode() -> Bool {
-    if case .placeholder = self {
+extension LGCGenericParameter: SyntaxNodePlaceholdable {
+  public var isPlaceholder: Bool {
+    switch self {
+    case .placeholder:
       return true
+    default:
+      return false
     }
-    return false
+  }
+
+  public static func makePlaceholder() -> LGCGenericParameter {
+    return .placeholder(id: UUID())
   }
 }

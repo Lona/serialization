@@ -11,10 +11,6 @@ public struct LGCProgram: Codable & Equatable & Equivalentable {
     guard let node = node else { return false }
     return self.block.isEquivalentTo(node.block)
   }
-
-  public func isPlaceholderNode() -> Bool {
-    return false
-  }
 }
 
 public struct LGCTopLevelDeclarations: Codable & Equatable & Equivalentable {
@@ -30,10 +26,6 @@ public struct LGCTopLevelDeclarations: Codable & Equatable & Equivalentable {
     guard let node = node else { return false }
     return self.declarations.isEquivalentTo(node.declarations)
   }
-
-  public func isPlaceholderNode() -> Bool {
-    return false
-  }
 }
 
 public struct LGCTopLevelParameters: Codable & Equatable & Equivalentable {
@@ -48,9 +40,5 @@ public struct LGCTopLevelParameters: Codable & Equatable & Equivalentable {
   public func isEquivalentTo(_ node: Optional<LGCTopLevelParameters>) -> Bool {
     guard let node = node else { return false }
     return self.parameters.isEquivalentTo(node.parameters)
-  }
-
-  public func isPlaceholderNode() -> Bool {
-    return false
   }
 }

@@ -67,7 +67,7 @@ public indirect enum LGCTypeAnnotation: Codable & Equatable & Equivalentable {
   public func isEquivalentTo(_ node: Optional<LGCTypeAnnotation>) -> Bool {
     guard let node = node else { return false }
     switch (self, node) {
-      case (.placeholder(_), .placeholder(_)):
+      case (.placeholder, .placeholder):
         return true
       case (.typeIdentifier(let a), .typeIdentifier(let b)):
         return a.identifier.isEquivalentTo(b.identifier) && a.genericArguments.isEquivalentTo(b.genericArguments)
@@ -77,11 +77,19 @@ public indirect enum LGCTypeAnnotation: Codable & Equatable & Equivalentable {
         return false
     }
   }
+}
 
-  public func isPlaceholderNode() -> Bool {
-    if case .placeholder = self {
+extension LGCTypeAnnotation: SyntaxNodePlaceholdable {
+  public var isPlaceholder: Bool {
+    switch self {
+    case .placeholder:
       return true
+    default:
+      return false
     }
-    return false
+  }
+
+  public static func makePlaceholder() -> LGCTypeAnnotation {
+    return .placeholder(id: UUID())
   }
 }

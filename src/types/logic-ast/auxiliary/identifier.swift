@@ -13,8 +13,4 @@ public struct LGCIdentifier: Codable & Equatable & Equivalentable {
     guard let node = node else { return false }
     return self.string == node.string && self.isPlaceholder == node.isPlaceholder
   }
-
-  public func isPlaceholderNode() -> Bool {
-    return false
-  }
 }

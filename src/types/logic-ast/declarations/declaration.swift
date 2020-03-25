@@ -139,7 +139,7 @@ public indirect enum LGCDeclaration: Codable & Equatable & Equivalentable {
   public func isEquivalentTo(_ node: Optional<LGCDeclaration>) -> Bool {
     guard let node = node else { return false }
     switch (self, node) {
-      case (.placeholder(_), .placeholder(_)):
+      case (.placeholder, .placeholder):
         return true
       case (.variable(let a), .variable(let b)):
         return a.name.isEquivalentTo(b.name) && (a.annotation?.isEquivalentTo(b.annotation) ?? false || a.annotation == nil && b.annotation == nil) && (a.initializer?.isEquivalentTo(b.initializer) ?? false || a.initializer == nil && b.initializer == nil) && (a.comment?.isEquivalentTo(b.comment) ?? false || a.comment == nil && b.comment == nil)
@@ -157,11 +157,19 @@ public indirect enum LGCDeclaration: Codable & Equatable & Equivalentable {
         return false
     }
   }
+}
 
-  public func isPlaceholderNode() -> Bool {
-    if case .placeholder = self {
+extension LGCDeclaration: SyntaxNodePlaceholdable {
+  public var isPlaceholder: Bool {
+    switch self {
+    case .placeholder:
       return true
+    default:
+      return false
     }
-    return false
+  }
+
+  public static func makePlaceholder() -> LGCDeclaration {
+    return .placeholder(id: UUID())
   }
 }
