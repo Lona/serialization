@@ -40,4 +40,8 @@ public indirect enum LGCList<T: Equatable & Codable & Equivalentable>: Codable &
         return false
     }
   }
+
+  public func isPlaceholderNode() -> Bool {
+    return false
+  }
 }

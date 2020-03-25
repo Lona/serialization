@@ -92,4 +92,8 @@ public indirect enum LGCLiteral: Codable & Equatable & Equivalentable {
         return false
     }
   }
+
+  public func isPlaceholderNode() -> Bool {
+    return false
+  }
 }

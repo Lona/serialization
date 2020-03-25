@@ -58,4 +58,8 @@ public indirect enum LGCFunctionParameterDefaultValue: Codable & Equatable & Equ
         return false
     }
   }
+
+  public func isPlaceholderNode() -> Bool {
+    return false
+  }
 }

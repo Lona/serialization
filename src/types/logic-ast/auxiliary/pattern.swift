@@ -11,4 +11,8 @@ public struct LGCPattern: Codable & Equatable & Equivalentable {
     guard let node = node else { return false }
     return self.name == node.name
   }
+
+  public func isPlaceholderNode() -> Bool {
+    return false
+  }
 }

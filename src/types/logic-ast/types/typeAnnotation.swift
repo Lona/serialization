@@ -77,4 +77,11 @@ public indirect enum LGCTypeAnnotation: Codable & Equatable & Equivalentable {
         return false
     }
   }
+
+  public func isPlaceholderNode() -> Bool {
+    if case .placeholder = self {
+      return true
+    }
+    return false
+  }
 }

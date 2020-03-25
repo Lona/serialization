@@ -67,4 +67,11 @@ public indirect enum LGCFunctionParameter: Codable & Equatable & Equivalentable 
         return false
     }
   }
+
+  public func isPlaceholderNode() -> Bool {
+    if case .placeholder = self {
+      return true
+    }
+    return false
+  }
 }

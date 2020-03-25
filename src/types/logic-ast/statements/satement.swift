@@ -116,4 +116,17 @@ public indirect enum LGCStatement: Codable & Equatable & Equivalentable {
         return false
     }
   }
+
+  public func isPlaceholderNode() -> Bool {
+    switch self {
+      case .placeholder(_):
+        return true
+      case .declaration(let value):
+        return value.content.isPlaceholderNode()
+      case .expression(let value):
+        return value.expression.isPlaceholderNode()
+      default:
+        return false
+    }
+  }
 }
