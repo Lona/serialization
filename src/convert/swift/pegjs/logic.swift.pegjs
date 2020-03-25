@@ -199,11 +199,11 @@ namespaceDeclaration =
   }
 
 functionDeclaration =
-  comment:(comment _)? "func " _ name:pattern _ genericParameters:( "<" genericParameterList ">" )? _ "(" _ parameters:functionParameterList _ ")" _ "->" _ returnType:typeAnnotation _ "{" _ block:statementList? _ "}" {
+  comment:(comment _)? "func " _ name:pattern _ genericParameters:( "<" genericParameterList ">" )? _ "(" _ parameters:(functionParameterList)? _ ")" _ "->" _ returnType:typeAnnotation _ "{" _ block:statementList? _ "}" {
     const result = {
       block: normalizeListWithPlaceholder(block),
       genericParameters: normalizeListWithPlaceholder(genericParameters ? genericParameters[1] : []),
-      parameters: normalizeListWithPlaceholder(parameters),
+      parameters: normalizeListWithPlaceholder(parameters ? parameters : []),
       returnType,
       id: uuid(),
       name,

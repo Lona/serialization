@@ -304,3 +304,52 @@ Object {
   "type": "function",
 }
 `;
+
+exports[`enumeration declaration Example 3 1`] = `
+Object {
+  "data": Object {
+    "block": Array [
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "genericParameters": Array [
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "id": "0",
+    "name": Object {
+      "id": "0",
+      "name": "add",
+    },
+    "parameters": Array [
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "returnType": Object {
+      "data": Object {
+        "genericArguments": Array [],
+        "id": "0",
+        "identifier": Object {
+          "id": "0",
+          "isPlaceholder": false,
+          "string": "T",
+        },
+      },
+      "type": "typeIdentifier",
+    },
+  },
+  "type": "function",
+}
+`;
