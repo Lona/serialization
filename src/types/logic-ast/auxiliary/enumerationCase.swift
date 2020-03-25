@@ -54,13 +54,12 @@ public indirect enum LGCEnumerationCase: Codable & Equatable & Equivalentable {
   }
 
 
-  public func isEquivalentTo(_ node: Optional<LGCEnumerationCase>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCEnumerationCase) -> Bool {
     switch (self, node) {
       case (.placeholder, .placeholder):
         return true
       case (.enumerationCase(let a), .enumerationCase(let b)):
-        return a.name.isEquivalentTo(b.name) && a.associatedValueTypes.isEquivalentTo(b.associatedValueTypes) && (a.comment?.isEquivalentTo(b.comment) ?? false || a.comment == nil && b.comment == nil)
+        return a.name.isEquivalentTo(b.name) && a.associatedValueTypes.isEquivalentTo(b.associatedValueTypes) && a.comment.isEquivalentTo(b.comment)
       default:
         return false
     }

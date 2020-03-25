@@ -7,8 +7,7 @@ public struct LGCComment: Codable & Equatable & Equivalentable {
   public var id: UUID
   public var string: String
 
-  public func isEquivalentTo(_ node: Optional<LGCComment>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCComment) -> Bool {
     return self.string == node.string
   }
 }

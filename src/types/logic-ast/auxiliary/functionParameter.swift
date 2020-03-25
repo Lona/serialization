@@ -56,13 +56,12 @@ public indirect enum LGCFunctionParameter: Codable & Equatable & Equivalentable 
     }
   }
 
-  public func isEquivalentTo(_ node: Optional<LGCFunctionParameter>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCFunctionParameter) -> Bool {
     switch (self, node) {
       case (.placeholder, .placeholder):
         return true
       case (.parameter(let a), .parameter(let b)):
-        return a.localName.isEquivalentTo(b.localName) && a.annotation.isEquivalentTo(b.annotation) && a.defaultValue.isEquivalentTo(b.defaultValue) && (a.comment?.isEquivalentTo(b.comment) ?? false || a.comment == nil && b.comment == nil)
+        return a.localName.isEquivalentTo(b.localName) && a.annotation.isEquivalentTo(b.annotation) && a.defaultValue.isEquivalentTo(b.defaultValue) && a.comment.isEquivalentTo(b.comment)
       default:
         return false
     }

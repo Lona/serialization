@@ -45,8 +45,7 @@ public indirect enum LGCGenericParameter: Codable & Equatable & Equivalentable {
     }
   }
 
-  public func isEquivalentTo(_ node: Optional<LGCGenericParameter>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCGenericParameter) -> Bool {
     switch (self, node) {
       case (.placeholder, .placeholder):
         return true

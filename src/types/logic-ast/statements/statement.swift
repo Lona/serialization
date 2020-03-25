@@ -97,8 +97,7 @@ public indirect enum LGCStatement: Codable & Equatable & Equivalentable {
     }
   }
 
-  public func isEquivalentTo(_ node: Optional<LGCStatement>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCStatement) -> Bool {
     switch (self, node) {
       case (.placeholder, .placeholder):
         return true

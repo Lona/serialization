@@ -7,8 +7,7 @@ public struct LGCPattern: Codable & Equatable & Equivalentable {
   public var id: UUID
   public var name: String
 
-  public func isEquivalentTo(_ node: Optional<LGCPattern>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCPattern) -> Bool {
     return self.name == node.name
   }
 }

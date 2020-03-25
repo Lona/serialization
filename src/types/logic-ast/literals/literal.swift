@@ -73,8 +73,7 @@ public indirect enum LGCLiteral: Codable & Equatable & Equivalentable {
     }
   }
 
-  public func isEquivalentTo(_ node: Optional<LGCLiteral>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCLiteral) -> Bool {
     switch (self, node) {
       case (.none, .none):
         return true

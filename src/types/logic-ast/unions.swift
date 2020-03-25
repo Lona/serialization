@@ -121,8 +121,7 @@ public indirect enum LGCSyntaxNode: Codable & Equatable & Equivalentable {
     }
   }
 
-  public func isEquivalentTo(_ node: Optional<LGCSyntaxNode>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCSyntaxNode) -> Bool {
     switch (self, node) {
       case (.statement(let a), .statement(let b)):
         return a.isEquivalentTo(b)

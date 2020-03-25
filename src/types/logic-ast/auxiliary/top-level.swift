@@ -7,8 +7,7 @@ public struct LGCProgram: Codable & Equatable & Equivalentable {
   public var id: UUID
   public var block: LGCList<LGCStatement>
 
-  public func isEquivalentTo(_ node: Optional<LGCProgram>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCProgram) -> Bool {
     return self.block.isEquivalentTo(node.block)
   }
 }
@@ -22,8 +21,7 @@ public struct LGCTopLevelDeclarations: Codable & Equatable & Equivalentable {
   public var id: UUID
   public var declarations: LGCList<LGCDeclaration>
 
-  public func isEquivalentTo(_ node: Optional<LGCTopLevelDeclarations>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCTopLevelDeclarations) -> Bool {
     return self.declarations.isEquivalentTo(node.declarations)
   }
 }
@@ -37,8 +35,7 @@ public struct LGCTopLevelParameters: Codable & Equatable & Equivalentable {
   public var id: UUID
   public var parameters: LGCList<LGCFunctionParameter>
 
-  public func isEquivalentTo(_ node: Optional<LGCTopLevelParameters>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCTopLevelParameters) -> Bool {
     return self.parameters.isEquivalentTo(node.parameters)
   }
 }

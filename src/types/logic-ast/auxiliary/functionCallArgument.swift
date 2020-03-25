@@ -50,8 +50,7 @@ public indirect enum LGCFunctionCallArgument: Codable & Equatable & Equivalentab
     }
   }
 
-  public func isEquivalentTo(_ node: Optional<LGCFunctionCallArgument>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCFunctionCallArgument) -> Bool {
     switch (self, node) {
       case (.placeholder, .placeholder):
         return true

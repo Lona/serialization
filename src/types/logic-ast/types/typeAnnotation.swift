@@ -64,8 +64,7 @@ public indirect enum LGCTypeAnnotation: Codable & Equatable & Equivalentable {
     }
   }
 
-  public func isEquivalentTo(_ node: Optional<LGCTypeAnnotation>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCTypeAnnotation) -> Bool {
     switch (self, node) {
       case (.placeholder, .placeholder):
         return true

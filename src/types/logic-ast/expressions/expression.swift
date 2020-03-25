@@ -100,8 +100,7 @@ public indirect enum LGCExpression: Codable & Equatable & Equivalentable {
     }
   }
 
-  public func isEquivalentTo(_ node: Optional<LGCExpression>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCExpression) -> Bool {
     switch (self, node) {
       case (.placeholder, .placeholder):
         return true

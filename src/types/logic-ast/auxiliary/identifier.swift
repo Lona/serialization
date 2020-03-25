@@ -9,8 +9,7 @@ public struct LGCIdentifier: Codable & Equatable & Equivalentable {
   public var string: String
   public var isPlaceholder: Bool
 
-  public func isEquivalentTo(_ node: Optional<LGCIdentifier>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCIdentifier) -> Bool {
     return self.string == node.string && self.isPlaceholder == node.isPlaceholder
   }
 }
