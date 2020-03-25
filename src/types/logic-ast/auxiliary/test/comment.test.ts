@@ -8,14 +8,14 @@ describe('comments', () => {
  * comment for the function
  * on multiple line
  */
-func and(a: Boolean, b: Boolean): Boolean {}`,
+func and(a: Boolean, b: Boolean) -> Boolean {}`,
     `/*
  * comment for the function
  * on multiple line
  *
  * @param a - comment for the parameter
  */
-func and(a: Boolean, b: Boolean): Boolean {}`,
+func and(a: Boolean, b: Boolean) -> Boolean {}`,
     `/*
  * comment for the function
  * on multiple line
@@ -24,7 +24,7 @@ func and(a: Boolean, b: Boolean): Boolean {}`,
  *            which continues here
  * @param b - another comment
  */
-func and(a: Boolean, b: Boolean): Boolean {}`,
+func and(a: Boolean, b: Boolean) -> Boolean {}`,
   ]
 
   codeExamples.forEach((code, i) =>

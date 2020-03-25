@@ -4,8 +4,8 @@ jest.mock('uuid', () => ({ v4: () => '0' }))
 
 describe('enumeration declaration', () => {
   const codeExamples = [
-    `func add<T>(a: T, b: T = 0): T {}`,
-    `func add<T>(a: T, b: T = 0): T {
+    `func add<T>(a: T, b: T = 0) -> T {}`,
+    `func add<T>(a: T, b: T = 0) -> T {
   print(text: a)
 }`,
   ]

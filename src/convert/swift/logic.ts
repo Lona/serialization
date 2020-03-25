@@ -235,7 +235,7 @@ ${node.data.block
           node.data.name.name
         }${
           generics.length ? `<${generics.map(printNode).join(', ')}>` : ''
-        }(${params.map(printNode).join(', ')}): ${printNode(
+        }(${params.map(printNode).join(', ')}) -> ${printNode(
           node.data.returnType
         )} ${
           body.length
