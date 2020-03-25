@@ -1,4 +1,4 @@
-public indirect enum LGCSyntaxNode: Codable & Equatable {
+public indirect enum LGCSyntaxNode: Codable & Equatable & Equivalentable {
   case statement(LGCStatement)
   case declaration(LGCDeclaration)
   case identifier(LGCIdentifier)
@@ -118,6 +118,46 @@ public indirect enum LGCSyntaxNode: Codable & Equatable {
       case .functionCallArgument(let value):
         try container.encode("functionCallArgument", forKey: .type)
         try container.encode(value, forKey: .data)
+    }
+  }
+
+  public func isEquivalentTo(_ node: Optional<LGCSyntaxNode>) -> Bool {
+    guard let node = node else { return false }
+    switch (self, node) {
+      case (.statement(let a), .statement(let b)):
+        return a.isEquivalentTo(b)
+      case (.declaration(let a), .declaration(let b)):
+        return a.isEquivalentTo(b)
+      case (.identifier(let a), .identifier(let b)):
+        return a.isEquivalentTo(b)
+      case (.expression(let a), .expression(let b)):
+        return a.isEquivalentTo(b)
+      case (.pattern(let a), .pattern(let b)):
+        return a.isEquivalentTo(b)
+      case (.program(let a), .program(let b)):
+        return a.isEquivalentTo(b)
+      case (.functionParameter(let a), .functionParameter(let b)):
+        return a.isEquivalentTo(b)
+      case (.functionParameterDefaultValue(let a), .functionParameterDefaultValue(let b)):
+        return a.isEquivalentTo(b)
+      case (.typeAnnotation(let a), .typeAnnotation(let b)):
+        return a.isEquivalentTo(b)
+      case (.literal(let a), .literal(let b)):
+        return a.isEquivalentTo(b)
+      case (.topLevelParameters(let a), .topLevelParameters(let b)):
+        return a.isEquivalentTo(b)
+      case (.enumerationCase(let a), .enumerationCase(let b)):
+        return a.isEquivalentTo(b)
+      case (.genericParameter(let a), .genericParameter(let b)):
+        return a.isEquivalentTo(b)
+      case (.topLevelDeclarations(let a), .topLevelDeclarations(let b)):
+        return a.isEquivalentTo(b)
+      case (.comment(let a), .comment(let b)):
+        return a.isEquivalentTo(b)
+      case (.functionCallArgument(let a), .functionCallArgument(let b)):
+        return a.isEquivalentTo(b)
+      default:
+        return false
     }
   }
 }

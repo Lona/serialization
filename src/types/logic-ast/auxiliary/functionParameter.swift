@@ -1,4 +1,4 @@
-public indirect enum LGCFunctionParameter: Codable & Equatable {
+public indirect enum LGCFunctionParameter: Codable & Equatable & Equivalentable {
   case parameter(id: UUID, localName: LGCPattern, annotation: LGCTypeAnnotation, defaultValue: LGCFunctionParameterDefaultValue, comment: Optional<LGCComment>)
   case placeholder(id: UUID)
 
@@ -53,6 +53,18 @@ public indirect enum LGCFunctionParameter: Codable & Equatable {
       case .placeholder(let value):
         try container.encode("placeholder", forKey: .type)
         try data.encode(value, forKey: .id)
+    }
+  }
+
+  public func isEquivalentTo(_ node: Optional<LGCFunctionParameter>) -> Bool {
+    guard let node = node else { return false }
+    switch (self, node) {
+      case (.placeholder(_), .placeholder(_)):
+        return true
+      case (.parameter(let a), .parameter(let b)):
+        return a.localName.isEquivalentTo(b.localName) && a.annotation.isEquivalentTo(b.annotation) && a.defaultValue.isEquivalentTo(b.defaultValue) && (a.comment?.isEquivalentTo(b.comment) ?? false || a.comment == nil && b.comment == nil)
+      default:
+        return false
     }
   }
 }

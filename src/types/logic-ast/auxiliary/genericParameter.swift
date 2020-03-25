@@ -1,4 +1,4 @@
-public indirect enum LGCGenericParameter: Codable & Equatable {
+public indirect enum LGCGenericParameter: Codable & Equatable & Equivalentable {
   case parameter(id: UUID, name: LGCPattern)
   case placeholder(id: UUID)
 
@@ -42,6 +42,18 @@ public indirect enum LGCGenericParameter: Codable & Equatable {
       case .placeholder(let value):
         try container.encode("placeholder", forKey: .type)
         try data.encode(value, forKey: .id)
+    }
+  }
+
+  public func isEquivalentTo(_ node: Optional<LGCGenericParameter>) -> Bool {
+    guard let node = node else { return false }
+    switch (self, node) {
+      case (.placeholder(_), .placeholder(_)):
+        return true
+      case (.parameter(let a), .parameter(let b)):
+        return a.name.isEquivalentTo(b.name)
+      default:
+        return false
     }
   }
 }

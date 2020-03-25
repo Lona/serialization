@@ -1,4 +1,4 @@
-public indirect enum LGCFunctionParameterDefaultValue: Codable & Equatable {
+public indirect enum LGCFunctionParameterDefaultValue: Codable & Equatable & Equivalentable {
   case none(id: UUID)
   case value(id: UUID, expression: LGCExpression)
 
@@ -44,6 +44,18 @@ public indirect enum LGCFunctionParameterDefaultValue: Codable & Equatable {
         try container.encode("value", forKey: .type)
         try data.encode(value.id, forKey: .id)
         try data.encode(value.expression, forKey: .expression)
+    }
+  }
+
+  public func isEquivalentTo(_ node: Optional<LGCFunctionParameterDefaultValue>) -> Bool {
+    guard let node = node else { return false }
+    switch (self, node) {
+      case (.none(_), .none(_)):
+        return true
+      case (.value(let a), .value(let b)):
+        return a.expression.isEquivalentTo(b.expression)
+      default:
+        return false
     }
   }
 }

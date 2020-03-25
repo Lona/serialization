@@ -1,4 +1,4 @@
-public indirect enum LGCEnumerationCase: Codable & Equatable {
+public indirect enum LGCEnumerationCase: Codable & Equatable & Equivalentable {
   case placeholder(id: UUID)
   case enumerationCase(id: UUID, name: LGCPattern, associatedValueTypes: LGCList<LGCTypeAnnotation>, comment: Optional<LGCComment>)
 
@@ -50,6 +50,19 @@ public indirect enum LGCEnumerationCase: Codable & Equatable {
         try data.encode(value.name, forKey: .name)
         try data.encode(value.associatedValueTypes, forKey: .associatedValueTypes)
         try data.encodeIfPresent(value.comment, forKey: .comment)
+    }
+  }
+
+
+  public func isEquivalentTo(_ node: Optional<LGCEnumerationCase>) -> Bool {
+    guard let node = node else { return false }
+    switch (self, node) {
+      case (.placeholder(_), .placeholder(_)):
+        return true
+      case (.enumerationCase(let a), .enumerationCase(let b)):
+        return a.name.isEquivalentTo(b.name) && a.associatedValueTypes.isEquivalentTo(b.associatedValueTypes) && (a.comment?.isEquivalentTo(b.comment) ?? false || a.comment == nil && b.comment == nil)
+      default:
+        return false
     }
   }
 }

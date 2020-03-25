@@ -1,4 +1,4 @@
-public indirect enum LGCList<T: Equatable & Codable>: Codable & Equatable {
+public indirect enum LGCList<T: Equatable & Codable & Equivalentable>: Codable & Equatable & Equivalentable {
   case next(T, LGCList)
   case empty
 
@@ -26,6 +26,18 @@ public indirect enum LGCList<T: Equatable & Codable>: Codable & Equatable {
     while case let .next(item, next) = head {
       try unkeyedContainer.encode(item)
       head = next
+    }
+  }
+
+  public func isEquivalentTo(_ node: Optional<LGCList<T>>) -> Bool {
+    guard let node = node else { return false }
+    switch (self, node) {
+      case (.empty, .empty):
+        return true
+      case (.next(let a, let restA), .next(let b, let restB)):
+        return a.isEquivalentTo(b) && restA.isEquivalentTo(restB)
+      default:
+        return false
     }
   }
 }

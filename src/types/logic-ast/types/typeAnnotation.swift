@@ -1,4 +1,4 @@
-public indirect enum LGCTypeAnnotation: Codable & Equatable {
+public indirect enum LGCTypeAnnotation: Codable & Equatable & Equivalentable {
   case typeIdentifier(id: UUID, identifier: LGCIdentifier, genericArguments: LGCList<LGCTypeAnnotation>)
   case functionType(id: UUID, returnType: LGCTypeAnnotation, argumentTypes: LGCList<LGCTypeAnnotation>)
   case placeholder(id: UUID)
@@ -61,6 +61,20 @@ public indirect enum LGCTypeAnnotation: Codable & Equatable {
       case .placeholder(let value):
         try container.encode("placeholder", forKey: .type)
         try data.encode(value, forKey: .id)
+    }
+  }
+
+  public func isEquivalentTo(_ node: Optional<LGCTypeAnnotation>) -> Bool {
+    guard let node = node else { return false }
+    switch (self, node) {
+      case (.placeholder(_), .placeholder(_)):
+        return true
+      case (.typeIdentifier(let a), .typeIdentifier(let b)):
+        return a.identifier.isEquivalentTo(b.identifier) && a.genericArguments.isEquivalentTo(b.genericArguments)
+      case (.functionType(let a), .functionType(let b)):
+        return a.returnType.isEquivalentTo(b.returnType) && a.argumentTypes.isEquivalentTo(b.argumentTypes)
+      default:
+        return false
     }
   }
 }

@@ -1,4 +1,4 @@
-public indirect enum LGCLiteral: Codable & Equatable {
+public indirect enum LGCLiteral: Codable & Equatable & Equivalentable {
   case none(id: UUID)
   case boolean(id: UUID, value: Bool)
   case number(id: UUID, value: CGFloat)
@@ -70,6 +70,26 @@ public indirect enum LGCLiteral: Codable & Equatable {
         try container.encode("array", forKey: .type)
         try data.encode(value.id, forKey: .id)
         try data.encode(value.value, forKey: .value)
+    }
+  }
+
+  public func isEquivalentTo(_ node: Optional<LGCLiteral>) -> Bool {
+    guard let node = node else { return false }
+    switch (self, node) {
+      case (.none(_), .none(_)):
+        return true
+      case (.boolean(let a), .boolean(let b)):
+        return a.value == b.value
+      case (.number(let a), .number(let b)):
+        return a.value == b.value
+      case (.string(let a), .string(let b)):
+        return a.value == b.value
+      case (.color(let a), .color(let b)):
+        return a.value == b.value
+      case (.array(let a), .array(let b)):
+        return a.value.isEquivalentTo(b.value)
+      default:
+        return false
     }
   }
 }

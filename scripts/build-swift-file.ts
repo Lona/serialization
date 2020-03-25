@@ -11,7 +11,8 @@ const outputPath = path.join(__dirname, '../dist')
 
 fs.mkdirSync(outputPath, { recursive: true })
 
-let content = 'import Foundation'
+let content =
+  'import Foundation\n\npublic protocol Equivalentable {\n  func isEquivalentTo(_ node: Optional<Self>) -> Bool\n}'
 
 function walk(dirPath: string) {
   const children = fs.readdirSync(dirPath)

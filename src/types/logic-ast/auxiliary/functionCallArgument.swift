@@ -1,4 +1,4 @@
-public indirect enum LGCFunctionCallArgument: Codable & Equatable {
+public indirect enum LGCFunctionCallArgument: Codable & Equatable & Equivalentable {
   case argument(id: UUID, label: Optional<String>, expression: LGCExpression)
   case placeholder(id: UUID)
 
@@ -47,6 +47,18 @@ public indirect enum LGCFunctionCallArgument: Codable & Equatable {
       case .placeholder(let value):
         try container.encode("placeholder", forKey: .type)
         try data.encode(value, forKey: .id)
+    }
+  }
+
+  public func isEquivalentTo(_ node: Optional<LGCFunctionCallArgument>) -> Bool {
+    guard let node = node else { return false }
+    switch (self, node) {
+      case (.placeholder(_), .placeholder(_)):
+        return true
+      case (.argument(let a), .argument(let b)):
+        return a.expression.isEquivalentTo(b.expression) && (a.label ?? "") == (b.label ?? "")
+      default:
+        return false
     }
   }
 }

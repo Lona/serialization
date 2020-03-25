@@ -1,4 +1,4 @@
-public indirect enum LGCDeclaration: Codable & Equatable {
+public indirect enum LGCDeclaration: Codable & Equatable & Equivalentable {
   case enumeration(id: UUID, name: LGCPattern, genericParameters: LGCList<LGCGenericParameter>, cases: LGCList<LGCEnumerationCase>, comment: Optional<LGCComment>)
   case function(id: UUID, name: LGCPattern, returnType: LGCTypeAnnotation, genericParameters: LGCList<LGCGenericParameter>, parameters: LGCList<LGCFunctionParameter>, block: LGCList<LGCStatement>, comment: Optional<LGCComment>)
   case importDeclaration(id: UUID, name: LGCPattern)
@@ -133,6 +133,28 @@ public indirect enum LGCDeclaration: Codable & Equatable {
         try container.encode("importDeclaration", forKey: .type)
         try data.encode(value.id, forKey: .id)
         try data.encode(value.name, forKey: .name)
+    }
+  }
+
+  public func isEquivalentTo(_ node: Optional<LGCDeclaration>) -> Bool {
+    guard let node = node else { return false }
+    switch (self, node) {
+      case (.placeholder(_), .placeholder(_)):
+        return true
+      case (.variable(let a), .variable(let b)):
+        return a.name.isEquivalentTo(b.name) && (a.annotation?.isEquivalentTo(b.annotation) ?? false || a.annotation == nil && b.annotation == nil) && (a.initializer?.isEquivalentTo(b.initializer) ?? false || a.initializer == nil && b.initializer == nil) && (a.comment?.isEquivalentTo(b.comment) ?? false || a.comment == nil && b.comment == nil)
+      case (.function(let a), .function(let b)):
+        return a.name.isEquivalentTo(b.name) && a.returnType.isEquivalentTo(b.returnType) && a.genericParameters.isEquivalentTo(b.genericParameters) && a.parameters.isEquivalentTo(b.parameters) && a.block.isEquivalentTo(b.block) && (a.comment?.isEquivalentTo(b.comment) ?? false || a.comment == nil && b.comment == nil)
+      case (.enumeration(let a), .enumeration(let b)):
+        return a.name.isEquivalentTo(b.name) && a.genericParameters.isEquivalentTo(b.genericParameters) && a.cases.isEquivalentTo(b.cases) && (a.comment?.isEquivalentTo(b.comment) ?? false || a.comment == nil && b.comment == nil)
+      case (.namespace(let a), .namespace(let b)):
+        return a.name.isEquivalentTo(b.name) && a.declarations.isEquivalentTo(b.declarations)
+      case (.record(let a), .record(let b)):
+        return a.name.isEquivalentTo(b.name) && a.genericParameters.isEquivalentTo(b.genericParameters) && a.declarations.isEquivalentTo(b.declarations) && (a.comment?.isEquivalentTo(b.comment) ?? false || a.comment == nil && b.comment == nil)
+      case (.importDeclaration(let a), .importDeclaration(let b)):
+        return a.name.isEquivalentTo(b.name)
+      default:
+        return false
     }
   }
 }

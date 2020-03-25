@@ -1,4 +1,4 @@
-public indirect enum LGCExpression: Codable & Equatable {
+public indirect enum LGCExpression: Codable & Equatable & Equivalentable {
   case assignmentExpression(left: LGCExpression, right: LGCExpression, id: UUID)
   case functionCallExpression(id: UUID, expression: LGCExpression, arguments: LGCList<LGCFunctionCallArgument>)
   case identifierExpression(id: UUID, identifier: LGCIdentifier)
@@ -97,6 +97,26 @@ public indirect enum LGCExpression: Codable & Equatable {
       case .placeholder(let value):
         try container.encode("placeholder", forKey: .type)
         try data.encode(value, forKey: .id)
+    }
+  }
+
+  public func isEquivalentTo(_ node: Optional<LGCExpression>) -> Bool {
+    guard let node = node else { return false }
+    switch (self, node) {
+      case (.placeholder(_), .placeholder(_)):
+        return true
+      case (.assignmentExpression(let a), .assignmentExpression(let b)):
+        return a.left.isEquivalentTo(b.left) && a.right.isEquivalentTo(b.right)
+      case (.identifierExpression(let a), .identifierExpression(let b)):
+        return a.identifier.isEquivalentTo(b.identifier)
+      case (.functionCallExpression(let a), .functionCallExpression(let b)):
+        return a.expression.isEquivalentTo(b.expression) && a.arguments.isEquivalentTo(b.arguments)
+      case (.literalExpression(let a), .literalExpression(let b)):
+        return a.literal.isEquivalentTo(b.literal)
+      case (.memberExpression(let a), .memberExpression(let b)):
+        return a.expression.isEquivalentTo(b.expression) && a.memberName.isEquivalentTo(b.memberName)
+      default:
+        return false
     }
   }
 }

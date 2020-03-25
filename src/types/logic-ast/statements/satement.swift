@@ -1,4 +1,4 @@
-public indirect enum LGCStatement: Codable & Equatable {
+public indirect enum LGCStatement: Codable & Equatable & Equivalentable {
   case branch(id: UUID, condition: LGCExpression, block: LGCList<LGCStatement>)
   case declaration(id: UUID, content: LGCDeclaration)
   case expressionStatement(id: UUID, expression: LGCExpression)
@@ -94,6 +94,26 @@ public indirect enum LGCStatement: Codable & Equatable {
       case .placeholder(let value):
         try container.encode("placeholder", forKey: .type)
         try data.encode(value, forKey: .id)
+    }
+  }
+
+  public func isEquivalentTo(_ node: Optional<LGCStatement>) -> Bool {
+    guard let node = node else { return false }
+    switch (self, node) {
+      case (.placeholder(_), .placeholder(_)):
+        return true
+      case (.loop(let a), .loop(let b)):
+        return a.pattern.isEquivalentTo(b.pattern) && a.expression.isEquivalentTo(b.expression) && a.block.isEquivalentTo(b.block)
+      case (.branch(let a), .branch(let b)):
+        return a.condition.isEquivalentTo(b.condition) && a.block.isEquivalentTo(b.block)
+      case (.declaration(let a), .declaration(let b)):
+        return a.content.isEquivalentTo(b.content)
+      case (.expressionStatement(let a), .expressionStatement(let b)):
+        return a.expression.isEquivalentTo(b.expression)
+      case (.returnStatement(let a), .returnStatement(let b)):
+        return a.expression.isEquivalentTo(b.expression)
+      default:
+        return false
     }
   }
 }
