@@ -4,8 +4,13 @@ import * as json from './convert/json/logic'
 import * as swift from './convert/swift/logic'
 
 import { normalizeFormat, SERIALIZATION_FORMAT } from './lona-format'
+import { parsingError } from './utils'
 
-export function decodeLogic(contents: string, format?: SERIALIZATION_FORMAT) {
+export function decodeLogic(
+  contents: string,
+  format?: SERIALIZATION_FORMAT,
+  options: { filePath?: string; offset?: number } = {}
+) {
   const sourceFormat = normalizeFormat(contents, format)
   try {
     switch (sourceFormat) {
@@ -17,7 +22,10 @@ export function decodeLogic(contents: string, format?: SERIALIZATION_FORMAT) {
         throw new Error(`Unknown decoding format ${sourceFormat}`)
     }
   } catch (e) {
-    console.error(e)
+    if (e.name === 'SyntaxError' && e.location) {
+      // that's a pegjs error, let's format it nicely
+      throw parsingError(contents, e, options)
+    }
     throw new Error(`Failed to decode logic as ${sourceFormat}.\n\n${e}`)
   }
 }
@@ -41,12 +49,16 @@ export function encodeLogic(ast: AST.SyntaxNode, format: SERIALIZATION_FORMAT) {
 export function convertLogic(
   contents: string,
   targetFormat: SERIALIZATION_FORMAT,
-  options: { sourceFormat?: SERIALIZATION_FORMAT } = {}
+  options: {
+    sourceFormat?: SERIALIZATION_FORMAT
+    filePath?: string
+    offset?: number
+  } = {}
 ) {
   const sourceFormat = normalizeFormat(contents, options.sourceFormat)
 
   if (sourceFormat === targetFormat) return contents
 
-  const ast = decodeLogic(contents, sourceFormat)
+  const ast = decodeLogic(contents, sourceFormat, options)
   return encodeLogic(ast, targetFormat)
 }

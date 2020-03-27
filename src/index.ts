@@ -21,7 +21,8 @@ import { rng } from './utils'
 
 function decodeDocument(
   contents: string,
-  format?: SERIALIZATION_FORMAT
+  format?: SERIALIZATION_FORMAT,
+  filePath?: string
 ): { children: MDXAST.Content[] } {
   const sourceFormat = normalizeFormat(contents, format)
   try {
@@ -29,7 +30,7 @@ function decodeDocument(
       case SERIALIZATION_FORMAT.JSON:
         return JSON.parse(contents)
       case SERIALIZATION_FORMAT.SOURCE:
-        return mdx.parse(contents, convertLogic)
+        return mdx.parse(contents, filePath)
       default:
         throw new Error(`Unknown decoding format ${sourceFormat}`)
     }
@@ -52,7 +53,7 @@ function encodeDocument(
       case SERIALIZATION_FORMAT.JSON:
         return stringify(ast, { space: '  ' })
       case SERIALIZATION_FORMAT.SOURCE:
-        return mdx.print(ast, convertLogic, options)
+        return mdx.print(ast, options)
       default:
         throw new Error(`Unknown encoding format ${format}`)
     }
@@ -68,13 +69,14 @@ function convertDocument(
   options: {
     sourceFormat?: SERIALIZATION_FORMAT
     embeddedFormat?: SERIALIZATION_FORMAT
+    filePath?: string
   } = {}
 ) {
   const sourceFormat = normalizeFormat(contents, options.sourceFormat)
 
   if (sourceFormat === targetFormat && !options.embeddedFormat) return contents
 
-  const ast = decodeDocument(contents, sourceFormat)
+  const ast = decodeDocument(contents, sourceFormat, options.filePath)
   return encodeDocument(ast, targetFormat, options)
 }
 

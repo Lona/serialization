@@ -1,5 +1,7 @@
 import mdx from '@mdx-js/mdx'
 
+import { convertLogic } from './lona-logic'
+
 import FlattenImageParagraphs from 'mdast-flatten-image-paragraphs'
 import flattenParagraphs from './mdast-transforms/flattenParagraphs'
 import moveToRoot from './mdast-transforms/moveToRoot'
@@ -54,10 +56,7 @@ function removeExtras(ast: MDAST.Root) {
   })
 }
 
-export function parse(
-  src: string,
-  convertLogic: (contents: string, targetFormat: SERIALIZATION_FORMAT) => string
-) {
+export function parse(src: string, filePath?: string) {
   const mdast = getOutputs(src).mdast
 
   const transforms = [
@@ -67,7 +66,7 @@ export function parse(
     moveToRoot('blockquote'),
     removeExtras,
     parsePage(),
-    parseTokens(convertLogic),
+    parseTokens(src, filePath),
     moveToRoot('page'),
   ]
 
@@ -119,13 +118,10 @@ export function printNode(mdxBlockNode: AST.Content) {
 
 export function print(
   normalizedFormat: { children: AST.Content[] },
-  convertLogic: (
-    contents: string,
-    targetFormat: SERIALIZATION_FORMAT
-  ) => string,
   options: {
     sourceFormat?: SERIALIZATION_FORMAT
     embeddedFormat?: SERIALIZATION_FORMAT
+    filePath?: string
   } = {}
 ) {
   const ast = { type: 'root', children: normalizedFormat.children.map(toMdast) }
@@ -133,7 +129,10 @@ export function print(
   const encodedTokensAst = map<MDAST.Root>(ast, node => {
     if (node.type === 'code' && node.lang === 'tokens') {
       const embeddedFormat = options.embeddedFormat || SERIALIZATION_FORMAT.JSON
-      let value = convertLogic(JSON.stringify(node.parsed), embeddedFormat)
+      let value = convertLogic(JSON.stringify(node.parsed), embeddedFormat, {
+        sourceFormat: options.sourceFormat,
+        filePath: options.filePath,
+      })
       // Prettify embedded JSON
       if (embeddedFormat === 'json') {
         value = JSON.stringify(JSON.parse(value), null, 2)
