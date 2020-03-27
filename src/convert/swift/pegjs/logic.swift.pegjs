@@ -435,7 +435,7 @@ literal =
 booleanLiteral =
   value:booleanValue {
     return {
-      data: { id: uuid(), value },
+      data: { id: uuid(), value: !!value },
       type: 'boolean',
     }
   }

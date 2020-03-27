@@ -7,7 +7,7 @@ Object {
     "literal": Object {
       "data": Object {
         "id": "0",
-        "value": "true",
+        "value": true,
       },
       "type": "boolean",
     },
