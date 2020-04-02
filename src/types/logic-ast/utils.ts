@@ -1,97 +1,84 @@
 import { SyntaxNode } from './'
+import { assertNever } from '../../utils'
 
 export function subNodes(node: SyntaxNode): SyntaxNode[] {
-  if (node.type === 'loop') {
-    return ([node.data.expression] as SyntaxNode[]).concat(node.data.block)
-  }
-  if (node.type === 'branch') {
-    return ([node.data.condition] as SyntaxNode[]).concat(node.data.block)
-  }
-  if (node.type === 'declaration') {
-    return [node.data.content]
-  }
-  if (node.type === 'expression') {
-    return [node.data.expression]
-  }
-
-  if (node.type === 'variable') {
-    return ([] as SyntaxNode[])
-      .concat(node.data.annotation ? [node.data.annotation] : [])
-      .concat(node.data.initializer ? [node.data.initializer] : [])
-  }
-  if (node.type === 'function') {
-    return ([node.data.returnType] as SyntaxNode[])
-      .concat(node.data.genericParameters)
-      .concat(node.data.parameters)
-      .concat(node.data.block)
-  }
-  if (node.type === 'enumeration') {
-    return ([] as SyntaxNode[])
-      .concat(node.data.genericParameters)
-      .concat(node.data.cases)
-  }
-  if (node.type === 'namespace') {
-    return node.data.declarations
-  }
-  if (node.type === 'record') {
-    return ([] as SyntaxNode[])
-      .concat(node.data.declarations)
-      .concat(node.data.genericParameters)
-  }
-  if (node.type === 'assignmentExpression') {
-    return [node.data.left, node.data.right]
-  }
-  if (node.type === 'functionCallExpression') {
-    return ([node.data.expression] as SyntaxNode[]).concat(node.data.arguments)
-  }
-  if (node.type === 'literalExpression') {
-    return [node.data.literal]
-  }
-  if (node.type === 'memberExpression') {
-    return [node.data.expression]
-  }
-
-  if (node.type === 'program') {
-    return node.data.block
-  }
-
-  if (node.type === 'parameter') {
-    if ('localName' in node.data) {
-      return [node.data.annotation, node.data.defaultValue]
+  switch (node.type) {
+    case 'loop':
+      return ([node.data.expression] as SyntaxNode[]).concat(node.data.block)
+    case 'branch':
+      return ([node.data.condition] as SyntaxNode[]).concat(node.data.block)
+    case 'declaration':
+      return [node.data.content]
+    case 'expression':
+      return [node.data.expression]
+    case 'variable':
+      return ([] as SyntaxNode[])
+        .concat(node.data.annotation ? [node.data.annotation] : [])
+        .concat(node.data.initializer ? [node.data.initializer] : [])
+    case 'function':
+      return ([node.data.returnType] as SyntaxNode[])
+        .concat(node.data.genericParameters)
+        .concat(node.data.parameters)
+        .concat(node.data.block)
+    case 'enumeration':
+      return ([] as SyntaxNode[])
+        .concat(node.data.genericParameters)
+        .concat(node.data.cases)
+    case 'namespace':
+      return node.data.declarations
+    case 'record':
+      return ([] as SyntaxNode[])
+        .concat(node.data.declarations)
+        .concat(node.data.genericParameters)
+    case 'assignmentExpression':
+      return [node.data.left, node.data.right]
+    case 'functionCallExpression':
+      return ([node.data.expression] as SyntaxNode[]).concat(
+        node.data.arguments
+      )
+    case 'literalExpression':
+      return [node.data.literal]
+    case 'memberExpression':
+      return [node.data.expression]
+    case 'program':
+      return node.data.block
+    case 'parameter': {
+      if ('localName' in node.data) {
+        return [node.data.annotation, node.data.defaultValue]
+      }
+      return []
     }
-  }
-
-  if (node.type === 'value') {
-    return [node.data.expression]
-  }
-
-  if (node.type === 'typeIdentifier') {
-    return node.data.genericArguments
-  }
-  if (node.type === 'functionType') {
-    return ([node.data.returnType] as SyntaxNode[]).concat(
-      node.data.argumentTypes
-    )
-  }
-
-  if (node.type === 'array') {
-    return node.data.value
-  }
-
-  if (node.type === 'topLevelParameters') {
-    return node.data.parameters
-  }
-
-  if (node.type === 'enumerationCase') {
-    return node.data.associatedValueTypes
-  }
-
-  if (node.type === 'topLevelDeclarations') {
-    return node.data.declarations
-  }
-
-  if (node.type === 'argument') {
-    return [node.data.expression]
+    case 'value':
+      return [node.data.expression]
+    case 'typeIdentifier':
+      return node.data.genericArguments
+    case 'functionType':
+      return ([node.data.returnType] as SyntaxNode[]).concat(
+        node.data.argumentTypes
+      )
+    case 'array':
+      return node.data.value
+    case 'enumerationCase':
+      return node.data.associatedValueTypes
+    case 'topLevelDeclarations':
+      return node.data.declarations
+    case 'argument':
+      return [node.data.expression]
+    case 'return':
+      return [node.data.expression]
+    case 'topLevelParameters':
+      return node.data.parameters
+    case 'importDeclaration':
+    case 'identifierExpression':
+    case 'boolean':
+    case 'string':
+    case 'number':
+    case 'none':
+    case 'color':
+    case 'placeholder':
+      return []
+    default:
+      assertNever(node)
   }
 
   return []
