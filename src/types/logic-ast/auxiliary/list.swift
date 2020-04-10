@@ -42,8 +42,7 @@ public indirect enum LGCList<T: Equatable & Codable & Equivalentable>: Codable &
 }
 
 extension LGCList where T: SyntaxNodePlaceholdable {
-  public func isEquivalentTo(_ node: Optional<LGCList<T>>) -> Bool {
-    guard let node = node else { return false }
+  public func isEquivalentTo(_ node: LGCList<T>) -> Bool {
     switch (self, node) {
       case (.empty, .empty):
         return true
