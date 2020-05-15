@@ -1,10 +1,10 @@
-import { Identifier, TypeAnnotation, UUID } from '..'
+import { IdentifierPattern, TypeAnnotation, UUID } from '..'
 
 export type TypeIdentifierTypeAnnotation = {
   type: 'typeIdentifier'
   data: {
     id: UUID
-    identifier: Identifier
+    identifier: IdentifierPattern
     genericArguments: TypeAnnotation[]
   }
 }

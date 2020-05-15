@@ -190,6 +190,15 @@ ${node.data.block
   .join('\n')}
 }`
       }
+      case 'expressionCondition': {
+        const { expression } = node.data
+
+        return printNode(expression)
+      }
+      case 'caseCondition': {
+        const { pattern, initializer } = node.data
+        return `case ${pattern.name} = ${printNode(initializer)}`
+      }
       case 'branch': {
         return `if ${printNode(node.data.condition)} {
 ${node.data.block

@@ -47,7 +47,7 @@ comment =
   }
 
 enumerationCase =
-  comment:(comment _)? "case " _ name:pattern "(" associatedValueTypes:typeAnnotationList? ")" {
+  comment:(comment _)? "case " _ name:identifierPattern "(" associatedValueTypes:typeAnnotationList? ")" {
     const result = {
       type: 'enumerationCase',
       data: {
@@ -115,8 +115,28 @@ statementList =
     return buildList(head, tail, 1)
   }
 
+condition = 
+  "case" _ pattern:identifierPattern _ "=" _ initializer:expression {
+    return {
+      type: 'caseCondition',
+      data: {
+        id: uuid(),
+        pattern,
+        initializer
+      }
+    }
+  } / expression:expression {
+    return {
+      type: 'expressionCondition',
+      data: {
+        id: uuid(),
+        expression
+      }
+    }
+  }
+
 branchStatement =
-  "if " _ condition:expression _ "{" _ block:statementList _ "}" {
+  "if " _ condition:condition _ "{" _ block:statementList _ "}" {
     return {
       type: 'branch',
       data:{
@@ -164,7 +184,7 @@ declarationList =
   }
 
 enumDeclaration =
-  comment:(comment _)? "enum " _ name:pattern _ genericParameters:( "<" genericParameterList ">" )? _ "{" _ cases:enumerationCaseList _ "}" {
+  comment:(comment _)? "enum " _ name:identifierPattern _ genericParameters:( "<" genericParameterList ">" )? _ "{" _ cases:enumerationCaseList _ "}" {
     const result = {
       data: {
         genericParameters: normalizeListWithPlaceholder(genericParameters ? genericParameters[1] : []),
@@ -183,7 +203,7 @@ enumDeclaration =
   }
 
 namespaceDeclaration =
-  "extension " _ name:pattern _ "{" _ declarations:declarationList? _ "}" {
+  "extension " _ name:identifierPattern _ "{" _ declarations:declarationList? _ "}" {
     return {
       data: {
         // Delete declaration modifier for now, since we don't store these
@@ -199,7 +219,7 @@ namespaceDeclaration =
   }
 
 functionDeclaration =
-  comment:(comment _)? "func " _ name:pattern _ genericParameters:( "<" genericParameterList ">" )? _ "(" _ parameters:(functionParameterList)? _ ")" _ "->" _ returnType:typeAnnotation _ "{" _ block:statementList? _ "}" {
+  comment:(comment _)? "func " _ name:identifierPattern _ genericParameters:( "<" genericParameterList ">" )? _ "(" _ parameters:(functionParameterList)? _ ")" _ "->" _ returnType:typeAnnotation _ "{" _ block:statementList? _ "}" {
     const result = {
       block: normalizeListWithPlaceholder(block),
       genericParameters: normalizeListWithPlaceholder(genericParameters ? genericParameters[1] : []),
@@ -251,7 +271,7 @@ functionDeclaration =
   }
 
 importDeclaration =
-  "import " _ name:pattern {
+  "import " _ name:identifierPattern {
     return {
       type: 'importDeclaration',
       data: {
@@ -262,7 +282,7 @@ importDeclaration =
   }
 
 recordDeclaration =
-  comment:(comment _)? "struct " _ name:pattern _ genericParameters:( "<" genericParameterList ">" )? _  "{" _ declarations:declarationList? _ "}" {
+  comment:(comment _)? "struct " _ name:identifierPattern _ genericParameters:( "<" genericParameterList ">" )? _  "{" _ declarations:declarationList? _ "}" {
     const result = {
       // Delete declaration modifier for now, since we don't store these
       declarations: normalizeListWithPlaceholder(declarations).map(declaration => {
@@ -285,7 +305,7 @@ declarationModifier = "static" { return text() }
 
 variableDeclaration =
   comment:(comment _)? declarationModifier:(declarationModifier _)?
-  "let " _ name:pattern _ ":" _
+  "let " _ name:identifierPattern _ ":" _
   annotation:typeAnnotation _ "=" _ initializer:expression {
     const result = {
       annotation,
@@ -360,7 +380,7 @@ identifierExpression =
 // Function Parameter
 
 functionParameter =
-  localName:pattern _ ":" _ annotation:typeAnnotation _ defaultValue:("=" _ expression)? {
+  localName:identifierPattern _ ":" _ annotation:typeAnnotation _ defaultValue:("=" _ expression)? {
     return {
       data: {
         localName,
@@ -408,7 +428,7 @@ functionCallArgument =
 // Generic Parameters
 
 genericParameter =
-  name:pattern {
+  name:identifierPattern {
     return {
       type: 'parameter',
       data: {
@@ -491,7 +511,7 @@ typeAnnotationList =
     return buildList(head, tail, 2)
   }
 
-pattern = name:rawIdentifier { return { id: uuid(), name } }
+identifierPattern = name:rawIdentifier { return { id: uuid(), name } }
 
 identifier =
   string:rawIdentifier {

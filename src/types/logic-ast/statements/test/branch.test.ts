@@ -7,6 +7,9 @@ describe('branch statement', () => {
     `if Boolean.and(a: x, b: y) {
   print(text: z)
 }`,
+    `if case a = b {
+  print(text: z)
+}`,
   ]
 
   codeExamples.forEach((code, i) =>
