@@ -1,6 +1,8 @@
 import { UUID } from '../'
 
-export type Pattern = {
+export type IdentifierPattern = {
   id: UUID
   name: string
 }
+
+export type Pattern = { type: 'identifierPattern'; data: IdentifierPattern }

@@ -1,4 +1,4 @@
-import { Placeholder, Pattern, UUID } from '../'
+import { Placeholder, IdentifierPattern, UUID } from '../'
 
 export type GenericParameter =
   | Placeholder
@@ -6,6 +6,6 @@ export type GenericParameter =
       type: 'parameter'
       data: {
         id: UUID
-        name: Pattern
+        name: IdentifierPattern
       }
     }

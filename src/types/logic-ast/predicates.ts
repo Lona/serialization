@@ -1,7 +1,7 @@
 import {
   Statement,
-  Pattern,
   IdentifierPattern,
+  Identifier,
   SyntaxNode,
   Declaration,
   Expression,
@@ -9,7 +9,7 @@ import {
 } from './'
 
 export function isStatement(
-  node: SyntaxNode | Pattern | IdentifierPattern
+  node: SyntaxNode | IdentifierPattern | Identifier
 ): node is Statement {
   return (
     'type' in node &&
@@ -21,7 +21,7 @@ export function isStatement(
 }
 
 export function isDeclaration(
-  node: SyntaxNode | Pattern | IdentifierPattern
+  node: SyntaxNode | IdentifierPattern | Identifier
 ): node is Declaration {
   return (
     'type' in node &&
@@ -36,7 +36,7 @@ export function isDeclaration(
 }
 
 export function isExpression(
-  node: SyntaxNode | Pattern | IdentifierPattern
+  node: SyntaxNode | IdentifierPattern | Identifier
 ): node is Expression {
   return (
     'type' in node &&
@@ -49,7 +49,7 @@ export function isExpression(
 }
 
 export function isTypeAnnotation(
-  node: SyntaxNode | Pattern | IdentifierPattern
+  node: SyntaxNode | IdentifierPattern | Identifier
 ): node is TypeAnnotation {
   return (
     'type' in node &&

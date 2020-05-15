@@ -1,6 +1,6 @@
 import {
   Placeholder,
-  Pattern,
+  IdentifierPattern,
   TypeAnnotation,
   FunctionParameterDefaultValue,
   UUID,
@@ -13,7 +13,7 @@ export type FunctionParameter =
       type: 'parameter'
       data: {
         id: UUID
-        localName: Pattern
+        localName: IdentifierPattern
         annotation: TypeAnnotation
         defaultValue: FunctionParameterDefaultValue
         comment?: Comment

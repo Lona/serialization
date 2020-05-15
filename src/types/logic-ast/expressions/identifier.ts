@@ -1,9 +1,9 @@
-import { IdentifierPattern, UUID } from '../'
+import { Identifier, UUID } from '../'
 
 export type IdentifierExpression = {
   type: 'identifierExpression'
   data: {
     id: UUID
-    identifier: IdentifierPattern
+    identifier: Identifier
   }
 }

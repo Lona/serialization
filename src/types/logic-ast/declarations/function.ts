@@ -1,5 +1,5 @@
 import {
-  Pattern,
+  IdentifierPattern,
   TypeAnnotation,
   GenericParameter,
   FunctionParameter,
@@ -12,7 +12,7 @@ export type FunctionDeclaration = {
   type: 'function'
   data: {
     id: UUID
-    name: Pattern
+    name: IdentifierPattern
     returnType: TypeAnnotation
     genericParameters: GenericParameter[]
     parameters: FunctionParameter[]

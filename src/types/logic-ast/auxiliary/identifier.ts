@@ -1,6 +1,6 @@
 import { UUID } from '../'
 
-export type IdentifierPattern = {
+export type Identifier = {
   id: UUID
   string: string
   isPlaceholder: boolean
