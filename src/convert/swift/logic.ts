@@ -15,6 +15,35 @@ export function parse(code: string, options?: {}): AST.SyntaxNode {
   )
 }
 
+function printTypeAnnotation(annotation: AST.TypeAnnotation): string {
+  switch (annotation.type) {
+    case 'typeIdentifier':
+      const {
+        identifier: { string },
+        genericArguments,
+      } = annotation.data
+      if (genericArguments.length > 0) {
+        const genericArgumentsString = genericArguments
+          .map(printTypeAnnotation)
+          .join(', ')
+        return `${string}<${genericArgumentsString}>`
+      }
+      return string
+    case 'functionType':
+      const { returnType, argumentTypes } = annotation.data
+      const argumentTypesString = argumentTypes
+        .map(printTypeAnnotation)
+        .join(', ')
+      return `(${argumentTypesString}) -> ${printTypeAnnotation(returnType)}`
+    case 'placeholder':
+      console.error(
+        'Placeholder type annotation remaining in source',
+        annotation
+      )
+      return '/* Placeholder */'
+  }
+}
+
 function printComment(node: AST.SyntaxNode, additionalComment: string = '') {
   if ('comment' in node.data && node.data.comment && node.data.comment.string) {
     return `/*
@@ -197,7 +226,24 @@ ${node.data.block
       }
       case 'caseCondition': {
         const { pattern, initializer } = node.data
-        return `case ${pattern.name} = ${printNode(initializer)}`
+
+        let printedExpressions: string[] = pattern.associatedValues
+          .filter(noPlaceholder)
+          .map(printNode)
+
+        // Simple heuristic to determine line breaking
+        let associatedValuesString: string
+        if (printedExpressions.length > 60) {
+          associatedValuesString = `\n${printedExpressions
+            .map(x => indentBlock(x, indent))
+            .join('\n')}\n`
+        } else {
+          associatedValuesString = printedExpressions.join(', ')
+        }
+
+        return `case ${printTypeAnnotation(pattern.typeIdentifier)}.${
+          pattern.caseName.string
+        }(${printedExpressions}) = ${printNode(initializer)}`
       }
       case 'branch': {
         return `if ${printNode(node.data.condition)} {

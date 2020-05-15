@@ -213,14 +213,64 @@ Object {
             "identifier": Object {
               "id": "0",
               "isPlaceholder": false,
-              "string": "b",
+              "string": "wrapped",
             },
           },
           "type": "identifierExpression",
         },
         "pattern": Object {
+          "associatedValues": Array [
+            Object {
+              "data": Object {
+                "id": "0",
+                "literal": Object {
+                  "data": Object {
+                    "id": "0",
+                    "value": 42,
+                  },
+                  "type": "number",
+                },
+              },
+              "type": "literalExpression",
+            },
+            Object {
+              "data": Object {
+                "id": "0",
+              },
+              "type": "placeholder",
+            },
+          ],
+          "caseName": Object {
+            "id": "0",
+            "isPlaceholder": false,
+            "string": "value",
+          },
           "id": "0",
-          "name": "a",
+          "typeIdentifier": Object {
+            "data": Object {
+              "genericArguments": Array [
+                Object {
+                  "data": Object {
+                    "genericArguments": Array [],
+                    "id": "0",
+                    "identifier": Object {
+                      "id": "0",
+                      "isPlaceholder": false,
+                      "string": "Number",
+                    },
+                  },
+                  "type": "typeIdentifier",
+                },
+              ],
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "Optional",
+              },
+            },
+            "type": "typeIdentifier",
+          },
         },
       },
       "type": "caseCondition",

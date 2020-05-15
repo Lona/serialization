@@ -1,4 +1,4 @@
-import { Expression, Statement, UUID, Pattern } from '..'
+import { Expression, EnumerationCasePattern, UUID } from '..'
 
 export type ExpressionCondition = {
   type: 'expressionCondition'
@@ -12,7 +12,7 @@ export type CaseCondition = {
   type: 'caseCondition'
   data: {
     id: UUID
-    pattern: Pattern
+    pattern: EnumerationCasePattern
     initializer: Expression
   }
 }

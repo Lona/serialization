@@ -7,7 +7,7 @@ describe('branch statement', () => {
     `if Boolean.and(a: x, b: y) {
   print(text: z)
 }`,
-    `if case a = b {
+    `if case Optional<Number>.value(42) = wrapped {
   print(text: z)
 }`,
   ]

@@ -116,7 +116,7 @@ statementList =
   }
 
 condition = 
-  "case" _ pattern:identifierPattern _ "=" _ initializer:expression {
+  "case" _ pattern:enumerationCasePattern _ "=" _ initializer:expression {
     return {
       type: 'caseCondition',
       data: {
@@ -509,6 +509,16 @@ typeAnnotation =
 typeAnnotationList =
   head:typeAnnotation tail:("," _ typeAnnotation)* {
     return buildList(head, tail, 2)
+  }
+
+enumerationCasePattern = 
+  typeIdentifier:typeAnnotation "." identifier:identifier "(" expressionList:expressionList? ")" {
+    return {
+      id: uuid(),
+      typeIdentifier,
+      caseName: identifier,
+      associatedValues: normalizeListWithPlaceholder(expressionList)
+    }
   }
 
 identifierPattern = name:rawIdentifier { return { id: uuid(), name } }
