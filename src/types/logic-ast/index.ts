@@ -1,6 +1,6 @@
 export * from './auxiliary/comment'
 export * from './auxiliary/enumerationCase'
-export * from './auxiliary/enumerationCasePattern'
+export * from './auxiliary/pattern'
 export * from './auxiliary/functionCallArgument'
 export * from './auxiliary/functionParameter'
 export * from './auxiliary/functionParameterDefaultValue'

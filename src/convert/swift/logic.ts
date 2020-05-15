@@ -59,6 +59,10 @@ ${node.data.comment.string
 export function print(node: AST.SyntaxNode, options: { indent?: number } = {}) {
   const { indent = 2 } = options
 
+  function printTuplePattern(tuplePattern: AST.TuplePattern): string {
+    return `(${tuplePattern.elements.map(printNode).join(', ')})`
+  }
+
   function printNode(node: AST.SyntaxNode): string {
     switch (node.type) {
       case 'program': {
@@ -219,15 +223,31 @@ ${node.data.block
   .join('\n')}
 }`
       }
+      case 'identifierPattern': {
+        const { name } = node.data
+        return name
+      }
+      case 'tuplePattern': {
+        return printTuplePattern(node.data)
+      }
+      case 'enumerationCasePattern': {
+        const { caseName, tuple, typeIdentifier } = node.data
+        return `${printNode(typeIdentifier)}.${
+          caseName.string
+        }${printTuplePattern(tuple)}`
+      }
+      case 'valueBindingPattern': {
+        const { pattern } = node.data
+        return `let ${printNode(pattern)}`
+      }
       case 'expressionCondition': {
         const { expression } = node.data
-
         return printNode(expression)
       }
       case 'caseCondition': {
         const { pattern, initializer } = node.data
 
-        let printedExpressions: string[] = pattern.associatedValues
+        let printedExpressions: string[] = pattern.tuple.elements
           .filter(noPlaceholder)
           .map(printNode)
 

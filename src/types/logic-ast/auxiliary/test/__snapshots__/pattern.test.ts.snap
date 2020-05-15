@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pattern enumeration case pattern 1`] = `
+Object {
+  "data": Object {
+    "caseName": Object {
+      "id": "0",
+      "isPlaceholder": false,
+      "string": "value",
+    },
+    "id": "0",
+    "tuple": Object {
+      "elements": Array [
+        Object {
+          "data": Object {
+            "id": "0",
+            "name": "x",
+          },
+          "type": "identifierPattern",
+        },
+      ],
+      "id": "0",
+    },
+    "typeIdentifier": Object {
+      "data": Object {
+        "genericArguments": Array [
+          Object {
+            "data": Object {
+              "genericArguments": Array [],
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "Number",
+              },
+            },
+            "type": "typeIdentifier",
+          },
+        ],
+        "id": "0",
+        "identifier": Object {
+          "id": "0",
+          "isPlaceholder": false,
+          "string": "Optional",
+        },
+      },
+      "type": "typeIdentifier",
+    },
+  },
+  "type": "enumerationCasePattern",
+}
+`;
+
+exports[`pattern identifier pattern 1`] = `
+Object {
+  "data": Object {
+    "id": "0",
+    "name": "a",
+  },
+  "type": "identifierPattern",
+}
+`;
+
+exports[`pattern tuple pattern 1`] = `
+Object {
+  "data": Object {
+    "elements": Array [
+      Object {
+        "data": Object {
+          "id": "0",
+          "name": "a",
+        },
+        "type": "identifierPattern",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+          "name": "b",
+        },
+        "type": "identifierPattern",
+      },
+    ],
+    "id": "0",
+  },
+  "type": "tuplePattern",
+}
+`;
+
+exports[`pattern value binding pattern 1`] = `
+Object {
+  "data": Object {
+    "caseName": Object {
+      "id": "0",
+      "isPlaceholder": false,
+      "string": "value",
+    },
+    "id": "0",
+    "tuple": Object {
+      "elements": Array [
+        Object {
+          "data": Object {
+            "id": "0",
+            "pattern": Object {
+              "data": Object {
+                "id": "0",
+                "name": "x",
+              },
+              "type": "identifierPattern",
+            },
+          },
+          "type": "valueBindingPattern",
+        },
+      ],
+      "id": "0",
+    },
+    "typeIdentifier": Object {
+      "data": Object {
+        "genericArguments": Array [],
+        "id": "0",
+        "identifier": Object {
+          "id": "0",
+          "isPlaceholder": false,
+          "string": "Test",
+        },
+      },
+      "type": "typeIdentifier",
+    },
+  },
+  "type": "enumerationCasePattern",
+}
+`;

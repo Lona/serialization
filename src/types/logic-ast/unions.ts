@@ -44,6 +44,7 @@ export type SyntaxNode =
   | Expression
   | Literal
   | TypeAnnotation
+  | n.Pattern
   | n.Condition
   | n.Program
   | n.FunctionParameter

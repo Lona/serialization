@@ -511,17 +511,68 @@ typeAnnotationList =
     return buildList(head, tail, 2)
   }
 
+// Patterns
+
+pattern = 
+  pattern:tuplePattern {
+    return {
+      type: 'tuplePattern',
+      data: pattern
+    }
+  } /
+  pattern:enumerationCasePattern {
+    return {
+      type: 'enumerationCasePattern',
+      data: pattern
+    }
+  } / 
+  pattern:valueBindingPattern {
+    return {
+      type: 'valueBindingPattern',
+      data: pattern
+    }
+  } /
+  pattern:identifierPattern {
+    return {
+      type: 'identifierPattern',
+      data: pattern
+    }
+  }
+
+patternList =
+  head:pattern tail:("," _ pattern)* {
+    return buildList(head, tail, 2)
+  }
+
+tuplePattern = 
+  "(" _ elements:patternList? _ ")" {
+    return {
+      id: uuid(),
+      elements
+    }
+  }
+
+valueBindingPattern = 
+  "let" _ pattern:pattern {
+    return {
+      id: uuid(),
+      pattern
+    }
+  } 
+
 enumerationCasePattern = 
-  typeIdentifier:typeAnnotation "." identifier:identifier "(" expressionList:expressionList? ")" {
+  typeIdentifier:typeAnnotation "." identifier:identifier tuple:tuplePattern {
     return {
       id: uuid(),
       typeIdentifier,
       caseName: identifier,
-      associatedValues: normalizeListWithPlaceholder(expressionList)
+      tuple
     }
   }
 
 identifierPattern = name:rawIdentifier { return { id: uuid(), name } }
+
+// Identifier
 
 identifier =
   string:rawIdentifier {

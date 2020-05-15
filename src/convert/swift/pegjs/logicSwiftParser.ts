@@ -13,6 +13,7 @@ const parser = pegjs.generate(grammar, {
     'statement',
     'declaration',
     'expression',
+    'pattern',
   ],
 })
 
