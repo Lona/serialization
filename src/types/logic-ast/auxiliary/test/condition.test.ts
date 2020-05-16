@@ -30,8 +30,8 @@ describe('condition', () => {
       expect(() => parse(code, parserOptions)).toThrow()
     })
 
-    it('missing initializer identifier', () => {
-      const code = `case .value = y`
+    it('missing initializer', () => {
+      const code = `case Test.value`
       expect(() => parse(code, parserOptions)).toThrow()
     })
   })
