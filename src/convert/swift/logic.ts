@@ -382,7 +382,6 @@ ${node.data.cases
         console.log(node)
         assertNever(node)
     }
-    return ''
   }
 
   return printNode(node)

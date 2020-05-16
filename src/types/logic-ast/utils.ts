@@ -77,6 +77,20 @@ export function subNodes(node: SyntaxNode): SyntaxNode[] {
     case 'color':
     case 'placeholder':
       return []
+    // Conditions
+    case 'caseCondition':
+      return [node.data.initializer]
+    case 'expressionCondition':
+      return [node.data.expression]
+    // Patterns
+    case 'tuplePattern':
+      return node.data.elements
+    case 'enumerationCasePattern':
+      return [node.data.typeIdentifier, ...node.data.tuple.elements]
+    case 'valueBindingPattern':
+      return [node.data.pattern]
+    case 'identifierPattern':
+      return []
     default:
       assertNever(node)
   }
