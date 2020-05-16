@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`condition case condition 1`] = `
+Object {
+  "data": Object {
+    "id": "0",
+    "initializer": Object {
+      "data": Object {
+        "id": "0",
+        "identifier": Object {
+          "id": "0",
+          "isPlaceholder": false,
+          "string": "y",
+        },
+      },
+      "type": "identifierExpression",
+    },
+    "pattern": Object {
+      "caseName": Object {
+        "id": "0",
+        "isPlaceholder": false,
+        "string": "value",
+      },
+      "id": "0",
+      "tuple": Object {
+        "elements": Array [
+          Object {
+            "data": Object {
+              "id": "0",
+              "name": "x",
+            },
+            "type": "identifierPattern",
+          },
+        ],
+        "id": "0",
+      },
+      "typeIdentifier": Object {
+        "data": Object {
+          "genericArguments": Array [],
+          "id": "0",
+          "identifier": Object {
+            "id": "0",
+            "isPlaceholder": false,
+            "string": "Test",
+          },
+        },
+        "type": "typeIdentifier",
+      },
+    },
+  },
+  "type": "caseCondition",
+}
+`;
+
+exports[`condition expression condition 1`] = `
+Object {
+  "data": Object {
+    "expression": Object {
+      "data": Object {
+        "id": "0",
+        "identifier": Object {
+          "id": "0",
+          "isPlaceholder": false,
+          "string": "a",
+        },
+      },
+      "type": "identifierExpression",
+    },
+    "id": "0",
+  },
+  "type": "expressionCondition",
+}
+`;
