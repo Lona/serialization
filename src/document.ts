@@ -1,7 +1,7 @@
 import stringify from 'json-stable-stringify'
 import { normalizeFormat, SERIALIZATION_FORMAT } from './format'
 import * as mdx from './mdx'
-import * as MDXAST from './types/lona-ast'
+import * as MDXAST from './ast/documentAst'
 
 export function decodeDocument(
   contents: string,

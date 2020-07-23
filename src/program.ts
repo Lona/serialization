@@ -2,8 +2,8 @@ import stringify from 'json-stable-stringify'
 import { v4 as uuid } from 'uuid'
 import { decodeDocument } from './document'
 import { normalizeFormat, SERIALIZATION_FORMAT } from './format'
-import * as LogicAST from './types/logic-ast'
-import * as MDXAST from './types/lona-ast'
+import * as LogicAST from './ast/logicAst'
+import * as MDXAST from './ast/documentAst'
 import { rng } from './utils'
 
 export function extractProgramFromAST(ast: { children: MDXAST.Content[] }) {

@@ -1,5 +1,5 @@
 import { v4 as uuid } from 'uuid'
-import * as AST from '../../types/logic-ast'
+import * as AST from '../../ast/logicAst'
 import { indentBlock, repeat } from '../formatting'
 import { assertNever, rng } from '../../utils'
 import parser from './pegjs/logicSwiftParser'

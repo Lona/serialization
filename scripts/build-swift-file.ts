@@ -5,8 +5,7 @@
 import * as fs from 'fs'
 import * as path from 'path'
 
-const rootPath = path.join(__dirname, '../src/types/logic-ast')
-
+const rootPath = path.join(__dirname, '../src/ast/logicAst')
 const outputPath = path.join(__dirname, '../dist')
 
 fs.mkdirSync(outputPath, { recursive: true })

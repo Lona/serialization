@@ -1,4 +1,4 @@
-import * as AST from './types/logic-ast'
+import * as AST from './ast/logicAst'
 
 import * as json from './convert/json/logic'
 import * as swift from './convert/swift/logic'
