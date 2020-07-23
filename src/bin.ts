@@ -4,7 +4,6 @@ import fs from 'fs'
 import yargs from 'yargs'
 
 import {
-  convertTypes,
   convertLogic,
   convertDocument,
   extractProgram,
@@ -77,22 +76,6 @@ yargs
 
       const contents = fs.readFileSync(file, 'utf8')
       const converted = convertLogic(contents, getFormat(targetFormat))
-      console.log(converted)
-    }
-  )
-  .command(
-    'types file targetFormat',
-    'Convert a Lona types file to the specified format',
-    cli => addSharedArguments(cli),
-    argv => {
-      const { file, targetFormat } = argv
-
-      if (typeof file !== 'string') {
-        throw new Error('file needs to be a string')
-      }
-
-      const contents = fs.readFileSync(file, 'utf8')
-      const converted = convertTypes(contents, getFormat(targetFormat))
       console.log(converted)
     }
   )

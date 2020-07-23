@@ -1,6 +1,6 @@
 import mdx from '@mdx-js/mdx'
 
-import { convertLogic } from './lona-logic'
+import { convertLogic } from './serialization'
 
 import FlattenImageParagraphs from 'mdast-flatten-image-paragraphs'
 import flattenParagraphs from './mdast-transforms/flattenParagraphs'
@@ -9,7 +9,7 @@ import toMarkdown from './mdast-transforms/toMarkdown'
 import parsePage from './mdast-transforms/parsePage'
 import parseTokens from './mdast-transforms/parseTokens'
 
-import { SERIALIZATION_FORMAT } from './lona-format'
+import { SERIALIZATION_FORMAT } from './format'
 
 import * as MDAST from './types/mdx-ast'
 import * as AST from './types/lona-ast'

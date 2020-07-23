@@ -3,7 +3,7 @@ import * as AST from './types/logic-ast'
 import * as json from './convert/json/logic'
 import * as swift from './convert/swift/logic'
 
-import { normalizeFormat, SERIALIZATION_FORMAT } from './lona-format'
+import { normalizeFormat, SERIALIZATION_FORMAT } from './format'
 import { parsingError } from './utils'
 
 export function decodeLogic(

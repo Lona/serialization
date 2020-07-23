@@ -1,8 +1,8 @@
 import visit from 'unist-util-visit'
 
 import * as MDAST from '../types/mdx-ast'
-import { SERIALIZATION_FORMAT } from '../lona-format'
-import { convertLogic } from '../lona-logic'
+import { SERIALIZATION_FORMAT } from '../format'
+import { convertLogic } from '../serialization'
 
 export default function parseTokens(src: string, filePath?: string) {
   return (ast: MDAST.Root) => {

@@ -3,17 +3,11 @@ import { v4 as uuid } from 'uuid'
 
 import * as mdx from './mdx'
 
-import {
-  SERIALIZATION_FORMAT,
-  normalizeFormat,
-  detectFormat,
-} from './lona-format'
-import { convertLogic, decodeLogic, encodeLogic } from './lona-logic'
-import { convertTypes, decodeTypes, encodeTypes } from './lona-types'
+import { SERIALIZATION_FORMAT, normalizeFormat, detectFormat } from './format'
+import { convertLogic, decodeLogic, encodeLogic } from './serialization'
 
 import * as MDXAST from './types/lona-ast'
 import * as LogicAST from './types/logic-ast'
-import * as TypesAST from './types/types-ast'
 
 import { rng } from './utils'
 
@@ -121,15 +115,11 @@ const printMdxNode = mdx.printNode
 export {
   MDXAST,
   LogicAST,
-  TypesAST,
   SERIALIZATION_FORMAT,
-  convertTypes,
   convertLogic,
   convertDocument,
-  decodeTypes,
   decodeLogic,
   decodeDocument,
-  encodeTypes,
   encodeLogic,
   encodeDocument,
   extractProgram,
