@@ -1,6 +1,6 @@
 import mdx from '@mdx-js/mdx'
 
-import { convertLogic } from './serialization'
+import { convertLogic } from './logic'
 
 import FlattenImageParagraphs from 'mdast-flatten-image-paragraphs'
 import flattenParagraphs from './mdast-transforms/flattenParagraphs'
