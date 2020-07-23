@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import { printMdxNode, MDXAST } from '../../src'
+import { printMdxNode, MDXAST } from '../..'
 
 test('prints a markdown block', () => {
   const json = {

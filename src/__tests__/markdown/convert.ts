@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import { convertDocument, SERIALIZATION_FORMAT } from '../../src/index'
+import { convertDocument, SERIALIZATION_FORMAT } from '../../index'
 
 jest.mock('uuid', () => ({ v4: () => '0' }))
 

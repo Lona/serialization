@@ -2,7 +2,7 @@
 import {
   parse as parseSwift,
   print as printSwift,
-} from '../../src/convert/swift/logic'
+} from '../../convert/swift/logic'
 
 jest.mock('uuid', () => ({ v4: () => '0' }))
 

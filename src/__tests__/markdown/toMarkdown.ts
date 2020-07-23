@@ -1,6 +1,6 @@
 /* eslint-disable import/no-unresolved */
-import toMarkdown from '../../src/mdast-transforms/toMarkdown'
-import * as MDAST from '../../src/types/mdx-ast'
+import toMarkdown from '../../mdast-transforms/toMarkdown'
+import * as MDAST from '../../types/mdx-ast'
 
 const aParagraph = {
   type: 'paragraph',
