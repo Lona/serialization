@@ -1,14 +1,14 @@
 {
   "name": "@lona/serialization",
-  "version": "0.3.10",
+  "version": "0.4.0",
   "description": "Convert Lona files between serialization formats",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
-  "bin": "build/bin.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "bin": "lib/bin.js",
   "browser": "dist/lona-serialization.umd.js",
   "files": [
     "dist",
-    "build"
+    "lib"
   ],
   "scripts": {
     "prettier:base": "prettier --write",
@@ -19,8 +19,9 @@
     "build:swift": "ts-node ./scripts/build-swift-file.ts",
     "build:web": "webpack",
     "build:node": "npm run build:src && npm run build:copyPegjs",
-    "build:copyPegjs": "cp src/convert/swift/pegjs/logic.swift.pegjs build/convert/swift/pegjs/logic.swift.pegjs",
-    "build:src": "rm -rf ./build && tsc --declaration",
+    "build:copyPegjs": "cp src/convert/swift/pegjs/logic.swift.pegjs lib/convert/swift/pegjs/logic.swift.pegjs",
+    "build:src": "npm run clean && tsc --declaration",
+    "clean": "rm -rf ./build",
     "prepublishOnly": "npm run build"
   },
   "author": "Devin Abbott",
@@ -67,6 +68,10 @@
   },
   "jest": {
     "preset": "ts-jest",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "lib",
+      "mocks"
+    ]
   }
 }
