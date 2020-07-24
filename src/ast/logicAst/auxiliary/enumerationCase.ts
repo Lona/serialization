@@ -1,4 +1,4 @@
-import { Placeholder, Pattern, TypeAnnotation, UUID, Comment } from '..'
+import { AssociatedValue, Comment, Pattern, Placeholder, UUID } from '..'
 
 export type EnumerationCase =
   | Placeholder
@@ -7,7 +7,7 @@ export type EnumerationCase =
       data: {
         id: UUID
         name: Pattern
-        associatedValueTypes: TypeAnnotation[]
+        associatedValues: AssociatedValue[]
         comment?: Comment
       }
     }

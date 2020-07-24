@@ -1,3 +1,4 @@
+export * from './auxiliary/associatedValue'
 export * from './auxiliary/comment'
 export * from './auxiliary/enumerationCase'
 export * from './auxiliary/functionCallArgument'

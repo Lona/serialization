@@ -1,6 +1,6 @@
-public indirect enum LGCEnumerationCase: Codable & Equatable & Equivalentable {
+public indirect enum LGCAssociatedValue: Codable & Equatable & Equivalentable {
   case placeholder(id: UUID)
-  case enumerationCase(id: UUID, name: LGCPattern, associatedValues: LGCList<LGCAssociatedValue>, comment: Optional<LGCComment>)
+  case associatedValue(id: UUID, label: Optional<LGCPattern>, annotation: LGCTypeAnnotation)
 
   // MARK: Codable
 
@@ -11,9 +11,8 @@ public indirect enum LGCEnumerationCase: Codable & Equatable & Equivalentable {
 
   public enum DataCodingKeys: CodingKey {
     case id
-    case name
-    case associatedValues
-    case comment
+    case label
+    case annotation
   }
 
   public init(from decoder: Decoder) throws {
@@ -24,13 +23,12 @@ public indirect enum LGCEnumerationCase: Codable & Equatable & Equivalentable {
     switch type {
       case "placeholder":
         self = .placeholder(id: try data.decode(UUID.self, forKey: .id))
-      case "enumerationCase":
+      case "annotation":
         self =
-          .enumerationCase(
+          .annotation(
             id: try data.decode(UUID.self, forKey: .id),
-            name: try data.decode(LGCPattern.self, forKey: .name),
-            associatedValues: try data.decode(LGCList.self, forKey: .associatedValues),
-            comment: try data.decodeIfPresent(LGCComment.self, forKey: .comment))
+            label: try data.decodeIfPresent(LGCPattern.self, forKey: .label),
+            annotation: try data.decode(LGCTypeAnnotation.self, forKey: .annotation))
       default:
         fatalError("Failed to decode enum due to invalid case type.")
     }
@@ -44,29 +42,28 @@ public indirect enum LGCEnumerationCase: Codable & Equatable & Equivalentable {
       case .placeholder(let value):
         try container.encode("placeholder", forKey: .type)
         try data.encode(value, forKey: .id)
-      case .enumerationCase(let value):
-        try container.encode("enumerationCase", forKey: .type)
+      case .associatedValue(let value):
+        try container.encode("associatedValue", forKey: .type)
         try data.encode(value.id, forKey: .id)
-        try data.encode(value.name, forKey: .name)
-        try data.encode(value.associatedValues, forKey: .associatedValues)
-        try data.encodeIfPresent(value.comment, forKey: .comment)
+        try data.encodeIfPresent(value.label, forKey: .label)
+        try data.encode(value.annotation, forKey: .annotation)
     }
   }
 
 
-  public func isEquivalentTo(_ node: LGCEnumerationCase) -> Bool {
+  public func isEquivalentTo(_ node: LGCAssociatedValue) -> Bool {
     switch (self, node) {
       case (.placeholder, .placeholder):
         return true
-      case (.enumerationCase(let a), .enumerationCase(let b)):
-        return a.name.isEquivalentTo(b.name) && a.associatedValues.isEquivalentTo(b.associatedValues) && a.comment.isEquivalentTo(b.comment)
+      case (.associatedValue(let a), .associatedValue(let b)):
+        return a.label.isEquivalentTo(b.label) && a.annotation.isEquivalentTo(b.annotation)
       default:
         return false
     }
   }
 }
 
-extension LGCEnumerationCase: SyntaxNodePlaceholdable {
+extension LGCAssociatedValue: SyntaxNodePlaceholdable {
   public var isPlaceholder: Bool {
     switch self {
     case .placeholder:
@@ -76,7 +73,7 @@ extension LGCEnumerationCase: SyntaxNodePlaceholdable {
     }
   }
 
-  public static func makePlaceholder() -> LGCEnumerationCase {
+  public static func makePlaceholder() -> LGCAssociatedValue {
     return .placeholder(id: UUID())
   }
 }

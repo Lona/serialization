@@ -160,7 +160,7 @@ const json = {
           cases: [
             {
               data: {
-                associatedValueTypes: [
+                associatedValues: [
                   {
                     data: {
                       id: '0',
@@ -183,7 +183,7 @@ const json = {
             },
             {
               data: {
-                associatedValueTypes: [
+                associatedValues: [
                   {
                     data: {
                       id: '0',
@@ -205,7 +205,7 @@ const json = {
             },
             {
               data: {
-                associatedValueTypes: [
+                associatedValues: [
                   {
                     data: {
                       id: '0',
@@ -227,7 +227,7 @@ const json = {
             },
             {
               data: {
-                associatedValueTypes: [
+                associatedValues: [
                   {
                     data: {
                       id: '0',
@@ -249,7 +249,7 @@ const json = {
             },
             {
               data: {
-                associatedValueTypes: [
+                associatedValues: [
                   {
                     data: {
                       id: '0',
@@ -271,7 +271,7 @@ const json = {
             },
             {
               data: {
-                associatedValueTypes: [
+                associatedValues: [
                   {
                     data: {
                       id: '0',
@@ -293,7 +293,7 @@ const json = {
             },
             {
               data: {
-                associatedValueTypes: [
+                associatedValues: [
                   {
                     data: {
                       id: '0',
@@ -315,7 +315,7 @@ const json = {
             },
             {
               data: {
-                associatedValueTypes: [
+                associatedValues: [
                   {
                     data: {
                       id: '0',
@@ -337,7 +337,7 @@ const json = {
             },
             {
               data: {
-                associatedValueTypes: [
+                associatedValues: [
                   {
                     data: {
                       id: '0',
