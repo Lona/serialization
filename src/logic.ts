@@ -1,6 +1,6 @@
 import * as AST from './ast/logicAst'
-import * as LonaJSON from './formats/json'
-import * as LonaSource from './formats/source'
+import * as LogicJSON from './formats/json'
+import * as LogicSource from './formats/source'
 import { normalizeFormat, SERIALIZATION_FORMAT } from './format'
 import { parsingError } from './utils'
 
@@ -13,9 +13,9 @@ export function decodeLogic(
   try {
     switch (sourceFormat) {
       case SERIALIZATION_FORMAT.JSON:
-        return LonaJSON.parse(contents)
+        return LogicJSON.parse(contents)
       case SERIALIZATION_FORMAT.SOURCE:
-        return LonaSource.parse(contents)
+        return LogicSource.parse(contents)
       default:
         throw new Error(`Unknown decoding format ${sourceFormat}`)
     }
@@ -32,9 +32,9 @@ export function encodeLogic(ast: AST.SyntaxNode, format: SERIALIZATION_FORMAT) {
   try {
     switch (format) {
       case SERIALIZATION_FORMAT.JSON:
-        return LonaJSON.print(ast)
+        return LogicJSON.print(ast)
       case SERIALIZATION_FORMAT.SOURCE:
-        return LonaSource.print(ast)
+        return LogicSource.print(ast)
       default:
         throw new Error(`Unknown encoding format ${format}`)
     }

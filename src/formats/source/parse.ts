@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid'
 import * as AST from '../../ast/logicAst'
-import parser from './pegjs/logicParser'
+import parser from './grammar/logicParser'
 import { rng } from '../../utils'
 
 export function parse(code: string, options?: {}): AST.SyntaxNode {

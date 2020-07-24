@@ -32,9 +32,9 @@ module.exports = [
     resolve: {
       extensions: ['.js', '.json'],
       alias: {
-        './pegjs/logicSwiftParser': resolve(
+        './grammar/logicParser': resolve(
           paths.src,
-          'convert/swift/pegjs/logic.swift.pegjs'
+          'formats/source/grammar/logic.swift.pegjs'
         ),
       },
     },

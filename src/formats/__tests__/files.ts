@@ -1,8 +1,6 @@
-/* eslint-disable import/no-unresolved */
 import fs from 'fs'
 import path from 'path'
-import { print as printSwift } from '../../formats/source/print'
-import { parse as parseSwift } from '../../formats/source/parse'
+import * as Source from '../../formats/source'
 
 jest.mock('uuid', () => ({ v4: () => '0' }))
 
@@ -15,15 +13,11 @@ extension Test {
   static let b: Boolean = false
 }`
 
-  const json = parseSwift(inputSource, {
-    startRule: 'program',
-  })
+  const json = Source.parse(inputSource, { startRule: 'program' })
 
   expect(json).toMatchSnapshot()
 
-  const source = printSwift(json)
-
-  expect(source).toBe(inputSource)
+  expect(Source.print(json)).toBe(inputSource)
 })
 
 it('converts colors file', () => {
@@ -32,15 +26,11 @@ it('converts colors file', () => {
     'utf8'
   )
 
-  const json = parseSwift(inputSource, {
-    startRule: 'program',
-  })
+  const json = Source.parse(inputSource, { startRule: 'program' })
 
   expect(json).toMatchSnapshot()
 
-  const source = printSwift(json)
-
-  expect(source).toBe(inputSource)
+  expect(Source.print(json)).toBe(inputSource)
 })
 
 it('converts prelude file', () => {
@@ -49,15 +39,11 @@ it('converts prelude file', () => {
     'utf8'
   )
 
-  const json = parseSwift(inputSource, {
-    startRule: 'program',
-  })
+  const json = Source.parse(inputSource, { startRule: 'program' })
 
   expect(json).toMatchSnapshot()
 
-  const source = printSwift(json)
-
-  expect(source).toBe(inputSource)
+  expect(Source.print(json)).toBe(inputSource)
 })
 
 it('converts text style file', () => {
@@ -66,15 +52,11 @@ it('converts text style file', () => {
     'utf8'
   )
 
-  const json = parseSwift(inputSource, {
-    startRule: 'program',
-  })
+  const json = Source.parse(inputSource, { startRule: 'program' })
 
   expect(json).toMatchSnapshot()
 
-  const source = printSwift(json)
-
-  expect(source).toBe(inputSource)
+  expect(Source.print(json)).toBe(inputSource)
 })
 
 it('converts shadow file', () => {
@@ -83,13 +65,9 @@ it('converts shadow file', () => {
     'utf8'
   )
 
-  const json = parseSwift(inputSource, {
-    startRule: 'program',
-  })
+  const json = Source.parse(inputSource, { startRule: 'program' })
 
   expect(json).toMatchSnapshot()
 
-  const source = printSwift(json)
-
-  expect(source).toBe(inputSource)
+  expect(Source.print(json)).toBe(inputSource)
 })
