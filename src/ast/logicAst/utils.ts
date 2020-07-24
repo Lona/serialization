@@ -59,7 +59,11 @@ export function subNodes(node: SyntaxNode): SyntaxNode[] {
     case 'array':
       return node.data.value
     case 'enumerationCase':
-      return node.data.associatedValueTypes
+      return node.data.associatedValues
+    case 'associatedValue': {
+      const { annotation } = node.data
+      return [annotation]
+    }
     case 'topLevelDeclarations':
       return node.data.declarations
     case 'argument':

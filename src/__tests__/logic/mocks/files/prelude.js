@@ -939,18 +939,24 @@ const json = {
               cases: [
                 {
                   data: {
-                    associatedValueTypes: [
+                    associatedValues: [
                       {
                         data: {
-                          genericArguments: [],
                           id: '0',
-                          identifier: {
-                            id: '0',
-                            isPlaceholder: false,
-                            string: 'Wrapped',
+                          annotation: {
+                            data: {
+                              genericArguments: [],
+                              id: '0',
+                              identifier: {
+                                id: '0',
+                                isPlaceholder: false,
+                                string: 'Wrapped',
+                              },
+                            },
+                            type: 'typeIdentifier',
                           },
                         },
-                        type: 'typeIdentifier',
+                        type: 'associatedValue',
                       },
                       {
                         data: {
@@ -969,7 +975,7 @@ const json = {
                 },
                 {
                   data: {
-                    associatedValueTypes: [
+                    associatedValues: [
                       {
                         data: {
                           id: '0',

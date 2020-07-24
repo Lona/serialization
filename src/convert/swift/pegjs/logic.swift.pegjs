@@ -47,13 +47,15 @@ comment =
   }
 
 enumerationCase =
-  comment:(comment _)? "case " _ name:pattern "(" associatedValueTypes:typeAnnotationList? ")" {
+  comment:(comment _)? "case " _ name:pattern "(" associatedValues:associatedValueList? ")" {
     const result = {
       type: 'enumerationCase',
       data: {
         id: uuid(),
         name,
-        associatedValueTypes: normalizeListWithPlaceholder(associatedValueTypes ? associatedValueTypes : [])
+        associatedValues: normalizeListWithPlaceholder(
+          associatedValues ? associatedValues : []
+        )
       }
     }
 
@@ -66,6 +68,23 @@ enumerationCase =
 
 enumerationCaseList =
   head:enumerationCase tail:((LineTerminator / ",") _ enumerationCase)* _ {
+    return buildList(head, tail, 2)
+  }
+
+associatedValue =
+  label:(pattern _ ":")? _ annotation:typeAnnotation {
+    return {
+      type: 'associatedValue',
+      data: {
+        id: uuid(),
+        annotation,
+        ...(label ? { label: label[0] } : {}),
+      }
+    }
+  }
+
+associatedValueList =
+  head:associatedValue tail:("," _ associatedValue)* {
     return buildList(head, tail, 2)
   }
 

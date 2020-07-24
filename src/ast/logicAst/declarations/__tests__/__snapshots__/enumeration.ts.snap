@@ -6,18 +6,24 @@ Object {
     "cases": Array [
       Object {
         "data": Object {
-          "associatedValueTypes": Array [
+          "associatedValues": Array [
             Object {
               "data": Object {
-                "genericArguments": Array [],
-                "id": "0",
-                "identifier": Object {
-                  "id": "0",
-                  "isPlaceholder": false,
-                  "string": "Wrapped",
+                "annotation": Object {
+                  "data": Object {
+                    "genericArguments": Array [],
+                    "id": "0",
+                    "identifier": Object {
+                      "id": "0",
+                      "isPlaceholder": false,
+                      "string": "Wrapped",
+                    },
+                  },
+                  "type": "typeIdentifier",
                 },
+                "id": "0",
               },
-              "type": "typeIdentifier",
+              "type": "associatedValue",
             },
             Object {
               "data": Object {
@@ -36,7 +42,7 @@ Object {
       },
       Object {
         "data": Object {
-          "associatedValueTypes": Array [
+          "associatedValues": Array [
             Object {
               "data": Object {
                 "id": "0",

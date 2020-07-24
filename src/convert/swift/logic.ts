@@ -262,10 +262,19 @@ ${node.data.cases
 }`
       }
       case 'enumerationCase': {
-        const valueTypes = node.data.associatedValueTypes.filter(noPlaceholder)
+        const valueTypes = node.data.associatedValues.filter(noPlaceholder)
         return `${printComment(node)}case ${
           node.data.name.name
         }(${valueTypes.map(printNode).join(', ')})`
+      }
+      case 'associatedValue': {
+        const label = node.data.label?.name
+
+        if (label) {
+          return `${label}: ${printNode(node.data.annotation)}`
+        } else {
+          return `${printNode(node.data.annotation)}`
+        }
       }
       case 'assignmentExpression': {
         return `${printNode(node.data.left)} = ${printNode(node.data.right)}`

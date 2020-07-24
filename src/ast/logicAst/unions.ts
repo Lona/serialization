@@ -52,3 +52,4 @@ export type SyntaxNode =
   | n.GenericParameter
   | n.TopLevelDeclarations
   | n.FunctionCallArgument
+  | n.AssociatedValue
