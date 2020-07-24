@@ -30,6 +30,13 @@ ${node.data.comment.string
 export function print(node: AST.SyntaxNode, options: { indent?: number } = {}) {
   const { indent = 2 } = options
 
+  function printAttributes(attributes: AST.FunctionCallExpression[]): string {
+    return attributes
+      .map(printNode)
+      .map(string => `@${string}`)
+      .join('\n')
+  }
+
   function printNode(node: AST.SyntaxNode): string {
     switch (node.type) {
       case 'program': {
@@ -79,7 +86,7 @@ ${printedDeclarations}
 }`
       }
       case 'record': {
-        const { name, declarations } = node.data
+        const { name, declarations, attributes } = node.data
 
         const printedDeclarations = declarations
           .filter(noPlaceholder)
@@ -87,9 +94,12 @@ ${printedDeclarations}
           .map(x => indentBlock(x, indent))
           .join('\n')
 
+        const attributesString =
+          attributes.length > 0 ? printAttributes(attributes) + '\n' : ''
+
         const generics = node.data.genericParameters.filter(noPlaceholder)
 
-        return `${printComment(node)}struct ${name.name}${
+        return `${printComment(node)}${attributesString}struct ${name.name}${
           generics.length ? `<${generics.map(printNode).join(', ')}>` : ''
         } {
 ${printedDeclarations}
@@ -250,11 +260,21 @@ ${node.data.block
         }`
       }
       case 'enumeration': {
-        const generics = node.data.genericParameters.filter(noPlaceholder)
-        return `${printComment(node)}enum ${node.data.name.name}${
+        const {
+          attributes,
+          genericParameters,
+          name: { name },
+          cases,
+        } = node.data
+
+        const attributesString =
+          attributes.length > 0 ? printAttributes(attributes) + '\n' : ''
+
+        const generics = genericParameters.filter(noPlaceholder)
+        return `${printComment(node)}${attributesString}enum ${name}${
           generics.length ? `<${generics.map(printNode).join(', ')}>` : ''
         } {
-${node.data.cases
+${cases
   .filter(noPlaceholder)
   .map(printNode)
   .map(x => indentBlock(x, indent))

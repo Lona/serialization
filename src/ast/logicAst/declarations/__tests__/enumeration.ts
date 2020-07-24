@@ -12,6 +12,19 @@ describe('enumeration declaration', () => {
   case bar(Number, String)
   case baz(label1: Number, label2: String)
 }`,
+    `@attr()
+enum A {
+  case b()
+}`,
+    `@attr(c: 42, d: "hello")
+enum A {
+  case b()
+}`,
+    `@attr1()
+@attr2()
+enum A {
+  case b()
+}`,
   ]
 
   codeExamples.forEach((code, i) =>

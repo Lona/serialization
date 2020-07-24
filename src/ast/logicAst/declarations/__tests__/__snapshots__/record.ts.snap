@@ -3,6 +3,7 @@
 exports[`record declaration Example 1 1`] = `
 Object {
   "data": Object {
+    "attributes": Array [],
     "declarations": Array [
       Object {
         "data": Object {
@@ -93,6 +94,97 @@ Object {
     "name": Object {
       "id": "0",
       "name": "ThemedColor",
+    },
+  },
+  "type": "record",
+}
+`;
+
+exports[`record declaration Example 2 1`] = `
+Object {
+  "data": Object {
+    "attributes": Array [
+      Object {
+        "data": Object {
+          "arguments": Array [
+            Object {
+              "data": Object {
+                "id": "0",
+              },
+              "type": "placeholder",
+            },
+          ],
+          "expression": Object {
+            "data": Object {
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "attr1",
+              },
+            },
+            "type": "identifierExpression",
+          },
+          "id": "0",
+        },
+        "type": "functionCallExpression",
+      },
+    ],
+    "declarations": Array [
+      Object {
+        "data": Object {
+          "annotation": Object {
+            "data": Object {
+              "genericArguments": Array [],
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "String",
+              },
+            },
+            "type": "typeIdentifier",
+          },
+          "id": "0",
+          "initializer": Object {
+            "data": Object {
+              "id": "0",
+              "literal": Object {
+                "data": Object {
+                  "id": "0",
+                  "value": "",
+                },
+                "type": "string",
+              },
+            },
+            "type": "literalExpression",
+          },
+          "name": Object {
+            "id": "0",
+            "name": "b",
+          },
+        },
+        "type": "variable",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "genericParameters": Array [
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "id": "0",
+    "name": Object {
+      "id": "0",
+      "name": "A",
     },
   },
   "type": "record",

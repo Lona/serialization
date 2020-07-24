@@ -8,6 +8,10 @@ describe('record declaration', () => {
   let light: Color = #color(css: "white")
   let dark: Color = #color(css: "black")
 }`,
+    `@attr1()
+struct A {
+  let b: String = ""
+}`,
   ]
 
   codeExamples.forEach((code, i) =>

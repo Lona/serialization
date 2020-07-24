@@ -24,6 +24,7 @@ Object {
         "data": Object {
           "content": Object {
             "data": Object {
+              "attributes": Array [],
               "comment": Object {
                 "id": "0",
                 "string": "# Color
@@ -716,6 +717,7 @@ Object {
         "data": Object {
           "content": Object {
             "data": Object {
+              "attributes": Array [],
               "comment": Object {
                 "id": "0",
                 "string": "# Boolean
@@ -984,6 +986,7 @@ Booleans are frequently used to represent things that can be in only 2 states: *
         "data": Object {
           "content": Object {
             "data": Object {
+              "attributes": Array [],
               "comment": Object {
                 "id": "0",
                 "string": "# Number
@@ -1213,6 +1216,7 @@ The numbers will be created by starting at \`from\` and adding the \`by\` value 
         "data": Object {
           "content": Object {
             "data": Object {
+              "attributes": Array [],
               "comment": Object {
                 "id": "0",
                 "string": "# String
@@ -1387,6 +1391,7 @@ We might want to declare a greeting variable as a \`String\`:
         "data": Object {
           "content": Object {
             "data": Object {
+              "attributes": Array [],
               "comment": Object {
                 "id": "0",
                 "string": "# Array
@@ -1584,6 +1589,7 @@ A generic type representing a sequence of elements. Each element must be the sam
         "data": Object {
           "content": Object {
             "data": Object {
+              "attributes": Array [],
               "cases": Array [
                 Object {
                   "data": Object {
@@ -1735,6 +1741,7 @@ Object {
         "data": Object {
           "content": Object {
             "data": Object {
+              "attributes": Array [],
               "comment": Object {
                 "id": "0",
                 "string": "I> Press enter to create a new shadow.
@@ -2031,6 +2038,7 @@ Object {
         "data": Object {
           "content": Object {
             "data": Object {
+              "attributes": Array [],
               "cases": Array [
                 Object {
                   "data": Object {
@@ -2833,6 +2841,7 @@ An individual font may support multiple weights. However, specifying a weight th
         "data": Object {
           "content": Object {
             "data": Object {
+              "attributes": Array [],
               "comment": Object {
                 "id": "0",
                 "string": "I> Press enter to create a new Text Style.

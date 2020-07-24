@@ -183,13 +183,14 @@ declarationList =
   }
 
 enumDeclaration =
-  comment:(comment _)? "enum " _ name:pattern _ genericParameters:( "<" genericParameterList ">" )? _ "{" _ cases:enumerationCaseList _ "}" {
+  comment:(comment _)? attributes:(attributeList _)? "enum " _ name:pattern _ genericParameters:( "<" genericParameterList ">" )? _ "{" _ cases:enumerationCaseList _ "}" {
     const result = {
       data: {
         genericParameters: normalizeListWithPlaceholder(genericParameters ? genericParameters[1] : []),
         id: uuid(),
         name,
-        cases: normalizeListWithPlaceholder(cases)
+        cases: normalizeListWithPlaceholder(cases),
+        attributes: attributes ? attributes[0] : []
       },
       type: 'enumeration',
     }
@@ -281,7 +282,7 @@ importDeclaration =
   }
 
 recordDeclaration =
-  comment:(comment _)? "struct " _ name:pattern _ genericParameters:( "<" genericParameterList ">" )? _  "{" _ declarations:declarationList? _ "}" {
+  comment:(comment _)? attributes:(attributeList _)? "struct " _ name:pattern _ genericParameters:( "<" genericParameterList ">" )? _  "{" _ declarations:declarationList? _ "}" {
     const result = {
       // Delete declaration modifier for now, since we don't store these
       declarations: normalizeListWithPlaceholder(declarations).map(declaration => {
@@ -291,6 +292,7 @@ recordDeclaration =
       genericParameters: normalizeListWithPlaceholder(genericParameters ? genericParameters[1] : []),
       id: uuid(),
       name,
+      attributes: attributes ? attributes[0] : []
     }
 
     if (comment) {
@@ -323,6 +325,17 @@ variableDeclaration =
 
     return { type: 'variable', data: result }
   }
+
+attributeList =
+  head:attribute tail:(_ attribute)* {
+    return buildList(head, tail, 1)
+  }
+
+attribute = "@" _ value:functionCallExpression {
+  return value
+}
+
+// Expressions
 
 expression =
   assignmentExpression /

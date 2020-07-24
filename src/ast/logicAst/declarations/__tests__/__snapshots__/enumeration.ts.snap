@@ -3,6 +3,7 @@
 exports[`enumeration declaration Example 1 1`] = `
 Object {
   "data": Object {
+    "attributes": Array [],
     "cases": Array [
       Object {
         "data": Object {
@@ -96,6 +97,7 @@ Object {
 exports[`enumeration declaration Example 2 1`] = `
 Object {
   "data": Object {
+    "attributes": Array [],
     "cases": Array [
       Object {
         "data": Object {
@@ -232,6 +234,293 @@ Object {
     "name": Object {
       "id": "0",
       "name": "Foo",
+    },
+  },
+  "type": "enumeration",
+}
+`;
+
+exports[`enumeration declaration Example 3 1`] = `
+Object {
+  "data": Object {
+    "attributes": Array [
+      Object {
+        "data": Object {
+          "arguments": Array [
+            Object {
+              "data": Object {
+                "id": "0",
+              },
+              "type": "placeholder",
+            },
+          ],
+          "expression": Object {
+            "data": Object {
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "attr",
+              },
+            },
+            "type": "identifierExpression",
+          },
+          "id": "0",
+        },
+        "type": "functionCallExpression",
+      },
+    ],
+    "cases": Array [
+      Object {
+        "data": Object {
+          "associatedValues": Array [
+            Object {
+              "data": Object {
+                "id": "0",
+              },
+              "type": "placeholder",
+            },
+          ],
+          "id": "0",
+          "name": Object {
+            "id": "0",
+            "name": "b",
+          },
+        },
+        "type": "enumerationCase",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "genericParameters": Array [
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "id": "0",
+    "name": Object {
+      "id": "0",
+      "name": "A",
+    },
+  },
+  "type": "enumeration",
+}
+`;
+
+exports[`enumeration declaration Example 4 1`] = `
+Object {
+  "data": Object {
+    "attributes": Array [
+      Object {
+        "data": Object {
+          "arguments": Array [
+            Object {
+              "data": Object {
+                "expression": Object {
+                  "data": Object {
+                    "id": "0",
+                    "literal": Object {
+                      "data": Object {
+                        "id": "0",
+                        "value": 42,
+                      },
+                      "type": "number",
+                    },
+                  },
+                  "type": "literalExpression",
+                },
+                "id": "0",
+                "label": "c",
+              },
+              "type": "argument",
+            },
+            Object {
+              "data": Object {
+                "expression": Object {
+                  "data": Object {
+                    "id": "0",
+                    "literal": Object {
+                      "data": Object {
+                        "id": "0",
+                        "value": "hello",
+                      },
+                      "type": "string",
+                    },
+                  },
+                  "type": "literalExpression",
+                },
+                "id": "0",
+                "label": "d",
+              },
+              "type": "argument",
+            },
+            Object {
+              "data": Object {
+                "id": "0",
+              },
+              "type": "placeholder",
+            },
+          ],
+          "expression": Object {
+            "data": Object {
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "attr",
+              },
+            },
+            "type": "identifierExpression",
+          },
+          "id": "0",
+        },
+        "type": "functionCallExpression",
+      },
+    ],
+    "cases": Array [
+      Object {
+        "data": Object {
+          "associatedValues": Array [
+            Object {
+              "data": Object {
+                "id": "0",
+              },
+              "type": "placeholder",
+            },
+          ],
+          "id": "0",
+          "name": Object {
+            "id": "0",
+            "name": "b",
+          },
+        },
+        "type": "enumerationCase",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "genericParameters": Array [
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "id": "0",
+    "name": Object {
+      "id": "0",
+      "name": "A",
+    },
+  },
+  "type": "enumeration",
+}
+`;
+
+exports[`enumeration declaration Example 5 1`] = `
+Object {
+  "data": Object {
+    "attributes": Array [
+      Object {
+        "data": Object {
+          "arguments": Array [
+            Object {
+              "data": Object {
+                "id": "0",
+              },
+              "type": "placeholder",
+            },
+          ],
+          "expression": Object {
+            "data": Object {
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "attr1",
+              },
+            },
+            "type": "identifierExpression",
+          },
+          "id": "0",
+        },
+        "type": "functionCallExpression",
+      },
+      Object {
+        "data": Object {
+          "arguments": Array [
+            Object {
+              "data": Object {
+                "id": "0",
+              },
+              "type": "placeholder",
+            },
+          ],
+          "expression": Object {
+            "data": Object {
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "attr2",
+              },
+            },
+            "type": "identifierExpression",
+          },
+          "id": "0",
+        },
+        "type": "functionCallExpression",
+      },
+    ],
+    "cases": Array [
+      Object {
+        "data": Object {
+          "associatedValues": Array [
+            Object {
+              "data": Object {
+                "id": "0",
+              },
+              "type": "placeholder",
+            },
+          ],
+          "id": "0",
+          "name": Object {
+            "id": "0",
+            "name": "b",
+          },
+        },
+        "type": "enumerationCase",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "genericParameters": Array [
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "id": "0",
+    "name": Object {
+      "id": "0",
+      "name": "A",
     },
   },
   "type": "enumeration",

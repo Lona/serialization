@@ -1,4 +1,11 @@
-import { Pattern, Declaration, GenericParameter, Comment, UUID } from '..'
+import {
+  FunctionCallExpression,
+  Pattern,
+  Declaration,
+  GenericParameter,
+  Comment,
+  UUID,
+} from '..'
 
 export type RecordDeclaration = {
   type: 'record'
@@ -8,5 +15,6 @@ export type RecordDeclaration = {
     genericParameters: GenericParameter[]
     declarations: Declaration[]
     comment?: Comment
+    attributes: FunctionCallExpression[]
   }
 }

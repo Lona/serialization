@@ -1,4 +1,11 @@
-import { Pattern, EnumerationCase, GenericParameter, UUID, Comment } from '..'
+import {
+  FunctionCallExpression,
+  Pattern,
+  EnumerationCase,
+  GenericParameter,
+  UUID,
+  Comment,
+} from '..'
 
 export type EnumerationDeclaration = {
   type: 'enumeration'
@@ -8,5 +15,6 @@ export type EnumerationDeclaration = {
     genericParameters: GenericParameter[]
     cases: EnumerationCase[]
     comment?: Comment
+    attributes: FunctionCallExpression[]
   }
 }
