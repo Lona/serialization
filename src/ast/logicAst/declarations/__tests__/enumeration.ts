@@ -8,6 +8,10 @@ describe('enumeration declaration', () => {
   case value(Wrapped)
   case none()
 }`,
+    `enum Foo {
+  case bar(Number, String)
+  case baz(label1: Number, label2: String)
+}`,
   ]
 
   codeExamples.forEach((code, i) =>

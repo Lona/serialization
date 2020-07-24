@@ -92,3 +92,148 @@ Object {
   "type": "enumeration",
 }
 `;
+
+exports[`enumeration declaration Example 2 1`] = `
+Object {
+  "data": Object {
+    "cases": Array [
+      Object {
+        "data": Object {
+          "associatedValues": Array [
+            Object {
+              "data": Object {
+                "annotation": Object {
+                  "data": Object {
+                    "genericArguments": Array [],
+                    "id": "0",
+                    "identifier": Object {
+                      "id": "0",
+                      "isPlaceholder": false,
+                      "string": "Number",
+                    },
+                  },
+                  "type": "typeIdentifier",
+                },
+                "id": "0",
+              },
+              "type": "associatedValue",
+            },
+            Object {
+              "data": Object {
+                "annotation": Object {
+                  "data": Object {
+                    "genericArguments": Array [],
+                    "id": "0",
+                    "identifier": Object {
+                      "id": "0",
+                      "isPlaceholder": false,
+                      "string": "String",
+                    },
+                  },
+                  "type": "typeIdentifier",
+                },
+                "id": "0",
+              },
+              "type": "associatedValue",
+            },
+            Object {
+              "data": Object {
+                "id": "0",
+              },
+              "type": "placeholder",
+            },
+          ],
+          "id": "0",
+          "name": Object {
+            "id": "0",
+            "name": "bar",
+          },
+        },
+        "type": "enumerationCase",
+      },
+      Object {
+        "data": Object {
+          "associatedValues": Array [
+            Object {
+              "data": Object {
+                "annotation": Object {
+                  "data": Object {
+                    "genericArguments": Array [],
+                    "id": "0",
+                    "identifier": Object {
+                      "id": "0",
+                      "isPlaceholder": false,
+                      "string": "Number",
+                    },
+                  },
+                  "type": "typeIdentifier",
+                },
+                "id": "0",
+                "label": Object {
+                  "id": "0",
+                  "name": "label1",
+                },
+              },
+              "type": "associatedValue",
+            },
+            Object {
+              "data": Object {
+                "annotation": Object {
+                  "data": Object {
+                    "genericArguments": Array [],
+                    "id": "0",
+                    "identifier": Object {
+                      "id": "0",
+                      "isPlaceholder": false,
+                      "string": "String",
+                    },
+                  },
+                  "type": "typeIdentifier",
+                },
+                "id": "0",
+                "label": Object {
+                  "id": "0",
+                  "name": "label2",
+                },
+              },
+              "type": "associatedValue",
+            },
+            Object {
+              "data": Object {
+                "id": "0",
+              },
+              "type": "placeholder",
+            },
+          ],
+          "id": "0",
+          "name": Object {
+            "id": "0",
+            "name": "baz",
+          },
+        },
+        "type": "enumerationCase",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "genericParameters": Array [
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "id": "0",
+    "name": Object {
+      "id": "0",
+      "name": "Foo",
+    },
+  },
+  "type": "enumeration",
+}
+`;
