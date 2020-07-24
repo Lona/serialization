@@ -19,7 +19,7 @@
     "build:swift": "ts-node ./scripts/build-swift-file.ts",
     "build:web": "webpack",
     "build:node": "npm run build:src && npm run build:copyPegjs",
-    "build:copyPegjs": "cp src/convert/swift/pegjs/logic.swift.pegjs lib/convert/swift/pegjs/logic.swift.pegjs",
+    "build:copyPegjs": "cp src/formats/source/grammar/logic.swift.pegjs lib/formats/source/grammar/logic.swift.pegjs",
     "build:src": "npm run clean && tsc --declaration",
     "clean": "rm -rf ./build",
     "prepublishOnly": "npm run build"
