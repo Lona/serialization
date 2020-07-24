@@ -1,4 +1,4 @@
-import { indentBlockWithFirstLinePrefix } from '../../convert/formatting'
+import { indentBlockWithFirstLinePrefix } from '../../formats/formatting'
 import * as MDAST from '../mdxAst'
 
 function assertNever(x: never): never {

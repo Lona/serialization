@@ -1,4 +1,5 @@
-import { parse, print } from '../../../../convert/swift/logic'
+import { print } from '../../../../formats/source/print'
+import { parse } from '../../../../formats/source/parse'
 
 jest.mock('uuid', () => ({ v4: () => '0' }))
 

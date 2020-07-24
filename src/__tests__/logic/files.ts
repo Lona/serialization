@@ -1,10 +1,8 @@
 /* eslint-disable import/no-unresolved */
 import fs from 'fs'
 import path from 'path'
-import {
-  parse as parseSwift,
-  print as printSwift,
-} from '../../convert/swift/logic'
+import { print as printSwift } from '../../formats/source/print'
+import { parse as parseSwift } from '../../formats/source/parse'
 
 jest.mock('uuid', () => ({ v4: () => '0' }))
 

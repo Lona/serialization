@@ -1,18 +1,9 @@
-import { v4 as uuid } from 'uuid'
 import * as AST from '../../ast/logicAst'
 import { indentBlock, repeat } from '../formatting'
-import { assertNever, rng } from '../../utils'
-import parser from './pegjs/logicSwiftParser'
+import { assertNever } from '../../utils'
 
 function noPlaceholder(x: AST.SyntaxNode) {
   return x.type !== 'placeholder'
-}
-
-export function parse(code: string, options?: {}): AST.SyntaxNode {
-  return parser.parse(
-    code,
-    Object.assign({ generateId: () => uuid({ rng }) }, options)
-  )
 }
 
 function printComment(node: AST.SyntaxNode, additionalComment: string = '') {
