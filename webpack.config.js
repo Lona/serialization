@@ -3,7 +3,7 @@ const webpack = require('webpack')
 
 const paths = {
   dist: resolve(__dirname, 'dist'),
-  src: resolve(__dirname, 'build'),
+  src: resolve(__dirname, 'lib'),
 }
 
 module.exports = [

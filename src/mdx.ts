@@ -1,18 +1,18 @@
 import mdx from '@mdx-js/mdx'
 
-import { convertLogic } from './lona-logic'
+import { convertLogic } from './logic'
 
 import FlattenImageParagraphs from 'mdast-flatten-image-paragraphs'
-import flattenParagraphs from './mdast-transforms/flattenParagraphs'
-import moveToRoot from './mdast-transforms/moveToRoot'
-import toMarkdown from './mdast-transforms/toMarkdown'
-import parsePage from './mdast-transforms/parsePage'
-import parseTokens from './mdast-transforms/parseTokens'
+import flattenParagraphs from './ast/mdAstTransforms/flattenParagraphs'
+import moveToRoot from './ast/mdAstTransforms/moveToRoot'
+import toMarkdown from './ast/mdAstTransforms/toMarkdown'
+import parsePage from './ast/mdAstTransforms/parsePage'
+import parseTokens from './ast/mdAstTransforms/parseTokens'
 
-import { SERIALIZATION_FORMAT } from './lona-format'
+import { SERIALIZATION_FORMAT } from './format'
 
-import * as MDAST from './types/mdx-ast'
-import * as AST from './types/lona-ast'
+import * as MDAST from './ast/mdxAst'
+import * as AST from './ast/documentAst'
 
 const flattenImageParagraphs = FlattenImageParagraphs()
 
