@@ -1,0 +1,3544 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`converts colors file 1`] = `
+Object {
+  "data": Object {
+    "block": Array [
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Prelude",
+              },
+            },
+            "type": "importDeclaration",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "comment": Object {
+                "id": "0",
+                "string": "# Color
+
+A color value. Colors can be defined using CSS color codes.
+
+## Example
+
+We might declare a color variable, \`ocean\` to use throughout our design system to represent the hex code \`#69D2E7\`:
+
+\`\`\`logic
+<Declarations>
+  <Variable name=\\"ocean\\" type=\\"Color\\" value=\\"#69D2E7\\"/>
+</Declarations>
+\`\`\`",
+              },
+              "declarations": Array [
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "String",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "id": "0",
+                        "literal": Object {
+                          "data": Object {
+                            "id": "0",
+                            "value": "",
+                          },
+                          "type": "string",
+                        },
+                      },
+                      "type": "literalExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "value",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "genericParameters": Array [
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Color",
+              },
+            },
+            "type": "record",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "declarations": Array [
+                Object {
+                  "data": Object {
+                    "block": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "genericParameters": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "setHue",
+                    },
+                    "parameters": Array [
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Color",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "color",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Number",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "hue",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "returnType": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Color",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                  },
+                  "type": "function",
+                },
+                Object {
+                  "data": Object {
+                    "block": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Set Saturation
+
+Adjust the saturation of a color.",
+                    },
+                    "genericParameters": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "setSaturation",
+                    },
+                    "parameters": Array [
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Color",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "comment": Object {
+                            "id": "0",
+                            "string": "# Color
+
+The base color to adjust.",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "color",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Number",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "saturation",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "returnType": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Color",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                  },
+                  "type": "function",
+                },
+                Object {
+                  "data": Object {
+                    "block": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "genericParameters": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "setLightness",
+                    },
+                    "parameters": Array [
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Color",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "color",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Number",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "lightness",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "returnType": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Color",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                  },
+                  "type": "function",
+                },
+                Object {
+                  "data": Object {
+                    "block": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "genericParameters": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "fromHSL",
+                    },
+                    "parameters": Array [
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Number",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "hue",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Number",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "saturation",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Number",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "lightness",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "returnType": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Color",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                  },
+                  "type": "function",
+                },
+                Object {
+                  "data": Object {
+                    "block": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Saturate
+
+Adjust color saturation.",
+                    },
+                    "genericParameters": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "saturate",
+                    },
+                    "parameters": Array [
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Color",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "comment": Object {
+                            "id": "0",
+                            "string": "# Color
+
+The base color to adjust.",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "color",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Number",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "comment": Object {
+                            "id": "0",
+                            "string": "# Factor
+
+This value will be multiplied with the current saturation value.",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "factor",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "returnType": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Color",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                  },
+                  "type": "function",
+                },
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Color",
+              },
+            },
+            "type": "namespace",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "id": "0",
+  },
+  "type": "program",
+}
+`;
+
+exports[`converts prelude file 1`] = `
+Object {
+  "data": Object {
+    "block": Array [
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "comment": Object {
+                "id": "0",
+                "string": "# Boolean
+
+A type that represents \`true\` and \`false\` values.
+
+Booleans are frequently used to represent things that can be in only 2 states: **on/off**, **enabled/disabled**, **yes/no**, etc.",
+              },
+              "declarations": Array [
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "genericParameters": Array [
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Boolean",
+              },
+            },
+            "type": "record",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "declarations": Array [
+                Object {
+                  "data": Object {
+                    "block": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "genericParameters": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "or",
+                    },
+                    "parameters": Array [
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Boolean",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "a",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Boolean",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "b",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "returnType": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Boolean",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                  },
+                  "type": "function",
+                },
+                Object {
+                  "data": Object {
+                    "block": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "genericParameters": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "and",
+                    },
+                    "parameters": Array [
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Boolean",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "a",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Boolean",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "b",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "returnType": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Boolean",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                  },
+                  "type": "function",
+                },
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Boolean",
+              },
+            },
+            "type": "namespace",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "comment": Object {
+                "id": "0",
+                "string": "# Number
+
+A rational number. This can be a whole number, like \`42\`, or a decimal number, like \`3.14\`.
+
+This number is represented internally as a floating point number.
+
+## Example
+
+We can declare a number variable to use elsewhere in our app:
+
+\`\`\`logic
+<Declarations>
+  <Variable name=\\"padding\\" type=\\"Number\\" value=\\"12\\"/>
+</Declarations>
+\`\`\`
+
+## Generating Code
+
+This will be converted to a **CGFloat** in Swift.",
+              },
+              "declarations": Array [
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "genericParameters": Array [
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Number",
+              },
+            },
+            "type": "record",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "declarations": Array [
+                Object {
+                  "data": Object {
+                    "block": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Range
+
+Create an array of numbers from \`from\` to \`to\`.
+
+The numbers will be created by starting at \`from\` and adding the \`by\` value repeatedly until it is greater than or equal to \`to\`.",
+                    },
+                    "genericParameters": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "range",
+                    },
+                    "parameters": Array [
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Number",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "from",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Number",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "to",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Number",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "by",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "returnType": Object {
+                      "data": Object {
+                        "genericArguments": Array [
+                          Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Number",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                        ],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Array",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                  },
+                  "type": "function",
+                },
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Number",
+              },
+            },
+            "type": "namespace",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "comment": Object {
+                "id": "0",
+                "string": "# String
+
+A \`String\` is a sequence of characters, such as \`h\` or \`e\`, put together to form text such as \`hello\`.
+
+## Example
+
+We might want to declare a greeting variable as a \`String\`:
+
+\`\`\`logic
+<Declarations>
+  <Variable name=\\"greeting\\" type=\\"String\\" value=\\"Hello, world\\"/>
+</Declarations>
+\`\`\`",
+              },
+              "declarations": Array [
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "genericParameters": Array [
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "String",
+              },
+            },
+            "type": "record",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "declarations": Array [
+                Object {
+                  "data": Object {
+                    "block": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "genericParameters": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "concat",
+                    },
+                    "parameters": Array [
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "String",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "a",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "String",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "b",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "returnType": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "String",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                  },
+                  "type": "function",
+                },
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "String",
+              },
+            },
+            "type": "namespace",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "comment": Object {
+                "id": "0",
+                "string": "# Array
+
+A generic type representing a sequence of elements. Each element must be the same type.",
+              },
+              "declarations": Array [
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "genericParameters": Array [
+                Object {
+                  "data": Object {
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "Element",
+                    },
+                  },
+                  "type": "parameter",
+                },
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Array",
+              },
+            },
+            "type": "record",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "declarations": Array [
+                Object {
+                  "data": Object {
+                    "block": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "genericParameters": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                          "name": Object {
+                            "id": "0",
+                            "name": "T",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "at",
+                    },
+                    "parameters": Array [
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [
+                                Object {
+                                  "data": Object {
+                                    "genericArguments": Array [],
+                                    "id": "0",
+                                    "identifier": Object {
+                                      "id": "0",
+                                      "isPlaceholder": false,
+                                      "string": "T",
+                                    },
+                                  },
+                                  "type": "typeIdentifier",
+                                },
+                              ],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Array",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "array",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Number",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "defaultValue": Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "none",
+                          },
+                          "id": "0",
+                          "localName": Object {
+                            "id": "0",
+                            "name": "index",
+                          },
+                        },
+                        "type": "parameter",
+                      },
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "returnType": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "T",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                  },
+                  "type": "function",
+                },
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Array",
+              },
+            },
+            "type": "namespace",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "cases": Array [
+                Object {
+                  "data": Object {
+                    "associatedValues": Array [
+                      Object {
+                        "data": Object {
+                          "annotation": Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Wrapped",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                          "id": "0",
+                        },
+                        "type": "associatedValue",
+                      },
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "value",
+                    },
+                  },
+                  "type": "enumerationCase",
+                },
+                Object {
+                  "data": Object {
+                    "associatedValues": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "none",
+                    },
+                  },
+                  "type": "enumerationCase",
+                },
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "comment": Object {
+                "id": "0",
+                "string": "# Optional
+
+A generic type representing a value that may or may not exist.",
+              },
+              "genericParameters": Array [
+                Object {
+                  "data": Object {
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "Wrapped",
+                    },
+                  },
+                  "type": "parameter",
+                },
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Optional",
+              },
+            },
+            "type": "enumeration",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "id": "0",
+  },
+  "type": "program",
+}
+`;
+
+exports[`converts shadow file 1`] = `
+Object {
+  "data": Object {
+    "block": Array [
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Prelude",
+              },
+            },
+            "type": "importDeclaration",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Color",
+              },
+            },
+            "type": "importDeclaration",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "comment": Object {
+                "id": "0",
+                "string": "I> Press enter to create a new shadow.
+
+# Shadow
+
+A drop shadow definition.",
+              },
+              "declarations": Array [
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Number",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# x
+
+The horizontal offset of the shadow.",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "id": "0",
+                        "literal": Object {
+                          "data": Object {
+                            "id": "0",
+                            "value": 0,
+                          },
+                          "type": "number",
+                        },
+                      },
+                      "type": "literalExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "x",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Number",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# y
+
+The vertical of the shadow.",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "id": "0",
+                        "literal": Object {
+                          "data": Object {
+                            "id": "0",
+                            "value": 0,
+                          },
+                          "type": "number",
+                        },
+                      },
+                      "type": "literalExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "y",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Number",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Blur
+
+The blur radius of the shadow.",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "id": "0",
+                        "literal": Object {
+                          "data": Object {
+                            "id": "0",
+                            "value": 0,
+                          },
+                          "type": "number",
+                        },
+                      },
+                      "type": "literalExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "blur",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Number",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "comment": Object {
+                      "id": "0",
+                      "string": "W> This property is not supported on iOS or Android.
+
+# Radius
+
+The spread radius of the shadow.",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "id": "0",
+                        "literal": Object {
+                          "data": Object {
+                            "id": "0",
+                            "value": 0,
+                          },
+                          "type": "number",
+                        },
+                      },
+                      "type": "literalExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "radius",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Color",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Color
+
+The shadow color.",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "id": "0",
+                        "literal": Object {
+                          "data": Object {
+                            "id": "0",
+                            "value": "black",
+                          },
+                          "type": "color",
+                        },
+                      },
+                      "type": "literalExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "color",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "genericParameters": Array [
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Shadow",
+              },
+            },
+            "type": "record",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "id": "0",
+  },
+  "type": "program",
+}
+`;
+
+exports[`converts text style file 1`] = `
+Object {
+  "data": Object {
+    "block": Array [
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Prelude",
+              },
+            },
+            "type": "importDeclaration",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Color",
+              },
+            },
+            "type": "importDeclaration",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "cases": Array [
+                Object {
+                  "data": Object {
+                    "associatedValues": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Ultra Light
+
+The lightest font weight, representing **100**.",
+                    },
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "ultraLight",
+                    },
+                  },
+                  "type": "enumerationCase",
+                },
+                Object {
+                  "data": Object {
+                    "associatedValues": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Thin
+
+A font weight, representing **200**.",
+                    },
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "thin",
+                    },
+                  },
+                  "type": "enumerationCase",
+                },
+                Object {
+                  "data": Object {
+                    "associatedValues": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Light
+
+A font weight, representing **300**.",
+                    },
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "light",
+                    },
+                  },
+                  "type": "enumerationCase",
+                },
+                Object {
+                  "data": Object {
+                    "associatedValues": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Regular
+
+A font weight, representing **400**.",
+                    },
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "regular",
+                    },
+                  },
+                  "type": "enumerationCase",
+                },
+                Object {
+                  "data": Object {
+                    "associatedValues": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Medium
+
+A font weight, representing **500**.",
+                    },
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "medium",
+                    },
+                  },
+                  "type": "enumerationCase",
+                },
+                Object {
+                  "data": Object {
+                    "associatedValues": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Semibold
+
+A font weight, representing **600**.",
+                    },
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "semibold",
+                    },
+                  },
+                  "type": "enumerationCase",
+                },
+                Object {
+                  "data": Object {
+                    "associatedValues": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Bold
+
+A font weight, representing **700**.",
+                    },
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "bold",
+                    },
+                  },
+                  "type": "enumerationCase",
+                },
+                Object {
+                  "data": Object {
+                    "associatedValues": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Heavy
+
+A font weight, representing **800**.",
+                    },
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "heavy",
+                    },
+                  },
+                  "type": "enumerationCase",
+                },
+                Object {
+                  "data": Object {
+                    "associatedValues": Array [
+                      Object {
+                        "data": Object {
+                          "id": "0",
+                        },
+                        "type": "placeholder",
+                      },
+                    ],
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Black
+
+The heaviest font weight, representing **900**.",
+                    },
+                    "id": "0",
+                    "name": Object {
+                      "id": "0",
+                      "name": "black",
+                    },
+                  },
+                  "type": "enumerationCase",
+                },
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "comment": Object {
+                "id": "0",
+                "string": "# Font Weight
+
+Font thickness.
+
+An individual font may support multiple weights. However, specifying a weight that isn't supported will generally result in the **regular (400)** weight being displayed.",
+              },
+              "genericParameters": Array [
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "FontWeight",
+              },
+            },
+            "type": "enumeration",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "declarations": Array [
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "FontWeight",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "FontWeight",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "ultraLight",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "w100",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "FontWeight",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "FontWeight",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "thin",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "w200",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "FontWeight",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "FontWeight",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "light",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "w300",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "FontWeight",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "FontWeight",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "regular",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "w400",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "FontWeight",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "FontWeight",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "medium",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "w500",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "FontWeight",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "FontWeight",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "semibold",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "w600",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "FontWeight",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "FontWeight",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "bold",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "w700",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "FontWeight",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "FontWeight",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "heavy",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "w800",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "FontWeight",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "FontWeight",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "black",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "w900",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "FontWeight",
+              },
+            },
+            "type": "namespace",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "comment": Object {
+                "id": "0",
+                "string": "I> Press enter to create a new Text Style.
+
+# Text Style
+
+This represents a specific configuration of text parameters such as font and color.",
+              },
+              "declarations": Array [
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [
+                          Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "String",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                        ],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Optional",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "comment": Object {
+                      "id": "0",
+                      "string": "W> This parameter is not supported on the web.
+
+# Font Name
+
+The exact name of a font file, e.g. \\"Helvetica-Oblique\\". Generally, you should use the \`fontFamily\` parameter where possible instead.",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "Optional",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "none",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "fontName",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [
+                          Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "String",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                        ],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Optional",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Font Family
+
+The family name of the font - for example, \\"Times\\" or \\"Helvetica.\\"",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "Optional",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "none",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "fontFamily",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "FontWeight",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Font Weight
+
+The thickness of a font, ranging from \`black\` to \`ultraLight\`. The default value is \`regular\`.",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "FontWeight",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "regular",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "fontWeight",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [
+                          Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Number",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                        ],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Optional",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Font Size
+
+The size of the font, measured in pixels.",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "Optional",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "none",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "fontSize",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [
+                          Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Number",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                        ],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Optional",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Line Height
+
+The line height, measured in pixels. The default is \`none\`, in which case the text style will default to the system-calculated line height.",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "Optional",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "none",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "lineHeight",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [
+                          Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Number",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                        ],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Optional",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Letter Spacing
+
+Increase or decrease the kerning (spacing between characters). The default is \`none\`, which uses the font's built-in kerning.",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "Optional",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "none",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "letterSpacing",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [
+                          Object {
+                            "data": Object {
+                              "genericArguments": Array [],
+                              "id": "0",
+                              "identifier": Object {
+                                "id": "0",
+                                "isPlaceholder": false,
+                                "string": "Color",
+                              },
+                            },
+                            "type": "typeIdentifier",
+                          },
+                        ],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Optional",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "comment": Object {
+                      "id": "0",
+                      "string": "# Color
+
+The color of the text.",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "arguments": Array [
+                          Object {
+                            "data": Object {
+                              "id": "0",
+                            },
+                            "type": "placeholder",
+                          },
+                        ],
+                        "expression": Object {
+                          "data": Object {
+                            "expression": Object {
+                              "data": Object {
+                                "id": "0",
+                                "identifier": Object {
+                                  "id": "0",
+                                  "isPlaceholder": false,
+                                  "string": "Optional",
+                                },
+                              },
+                              "type": "identifierExpression",
+                            },
+                            "id": "0",
+                            "memberName": Object {
+                              "id": "0",
+                              "isPlaceholder": false,
+                              "string": "none",
+                            },
+                          },
+                          "type": "memberExpression",
+                        },
+                        "id": "0",
+                      },
+                      "type": "functionCallExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "color",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "genericParameters": Array [
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "TextStyle",
+              },
+            },
+            "type": "record",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "id": "0",
+  },
+  "type": "program",
+}
+`;
+
+exports[`top level declarations 1`] = `
+Object {
+  "data": Object {
+    "block": Array [
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Prelude",
+              },
+            },
+            "type": "importDeclaration",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "annotation": Object {
+                "data": Object {
+                  "genericArguments": Array [],
+                  "id": "0",
+                  "identifier": Object {
+                    "id": "0",
+                    "isPlaceholder": false,
+                    "string": "Number",
+                  },
+                },
+                "type": "typeIdentifier",
+              },
+              "id": "0",
+              "initializer": Object {
+                "data": Object {
+                  "id": "0",
+                  "literal": Object {
+                    "data": Object {
+                      "id": "0",
+                      "value": 123,
+                    },
+                    "type": "number",
+                  },
+                },
+                "type": "literalExpression",
+              },
+              "name": Object {
+                "id": "0",
+                "name": "x",
+              },
+            },
+            "type": "variable",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "content": Object {
+            "data": Object {
+              "declarations": Array [
+                Object {
+                  "data": Object {
+                    "annotation": Object {
+                      "data": Object {
+                        "genericArguments": Array [],
+                        "id": "0",
+                        "identifier": Object {
+                          "id": "0",
+                          "isPlaceholder": false,
+                          "string": "Boolean",
+                        },
+                      },
+                      "type": "typeIdentifier",
+                    },
+                    "id": "0",
+                    "initializer": Object {
+                      "data": Object {
+                        "id": "0",
+                        "literal": Object {
+                          "data": Object {
+                            "id": "0",
+                            "value": false,
+                          },
+                          "type": "boolean",
+                        },
+                      },
+                      "type": "literalExpression",
+                    },
+                    "name": Object {
+                      "id": "0",
+                      "name": "b",
+                    },
+                  },
+                  "type": "variable",
+                },
+                Object {
+                  "data": Object {
+                    "id": "0",
+                  },
+                  "type": "placeholder",
+                },
+              ],
+              "id": "0",
+              "name": Object {
+                "id": "0",
+                "name": "Test",
+              },
+            },
+            "type": "namespace",
+          },
+          "id": "0",
+        },
+        "type": "declaration",
+      },
+      Object {
+        "data": Object {
+          "id": "0",
+        },
+        "type": "placeholder",
+      },
+    ],
+    "id": "0",
+  },
+  "type": "program",
+}
+`;

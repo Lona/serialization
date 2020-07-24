@@ -1,4 +1,6 @@
 /* eslint-disable import/no-unresolved */
+import fs from 'fs'
+import path from 'path'
 import {
   parse as parseSwift,
   print as printSwift,
@@ -6,80 +8,90 @@ import {
 
 jest.mock('uuid', () => ({ v4: () => '0' }))
 
-describe('colors file', () => {
-  const { json, code } = require('./mocks/files/colors')
+it('top level declarations', () => {
+  const inputSource = `import Prelude
 
-  test('code -> json', () => {
-    const converted = parseSwift(code, {
-      startRule: 'program',
-    })
-    expect(converted).toStrictEqual(json)
+let x: Number = 123
+
+extension Test {
+  static let b: Boolean = false
+}`
+
+  const json = parseSwift(inputSource, {
+    startRule: 'program',
   })
 
-  test('json -> code', () => {
-    const converted = printSwift(json)
-    expect(converted).toBe(code)
-  })
+  expect(json).toMatchSnapshot()
+
+  const source = printSwift(json)
+
+  expect(source).toBe(inputSource)
 })
 
-describe('top level declarations', () => {
-  const { json, code } = require('./mocks/files/topLevelDeclarations')
+it('converts colors file', () => {
+  const inputSource = fs.readFileSync(
+    path.join(__dirname, './mocks/Color.logic'),
+    'utf8'
+  )
 
-  test('code -> json', () => {
-    const converted = parseSwift(code)
-    expect(converted).toStrictEqual(json)
+  const json = parseSwift(inputSource, {
+    startRule: 'program',
   })
 
-  test('json -> code', () => {
-    const converted = printSwift(json)
-    expect(converted).toBe(code)
-  })
+  expect(json).toMatchSnapshot()
+
+  const source = printSwift(json)
+
+  expect(source).toBe(inputSource)
 })
 
-describe('prelude', () => {
-  const { json, code } = require('./mocks/files/prelude')
+it('converts prelude file', () => {
+  const inputSource = fs.readFileSync(
+    path.join(__dirname, './mocks/Prelude.logic'),
+    'utf8'
+  )
 
-  test('code -> json', () => {
-    const converted = parseSwift(code, {
-      startRule: 'program',
-    })
-    expect(converted).toStrictEqual(json)
+  const json = parseSwift(inputSource, {
+    startRule: 'program',
   })
 
-  test('json -> code', () => {
-    const converted = printSwift(json)
-    expect(converted).toBe(code)
-  })
+  expect(json).toMatchSnapshot()
+
+  const source = printSwift(json)
+
+  expect(source).toBe(inputSource)
 })
 
-describe('shadow', () => {
-  const { json, code } = require('./mocks/files/shadow')
+it('converts text style file', () => {
+  const inputSource = fs.readFileSync(
+    path.join(__dirname, './mocks/TextStyle.logic'),
+    'utf8'
+  )
 
-  test('code -> json', () => {
-    const converted = parseSwift(code, {
-      startRule: 'topLevelDeclarations',
-    })
-    expect(converted).toStrictEqual(json)
+  const json = parseSwift(inputSource, {
+    startRule: 'program',
   })
 
-  test('json -> code', () => {
-    const converted = printSwift(json)
-    expect(converted).toBe(code)
-  })
+  expect(json).toMatchSnapshot()
+
+  const source = printSwift(json)
+
+  expect(source).toBe(inputSource)
 })
 
-describe('text style', () => {
-  const { json, code } = require('./mocks/files/textStyle')
+it('converts shadow file', () => {
+  const inputSource = fs.readFileSync(
+    path.join(__dirname, './mocks/Shadow.logic'),
+    'utf8'
+  )
 
-  test('code -> json', () => {
-    const converted = parseSwift(code, {
-      startRule: 'topLevelDeclarations',
-    })
-    expect(converted).toStrictEqual(json)
+  const json = parseSwift(inputSource, {
+    startRule: 'program',
   })
 
-  test('json -> code', () => {
-    const converted = printSwift(json)
-    expect(converted).toBe(code)
-  })
+  expect(json).toMatchSnapshot()
+
+  const source = printSwift(json)
+
+  expect(source).toBe(inputSource)
 })
