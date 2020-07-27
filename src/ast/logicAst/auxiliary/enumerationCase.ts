@@ -1,4 +1,11 @@
-import { AssociatedValue, Comment, Pattern, Placeholder, UUID } from '..'
+import {
+  FunctionCallExpression,
+  AssociatedValue,
+  Comment,
+  Pattern,
+  Placeholder,
+  UUID,
+} from '..'
 
 export type EnumerationCase =
   | Placeholder
@@ -9,5 +16,6 @@ export type EnumerationCase =
         name: Pattern
         associatedValues: AssociatedValue[]
         comment?: Comment
+        attributes: FunctionCallExpression[]
       }
     }

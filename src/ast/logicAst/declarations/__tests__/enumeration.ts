@@ -26,6 +26,10 @@ enum A {
 enum A {
   case b()
 }`,
+    `enum A {
+  @attr()
+  case b()
+}`,
   ]
 
   codeExamples.forEach((code, i) =>

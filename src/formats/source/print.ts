@@ -273,9 +273,14 @@ ${cases
 }`
       }
       case 'enumerationCase': {
-        const valueTypes = node.data.associatedValues.filter(noPlaceholder)
-        return `${printComment(node)}case ${
-          node.data.name.name
+        const { name, associatedValues, attributes } = node.data
+
+        const attributesString =
+          attributes.length > 0 ? printAttributes(attributes) + '\n' : ''
+
+        const valueTypes = associatedValues.filter(noPlaceholder)
+        return `${printComment(node)}${attributesString}case ${
+          name.name
         }(${valueTypes.map(printNode).join(', ')})`
       }
       case 'associatedValue': {

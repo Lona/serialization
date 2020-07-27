@@ -47,7 +47,7 @@ comment =
   }
 
 enumerationCase =
-  comment:(comment _)? "case " _ name:pattern "(" associatedValues:associatedValueList? ")" {
+  comment:(comment _)? attributes:(attributeList _)? "case " _ name:pattern "(" associatedValues:associatedValueList? ")" {
     const result = {
       type: 'enumerationCase',
       data: {
@@ -55,7 +55,8 @@ enumerationCase =
         name,
         associatedValues: normalizeListWithPlaceholder(
           associatedValues ? associatedValues : []
-        )
+        ),
+        attributes: attributes ? attributes[0] : []
       }
     }
 
