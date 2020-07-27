@@ -38,6 +38,8 @@ exports[`mdx <-> json tokens 1`] = `
                     },
                     \\"type\\": \\"typeIdentifier\\"
                   },
+                  \\"attributes\\": [
+                  ],
                   \\"id\\": \\"0\\",
                   \\"initializer\\": {
                     \\"data\\": {

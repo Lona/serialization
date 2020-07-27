@@ -17,6 +17,7 @@ Object {
           },
           "type": "typeIdentifier",
         },
+        "attributes": Array [],
         "id": "0",
         "initializer": Object {
           "data": Object {

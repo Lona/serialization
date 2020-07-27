@@ -28,6 +28,7 @@ Object {
       },
       "type": "typeIdentifier",
     },
+    "attributes": Array [],
     "id": "0",
     "initializer": Object {
       "data": Object {
@@ -58,6 +59,71 @@ Object {
             ],
           },
           "type": "array",
+        },
+      },
+      "type": "literalExpression",
+    },
+    "name": Object {
+      "id": "0",
+      "name": "x",
+    },
+  },
+  "type": "variable",
+}
+`;
+
+exports[`variable declaration Example 2 1`] = `
+Object {
+  "data": Object {
+    "annotation": Object {
+      "data": Object {
+        "genericArguments": Array [],
+        "id": "0",
+        "identifier": Object {
+          "id": "0",
+          "isPlaceholder": false,
+          "string": "Number",
+        },
+      },
+      "type": "typeIdentifier",
+    },
+    "attributes": Array [
+      Object {
+        "data": Object {
+          "arguments": Array [
+            Object {
+              "data": Object {
+                "id": "0",
+              },
+              "type": "placeholder",
+            },
+          ],
+          "expression": Object {
+            "data": Object {
+              "id": "0",
+              "identifier": Object {
+                "id": "0",
+                "isPlaceholder": false,
+                "string": "attr",
+              },
+            },
+            "type": "identifierExpression",
+          },
+          "id": "0",
+        },
+        "type": "functionCallExpression",
+      },
+    ],
+    "id": "0",
+    "initializer": Object {
+      "data": Object {
+        "id": "0",
+        "literal": Object {
+          "data": Object {
+            "id": "0",
+            "value": 42,
+          },
+          "type": "number",
         },
       },
       "type": "literalExpression",

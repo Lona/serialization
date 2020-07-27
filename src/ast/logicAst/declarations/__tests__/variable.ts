@@ -8,6 +8,8 @@ describe('variable declaration', () => {
     `let x: Array<Number> = [
   42
 ]`,
+    `@attr()
+let x: Number = 42`,
   ]
 
   codeExamples.forEach((code, i) =>

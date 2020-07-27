@@ -97,7 +97,13 @@ ${printedDeclarations}
 }`
       }
       case 'variable': {
-        const { annotation, initializer, name, declarationModifier } = node.data
+        const {
+          annotation,
+          initializer,
+          name,
+          declarationModifier,
+          attributes,
+        } = node.data
 
         const printedDeclarationModifier = declarationModifier
           ? `${declarationModifier} `
@@ -107,7 +113,12 @@ ${printedDeclarations}
           ? ` = ${printNode(initializer)}`
           : ''
 
-        return `${printComment(node)}${printedDeclarationModifier}let ${
+        const attributesString =
+          attributes.length > 0 ? printAttributes(attributes) + '\n' : ''
+
+        return `${printComment(
+          node
+        )}${attributesString}${printedDeclarationModifier}let ${
           name.name
         }${printedAnnotation}${printedInitializer}`
       }

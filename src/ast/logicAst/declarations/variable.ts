@@ -1,4 +1,11 @@
-import { Pattern, TypeAnnotation, Expression, Comment, UUID } from '..'
+import {
+  FunctionCallExpression,
+  Pattern,
+  TypeAnnotation,
+  Expression,
+  Comment,
+  UUID,
+} from '..'
 
 export type VariableDeclaration = {
   type: 'variable'
@@ -9,5 +16,6 @@ export type VariableDeclaration = {
     initializer?: Expression
     declarationModifier?: string
     comment?: Comment
+    attributes: FunctionCallExpression[]
   }
 }

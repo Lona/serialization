@@ -306,7 +306,7 @@ recordDeclaration =
 declarationModifier = "static" { return text() }
 
 variableDeclaration =
-  comment:(comment _)? declarationModifier:(declarationModifier _)?
+  comment:(comment _)? attributes:(attributeList _)? declarationModifier:(declarationModifier _)?
   "let " _ name:pattern _ ":" _
   annotation:typeAnnotation _ "=" _ initializer:expression {
     const result = {
@@ -314,6 +314,7 @@ variableDeclaration =
       id: uuid(),
       initializer,
       name,
+      attributes: attributes ? attributes[0] : []
     }
 
     if (declarationModifier) {
