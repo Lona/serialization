@@ -42,7 +42,7 @@
     "pegjs": "^0.10.0",
     "rehype": "^9.0.1",
     "unist-util-flatmap": "^1.0.0",
-    "uuid": "^7.0.2",
+    "uuid": "^8.3.2",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
